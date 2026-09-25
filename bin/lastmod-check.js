@@ -27,7 +27,21 @@ const git = (...a) => {
   } catch { return ''; }
 };
 
+/*
+ * THE SHARED FURNITURE IS EXCLUDED BY ELEMENT. The nav, header and footer belong to the site, not
+ * to the page: adding one footer link on 2026-09-25 moved the text of all thirteen marketing pages
+ * on the same day, and this check duly failed the build for every one of them. It was right that
+ * the bytes moved and wrong about what it meant.
+ *
+ * By element rather than by position, because scoping to <main> does not work here: this template
+ * puts the footer inside main, so the first attempt at this changed nothing.
+ *
+ * This definition is deliberately the same one margazine-build/sitedates.py uses, in the other
+ * language. Two implementations is the price of the guard living where the artifact is; they are
+ * checked against each other by this passing on a sitemap that generator wrote.
+ */
 const visible = (html) => html
+  .replace(/<(header|footer|nav)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
   .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
   .replace(/<!--[\s\S]*?-->/g, ' ')
   .replace(/<[^>]+>/g, ' ')
