@@ -24,12 +24,7 @@
 .section{padding:88px 0}
 .inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
 .bg-card-solid{background:var(--card)}
-.hero{position:relative;padding:var(--pad-hero-top) 0 64px;overflow:hidden}
-/* The watermark filled the empty right half. The card fills it now, and the mark is 477px tall
-   against a 341px card, so what showed was the part sticking out below it: stray geometry rather
-   than a ground. Hidden only where the card is beside the copy. Below 960 the card stacks under
-   it, the right half is empty again, and the mark goes back to doing its job. */
-@media (min-width:960px){ .hero .mark-layer{display:none} }
+.hero{position:relative;padding:calc(var(--pad-hero-top) + 10px) 0 84px;overflow:hidden}
 .hero h1{margin:0;font:400 clamp(36px,5.2vw,66px)/1 var(--serif);letter-spacing:-.03em;
   color:var(--cream);max-width:16ch;text-wrap:balance}
 .hero .lead{margin:30px 0 0;max-width:58ch}
@@ -55,6 +50,19 @@
   .cta-block{padding-bottom:64px}
 }
 
+/* The hero is shorter here and it is the only page where that is true, so this overrides the
+   shared rule rather than changing it: PAGE_CSS comes after SHARED_CSS and wins on order. The
+   origin card sits in the hero now, which supplies the height the extra padding used to. */
+.hero{position:relative;padding:var(--pad-hero-top) 0 64px;overflow:hidden}
+/* AND THE SMALL-SCREEN VALUE HAS TO BE RESTATED HERE. SHARED_CSS sets .hero padding-bottom to
+   60px inside a max-width:900px query, and this override sits after that block, so without this
+   line an unconditional rule would beat the media query and every phone would get 64px. */
+@media(max-width:900px){ .hero{padding-bottom:60px} }
+/* The watermark filled the empty right half. The card fills it now, and the mark is 477px tall
+   against a 341px card, so what showed was the part sticking out below it: stray geometry rather
+   than a ground. Hidden only where the card is beside the copy. Below 960 the card stacks under
+   it, the right half is empty again, and the mark goes back to doing its job. */
+@media (min-width:960px){ .hero .mark-layer{display:none} }
 /* ---- the archive band, and the schedule tiles ---------------------------------------------
    Both as the design draws them. The archive is a two-column band with the subscriber panel on
    a dark ground; the schedule is a grid of dated tiles where the next piece takes the gold one.
@@ -123,13 +131,15 @@
 }
 
 /* ---- the origin essay card ----------------------------------------------------------------
-   One card, not two columns with a gap between them. The design makes the whole thing a single
-   link with the thesis panel flush against the copy on a dark ground, so the quote reads as the
-   other half of the card rather than a note sitting beside it. gap:0 is load bearing. */
-/* THE HERO CARRIES THE ORIGIN CARD, so the essay index clears the fold.
-   Two columns from 960px, stacked below it. `align-items:center` rather than `stretch`: the card
-   is shorter than the copy at some widths and taller at others, and a stretched card would grow
-   its own whitespace rather than sit against the headline. */
+   One card, a single link. It used to be two columns with a dark thesis panel flush against the
+   copy; it sits beside the hero copy now rather than opening its own band, so it is one light
+   card and the thesis is a ruled pull quote inside it.
+
+   THE HERO CARRIES IT so the essay index clears the fold. Its own full-width section pushed the
+   index to 1193px on a 1280x860 screen, 333px below the fold, and a reader who did not scroll
+   never learned the index existed. Two columns from 960px, stacked below it. `align-items:center`
+   rather than `stretch`: the card is shorter than the copy at some widths and taller at others,
+   and a stretched card would grow its own whitespace rather than sit against the headline. */
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(38px,4vw,56px);
   align-items:center;position:relative;z-index:1}
 @media (min-width:960px){
@@ -137,8 +147,8 @@
     gap:clamp(40px,4.4vw,72px)}
 }
 .origin{display:block;margin:0;color:var(--text);background:var(--card);
-  border:1px solid rgba(22,20,15,.2);box-shadow:0 26px 54px -40px rgba(22,20,15,.5);
   padding:clamp(28px,3vw,40px) clamp(26px,2.8vw,38px);
+  border:1px solid rgba(22,20,15,.2);box-shadow:0 26px 54px -40px rgba(22,20,15,.5);
   transition:box-shadow .3s ease,transform .3s ease}
 .origin:hover{color:var(--text);transform:translateY(-3px);
   box-shadow:0 38px 70px -40px rgba(22,20,15,.62)}
@@ -162,13 +172,13 @@
   letter-spacing:-.02em;text-wrap:balance}
 .origin .dek{margin:12px 0 0;font:italic 400 clamp(16px,1.5vw,18px)/1.45 var(--serif);
   color:var(--text-accent)}
-/* The card has no body paragraph any more. `.origin p` used to set one, and it reached the
-   two labels as well: at (0,1,1) it beat `.t-label` at (0,1,0) and replaced the whole font
-   shorthand, so both rendered at 17px/400, the same size and weight as the body copy beside
-   them. That was fixed on 2026-08-30 with `:not(:where(.t-label))`, and the standfirst moved
-   off the card entirely on 2026-08-31, which leaves the rule matching nothing it styles.
-   Deleted rather than kept, because a body-copy rule inside a card with no body copy is the
-   trap reloaded: the next paragraph added here would inherit a collision nobody chose. */
+/* The card has no body paragraph any more. `.origin p` used to set one, and it reached the two
+   labels as well: at (0,1,1) it beat `.t-label` at (0,1,0) and replaced the whole font shorthand,
+   so both rendered at 17px/400, the same size and weight as the body copy beside them. That was
+   fixed on 2026-08-30 with `:not(:where(.t-label))`, and the standfirst moved off the card
+   entirely on 2026-08-31, which leaves the rule matching nothing it styles. Deleted rather than
+   kept, because a body-copy rule inside a card with no body copy is the trap reloaded: the next
+   paragraph added here would inherit a collision nobody chose. */
 .origin .link-arrow{display:inline-flex;margin-top:22px}
 /* The thesis, as a ruled pull quote rather than the dark half of a two-up.
    It used to be an ink panel beside the copy, which worked on the sand band the card used to sit
@@ -202,7 +212,6 @@
 }
 
 @media(max-width:900px){
-  .origin{grid-template-columns:minmax(0,1fr)}
   .live{grid-template-columns:minmax(0,1fr);grid-template-rows:none}
   .live>li{display:flex;flex-direction:column;gap:10px}
 }
