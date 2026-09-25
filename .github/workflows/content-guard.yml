@@ -49,6 +49,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          # FULL HISTORY, for lastmod-check below. It dates a page by walking back until its
+          # visible text moves, and the default shallow clone has one commit to walk. The guard
+          # refuses to report green when it cannot see history rather than passing vacuously,
+          # so a shallow checkout here fails the build instead of quietly checking nothing.
+          fetch-depth: 0
 
       # Personal contact details must never appear in public source. The firm
       # addresses (admin@ / studio@ / aneesh@margapartners.com) are allowed.
@@ -107,3 +113,13 @@ jobs:
         # asserted since the 2026-08-18 brief, now asserted for the site: for-providers.html ran
         # the advisory prose and the join gate on one colour and read as a single slab.
         run: node bin/ground-check.js
+
+      - name: Sitemap lastmod
+        # Every lastmod at least as new as the day that page's visible text last changed. The
+        # dates are a hand-kept table and they sat at 2026-08-02 for seven weeks while the pages
+        # moved, which is how Google comes to ignore a sitemap's lastmod altogether.
+        #
+        # NOT IN THE PRE-COMMIT HOOK, deliberately. It walks history and takes about three
+        # seconds, and the sitemap only changes when a publish regenerates it. The hook stays
+        # fast; this catches the publish.
+        run: node bin/lastmod-check.js
