@@ -101,3 +101,9 @@ jobs:
         # No public page may state a corpus grade or corpus membership while two assessors are
         # being asked for a judgement blind to those outcomes. Lifts when both seals exist.
         run: node bin/embargo-check.js
+
+      - name: Adjacent section grounds
+        # Never two identical grounds side by side. The same rule the printed documents have
+        # asserted since the 2026-08-18 brief, now asserted for the site: for-providers.html ran
+        # the advisory prose and the join gate on one colour and read as a single slab.
+        run: node bin/ground-check.js

@@ -78,3 +78,12 @@ if [ -f bin/naming-check.js ]; then
     exit 1
   }
 fi
+
+# Adjacent section grounds. Whole tree rather than staged files, because the rule is a property
+# of a page's sequence: inserting one section can only be judged against its neighbours.
+if [ -f bin/ground-check.js ]; then
+  node bin/ground-check.js || {
+    echo "pre-commit: two adjacent sections share a background. Alternate, or re-plan the run."
+    exit 1
+  }
+fi
