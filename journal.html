@@ -190,30 +190,51 @@
 .origin-thesis .q{margin:0;font:400 clamp(17px,1.7vw,21px)/1.3 var(--serif);
   letter-spacing:-.01em;color:var(--text)}
 
-/* Released pieces. */
-.live{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  grid-template-rows:repeat(4,auto);column-gap:18px;row-gap:18px;margin:34px 0 0;
-  padding:0;list-style:none}
-.live>li{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:10px;
-  padding:28px 30px;background:var(--card);border:1px solid rgba(22,20,15,.2);
-  transition:transform .18s,border-color .18s}
-.live>li:hover{transform:translateY(-3px);border-color:rgba(22,20,15,.34)}
-.live .top{display:flex;justify-content:space-between;gap:12px}
-.live h3{margin:0;font:400 clamp(19px,1.9vw,22px)/1.22 var(--serif);color:var(--text);
+/* ---- released pieces, as a ruled index rather than a grid of tiles --------------------------
+   WHY THIS IS A LIST NOW. The grid was drawn for the three flagship essays and it used
+   `grid-template-rows:subgrid` with `grid-row:span 4` so every card aligned its label, title,
+   dek and link across the row. That is the right structure for three cards that all carry the
+   same four things. It is the wrong one the moment they do not: on 2026-09-30 five of the eight
+   released pieces had neither a dek nor a summary, and subgrid reserved both rows on every card
+   anyway, so five tiles were mostly empty space with the link stranded at the bottom.
+
+   A list has no such contract between rows. A piece with a dek gets a longer row, a piece
+   without gets a shorter one, and nothing reserves space for copy that does not exist. It also
+   stops being a layout that quietly degrades as the drip adds essays, which is what the schedule
+   below guarantees will keep happening.
+
+   The rule between rows is the one .arch-list already uses on this page, so the index reads as
+   the same component family rather than a second idea about what a list looks like. */
+.live{margin:34px 0 0;padding:0;list-style:none;border-top:1px solid rgba(22,20,15,.18)}
+.live>li{border-bottom:1px solid rgba(22,20,15,.18)}
+.live a{display:grid;grid-template-columns:minmax(0,1fr) auto;
+  column-gap:clamp(20px,3.5vw,56px);align-items:start;
+  padding:clamp(20px,2.2vw,26px) clamp(4px,1vw,12px);
+  text-decoration:none;color:inherit;
+  transition:background .18s ease,padding-left .18s ease,padding-right .18s ease}
+/* The row is the link, and a heading inside an <a> inherits its colour, so nothing about the
+   title says "activate me". The tint and the indent are the affordance on a pointer; the
+   persistent "Read the essay" in the side column is the one that survives on a touch screen. */
+.live a:hover{background:var(--card);
+  padding-left:clamp(12px,1.8vw,22px);padding-right:clamp(12px,1.8vw,22px)}
+.live a:focus-visible{outline:2px solid var(--text-accent);outline-offset:-2px}
+.live-main{display:block;min-width:0}
+.live-domain{display:block;margin:0 0 11px;color:var(--text-accent)}
+.live h3{margin:0;font:400 clamp(20px,2vw,24px)/1.2 var(--serif);color:var(--text);
   text-wrap:balance}
-.live .dek{margin:0;font:italic 400 14.5px/1.4 var(--serif);color:var(--text-accent)}
-.live .go{margin:0;font:700 13px/1 var(--sans);color:var(--text-accent);align-self:end}
-.live a{text-decoration:none;color:inherit;display:contents}
+.live .dek{margin:10px 0 0;font:italic 400 15px/1.45 var(--serif);color:var(--text-accent)}
+.live .sum{margin:10px 0 0;font:400 15px/1.6 var(--sans);color:var(--text-body);max-width:58ch}
+.live-side{display:grid;gap:12px;justify-items:end;text-align:right}
+.live-rt{color:var(--text-muted)}
+.live .go{margin:0;font:700 13px/1 var(--sans);color:var(--text-accent);white-space:nowrap}
 .empty{margin:34px 0 0;padding:26px 28px;background:var(--card);
   border:1px solid rgba(22,20,15,.2);font:400 16px/1.6 var(--sans);color:var(--text-body)}
-@supports not (grid-template-rows:subgrid){
-  .live{grid-template-rows:none}
-  .live>li{display:flex;flex-direction:column;gap:10px}
-}
-
 @media(max-width:900px){
-  .live{grid-template-columns:minmax(0,1fr);grid-template-rows:none}
-  .live>li{display:flex;flex-direction:column;gap:10px}
+  /* The side column goes under the copy and lays its two items out side by side, so the read
+     time and the link do not become two lonely right-aligned lines on a phone. */
+  .live a{grid-template-columns:minmax(0,1fr);row-gap:15px}
+  .live-side{justify-items:start;text-align:left;
+    grid-auto-flow:column;justify-content:start;align-items:center;gap:20px}
 }
 </style>
 </head>
@@ -284,18 +305,22 @@
   <section class="section bg-card-solid">
     <div class="inner">
       <p class="t-eyebrow">Available now</p>
-      <h2 class="t-h2">Three flagship essays, plus the origin.</h2>
+      <!-- NOT A COUNT. The design drew this section with three essays in it and the heading
+           said so. The drip adds one or two a week, so by 2026-09-30 it read "Three
+           flagship essays" above eight of them. A heading that states how many things are
+           below it is a heading that goes wrong on a schedule. -->
+      <h2 class="t-h2">Everything live, in any order.</h2>
       <p class="t-lead prose-p">Published and permanent, no email required. Everything
       after these drops on the schedule below.</p>
       <!--MZLIVE--><ul class="live">
-        <li><a href="/every-injectable-launch.html"><span class="top"><span class="t-label">Adoption</span><span class="t-label">6 min</span></span><h3>Every Injectable Launch Needs a Touch-Up</h3><p class="dek">A launch is a first pass, not a finished result</p><p class="sum">The discipline is knowing what to refine once the real world talks back.</p><p class="go">Read the essay &rarr;</p></a></li>
-        <li><a href="/filler-fear.html"><span class="top"><span class="t-label">Reputation</span><span class="t-label">9 min</span></span><h3>Filler Isn&#x27;t Dying. It&#x27;s Being Killed by Its Own Worst Results.</h3><p class="dek">Why the market isn&#x27;t just correcting</p><p class="sum">The category is not correcting. It is absorbing the reputational cost of its own worst outcomes.</p><p class="go">Read the essay &rarr;</p></a></li>
-        <li><a href="/trust-compounds.html"><span class="top"><span class="t-label">Architecture</span><span class="t-label">7 min</span></span><h3>Trust Is the Only Moat Left in Aesthetics</h3><p class="dek">Why the oldest products still win</p><p class="sum">Every advantage in this category is copyable except the one that took twenty years to earn.</p><p class="go">Read the essay &rarr;</p></a></li>
-        <li><a href="/the-trojan-horse-product.html"><span class="top"><span class="t-label">Growth</span><span class="t-label">13 min</span></span><h3>The Products That Win Aesthetics Sneak In Through the Side Door</h3><p class="dek"></p><p class="sum"></p><p class="go">Read the essay &rarr;</p></a></li>
-        <li><a href="/refractions/garmin.html"><span class="top"><span class="t-label">Architecture</span><span class="t-label">6 min</span></span><h3>Garmin Cloned WHOOP&#x27;s Hardware and Deleted the Subscription</h3><p class="dek"></p><p class="sum"></p><p class="go">Read the essay &rarr;</p></a></li>
-        <li><a href="/every-category-needs-a-got-milk.html"><span class="top"><span class="t-label">Growth</span><span class="t-label">7 min</span></span><h3>Why Aesthetics Needs Its Own &#x27;Got Milk?&#x27; Campaign</h3><p class="dek"></p><p class="sum"></p><p class="go">Read the essay &rarr;</p></a></li>
-        <li><a href="/refractions/theranos.html"><span class="top"><span class="t-label">Molecule</span><span class="t-label">4 min</span></span><h3>Aesthetics Has a Theranos Problem</h3><p class="dek"></p><p class="sum"></p><p class="go">Read the essay &rarr;</p></a></li>
-        <li><a href="/we-regulate-wrinkles-like-cancer.html"><span class="top"><span class="t-label">Adoption</span><span class="t-label">9 min</span></span><h3>We Regulate Wrinkles Like We Regulate Cancer</h3><p class="dek"></p><p class="sum"></p><p class="go">Read the essay &rarr;</p></a></li>
+        <li><a href="/every-injectable-launch.html"><span class="live-main"><span class="t-label live-domain">Adoption</span><h3>Every Injectable Launch Needs a Touch-Up</h3><p class="dek">A launch is a first pass, not a finished result</p><p class="sum">The discipline is knowing what to refine once the real world talks back.</p></span><span class="live-side"><span class="t-label live-rt">6 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
+        <li><a href="/filler-fear.html"><span class="live-main"><span class="t-label live-domain">Reputation</span><h3>Filler Isn&#x27;t Dying. It&#x27;s Being Killed by Its Own Worst Results.</h3><p class="dek">Why the market isn&#x27;t just correcting</p><p class="sum">The category is not correcting. It is absorbing the reputational cost of its own worst outcomes.</p></span><span class="live-side"><span class="t-label live-rt">9 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
+        <li><a href="/trust-compounds.html"><span class="live-main"><span class="t-label live-domain">Architecture</span><h3>Trust Is the Only Moat Left in Aesthetics</h3><p class="dek">Why the oldest products still win</p><p class="sum">Every advantage in this category is copyable except the one that took twenty years to earn.</p></span><span class="live-side"><span class="t-label live-rt">7 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
+        <li><a href="/the-trojan-horse-product.html"><span class="live-main"><span class="t-label live-domain">Growth</span><h3>The Products That Win Aesthetics Sneak In Through the Side Door</h3></span><span class="live-side"><span class="t-label live-rt">13 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
+        <li><a href="/refractions/garmin.html"><span class="live-main"><span class="t-label live-domain">Architecture</span><h3>Garmin Cloned WHOOP&#x27;s Hardware and Deleted the Subscription</h3></span><span class="live-side"><span class="t-label live-rt">6 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
+        <li><a href="/every-category-needs-a-got-milk.html"><span class="live-main"><span class="t-label live-domain">Growth</span><h3>Why Aesthetics Needs Its Own &#x27;Got Milk?&#x27; Campaign</h3></span><span class="live-side"><span class="t-label live-rt">7 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
+        <li><a href="/refractions/theranos.html"><span class="live-main"><span class="t-label live-domain">Molecule</span><h3>Aesthetics Has a Theranos Problem</h3></span><span class="live-side"><span class="t-label live-rt">4 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
+        <li><a href="/we-regulate-wrinkles-like-cancer.html"><span class="live-main"><span class="t-label live-domain">Adoption</span><h3>We Regulate Wrinkles Like We Regulate Cancer</h3></span><span class="live-side"><span class="t-label live-rt">9 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
       </ul><!--/MZLIVE-->
     </div>
   </section>
