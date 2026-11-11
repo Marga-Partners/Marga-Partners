@@ -122,6 +122,17 @@
     }
   });
 
+  // ---- scrolled state ----------------------------------------------------------------------
+  // The v4 header floats over the whole page. At the top it is just the wordmark and the pill
+  // on the linen; once the page moves, marga-v4.css turns the row into a solid capsule so the
+  // ink wordmark stays legible over dark sections. This only reports the state. On a v3 page
+  // nothing styles the attribute, so it is inert there.
+  var setScrolled = function () {
+    cap.setAttribute('data-scrolled', String((window.pageYOffset || 0) > 8));
+  };
+  setScrolled();
+  window.addEventListener('scroll', setScrolled, { passive: true });
+
   // ---- the hero mark -----------------------------------------------------------------------
   // The v4 hero puts a large watermark of the Marga mark behind the headline, with its top on
   // the headline's cap line. Cap height is a property of the rendered font, so no CSS length

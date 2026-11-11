@@ -267,20 +267,43 @@ main{display:block}
 /* ==========================================================================================
    HEADER
    ------------------------------------------------------------------------------------------
-   In the page flow at the top of the hero, not fixed. Wordmark on the left; on the right the
-   links sit inside an outlined cream pill with the ink CTA at its end.
+   Fixed and floating, as v3 was. Wordmark on the left; on the right the links sit inside an
+   outlined cream pill with the ink CTA at its end.
 
-   The markup and every hook marga-v3-nav.js reads are unchanged: .nav-cap carries data-menu
-   for the drawer, .nav-drop carries data-open for the Advisory disclosure, .nav-toggle opens
-   the drawer. Only the look moves.
+   At the top of the page it is exactly the design: no bar, just the wordmark and the pill
+   over the linen. Once the page scrolls, marga-v3-nav.js sets data-scrolled on .nav-cap and
+   the whole row becomes one outlined cream capsule with a hard shadow. That is what keeps an
+   ink wordmark legible over the ink and deep sections it now floats across. The inner pill
+   drops its own outline then, so there is never a border inside a border.
+
+   The hero clears the bar with --nav-clear. Every other hook marga-v3-nav.js reads is
+   unchanged: .nav-cap carries data-menu for the drawer, .nav-drop carries data-open for the
+   Advisory disclosure, .nav-toggle opens the drawer.
    ========================================================================================== */
 .skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--ink);color:var(--cream);
   padding:12px 16px;border-radius:var(--r-btn);font-weight:700}
 .skip:focus,.skip:focus-visible{left:16px;top:16px}
 
-.nav-wrap{position:relative;z-index:70;padding:24px var(--pad-x)}
+:root{--nav-clear:106px}
+.nav-wrap{position:fixed;top:0;left:0;right:0;z-index:70;padding:24px var(--pad-x);
+  pointer-events:none;transition:padding .2s}
 .nav-cap{width:min(1168px,100%);margin:0 auto;display:flex;align-items:center;
-  justify-content:space-between;gap:18px;position:relative}
+  justify-content:space-between;gap:18px;position:relative;pointer-events:auto;
+  border:2px solid transparent;border-radius:calc(var(--r-pill) + 4px);padding:0;
+  transition:background-color .2s,border-color .2s,box-shadow .2s,padding .2s}
+.nav-wrap:has(.nav-cap[data-scrolled=true]){padding-top:12px;padding-bottom:12px}
+.nav-cap[data-scrolled=true]{background:var(--card);border-color:var(--ink);
+  box-shadow:var(--shadow-sm);padding:4px 4px 4px 16px}
+@media(min-width:981px){
+  .nav-cap[data-scrolled=true] .nav-links{border-color:transparent}
+}
+@media(max-width:980px){
+  :root{--nav-clear:96px}
+  /* Inside the capsule the toggle is already on an outlined surface, so its own hard shadow
+     would hang off the capsule's edge. */
+  .nav-cap[data-scrolled=true] .nav-toggle{box-shadow:none;width:44px;height:44px}
+}
+.hero{padding-top:calc(var(--nav-clear) + clamp(40px,6vw,80px))}
 
 .nav-brand{display:flex;align-items:flex-end;gap:10px;min-height:44px;padding-bottom:8px;
   text-decoration:none;color:var(--ink)}
