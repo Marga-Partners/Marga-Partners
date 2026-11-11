@@ -18,75 +18,35 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.margapartners.com/the-marga-method.html#page","url":"https://www.margapartners.com/the-marga-method.html","name":"Marga Intelligence","description":"Marga Intelligence is a proprietary lens on aesthetics and life science. The Marga Method provides the framework and the Marga Index distills it into a score.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US","breadcrumb":{"@id":"https://www.margapartners.com/the-marga-method.html#crumbs"}},{"@type":"BreadcrumbList","@id":"https://www.margapartners.com/the-marga-method.html#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.margapartners.com/"},{"@type":"ListItem","position":2,"name":"Marga Intelligence"}]}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=e15454bf45">
 <style>
-/* Marga Intelligence layout. Everything else comes from /assets/marga-v3.css */
-.section{padding:88px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
-.bg-card-solid{background:var(--card)}
+/* Marga Intelligence on /assets/marga-v4.css. The Index band echoes the homepage's deep-ink
+   common thread, as the brief asks of this page. */
+.hero .t-h1{--h1:104;margin-top:26px;max-width:9em}
+.hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end;
+  margin-top:clamp(28px,3.4vw,44px)}
+.hero-foot .t-lead{max-width:33em}
+.section .t-h2{margin-top:20px}
 
-.hero{position:relative;padding:calc(var(--pad-hero-top) + 10px) 0 84px;overflow:hidden}
-.hero h1{margin:0;font:400 clamp(38px,5.6vw,72px)/.98 var(--serif);letter-spacing:-.03em;
-  color:var(--cream);max-width:15ch;text-wrap:balance}
-.hero .lead{margin:34px 0 0;max-width:60ch}
-.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+/* the lens: copy beside two definition cards on ink */
+.lens{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px 64px;align-items:start}
+.lens .t-lead{margin-top:22px}
+.lens .t-small{margin-top:18px}
+.defs{display:grid;gap:24px}
+.defs .card{display:flex;flex-direction:column;gap:10px}
+.defs .t-label{color:var(--text-accent)}
+.defs h3{font:600 clamp(26px,2.6vw,32px)/1.08 var(--serif);letter-spacing:-.015em}
+.defs p:last-child{font-size:16px;line-height:1.6;color:var(--text-body)}
 
-.t-h2{margin:12px 0 0;font:400 clamp(28px,3.6vw,48px)/1.06 var(--serif);letter-spacing:-.015em;
-  max-width:20ch;text-wrap:balance}
-.prose-p{max-width:66ch;margin:22px 0 0}
+/* the Index: the homepage's common-thread band, with the scorecard framed for a dark ground */
+.thread{text-align:center}
+.thread .inner{display:flex;flex-direction:column;align-items:center}
+.thread-mark{height:34px;width:auto;margin-bottom:22px}
+.thread .t-h2{--h2:87;margin-top:26px}
+.thread .t-lead{margin-top:30px;max-width:36em}
 
-/* The two definition cards: the Method and the Index. */
-.defs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,auto);
-  column-gap:18px;row-gap:18px;margin-top:38px}
-.defs>div{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:10px;
-  padding:32px 34px;background:var(--card);border:1px solid rgba(22,20,15,.18)}
-.defs h3{margin:0;font:400 clamp(24px,2.4vw,30px)/1.1 var(--serif);color:var(--text)}
-.defs p{margin:0;color:var(--text-body)}
-@supports not (grid-template-rows:subgrid){
-  .defs{grid-template-rows:none}
-  .defs>div{display:flex;flex-direction:column;gap:10px}
-}
-
-/* How it is used. */
-.uses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,auto);
-  column-gap:18px;row-gap:12px;margin-top:38px;padding:0;list-style:none}
-.uses>li{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:10px;
-  padding-top:22px;border-top:1px solid rgba(22,20,15,.22)}
-.uses h3{margin:0;font:700 17px/1.25 var(--sans);color:var(--text)}
-.uses p{margin:0;font:400 14.5px/1.55 var(--sans);color:var(--text-body)}
-@supports not (grid-template-rows:subgrid){
-  .uses{grid-template-rows:none}
-  .uses>li{display:flex;flex-direction:column;gap:10px}
-}
-
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(30px,4vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-/* The closing button sat flush against the headline: .cta-block is a flex column with
-   no gap, so the only space was the button's own zero margin. Spacing the button alone
-   rather than adding a gap, because a gap would also push the eyebrow off the h2, which
-   is already set deliberately at 18px. */
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-.cta-block .sub{margin:18px 0 30px;max-width:46ch}
-
-@media(max-width:900px){
-  .defs,.uses{grid-template-columns:minmax(0,1fr);grid-template-rows:none}
-  .defs>div{display:flex;flex-direction:column;gap:10px}
-  .uses>li{display:flex;flex-direction:column;gap:10px}
-}
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
-}
-
-/* ---- the scorecard ---------------------------------------------------------------------
-   Lifted unchanged from the pre-v4 page along with its markup and its script. Restyled only
-   where the surrounding grounds changed. */
+/* the carried scorecard, unchanged from method-parts/scorecard.css: see the README there */
 .lens .k{font:700 10px/1 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .mi .k{font:700 10px/1 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--bronze-text, #7A5A20);margin-bottom:14px}
 /* scorecard */
@@ -140,48 +100,38 @@
   .d-body{grid-template-columns:1fr}
   .d-left{border-right:0;border-bottom:1px solid var(--hair)}
 }
-/* The scorecard sat on a different ground before v4 and its wrapper carried the old page's
-   section padding. It sits inside .inner now, so it needs neither. */
-.deliv{margin-top:38px}
+/* its outer frame, restated for a dark ground after the carried rules, through tokens */
+.thread .deliv{width:100%;margin-top:clamp(40px,5vw,56px);text-align:left;border:2px solid var(--gold);
+  border-radius:var(--r-card);box-shadow:var(--shadow-gold)}
 
-/* ---- corrections to the carried scorecard ------------------------------------------------
-   Every one of these is a defect the pre-v4 page already had. They are recorded here rather
-   than edited into method-parts/, so that file stays a faithful copy of what was lifted and
-   the changes are legible as changes. Scoped to #index so nothing leaks.
+/* the evidence and how it is used: outlined cards, then a ruled list */
+.uses{list-style:none;padding:0;margin:clamp(36px,4vw,48px) 0 0;display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.uses li{display:flex;flex-direction:column;gap:10px}
+.uses h3{font:600 clamp(21px,1.9vw,24px)/1.12 var(--serif)}
+.uses p{font-size:15px;line-height:1.55;color:var(--text-body)}
+.uses-cards li{background:var(--card);border:var(--border);border-radius:var(--r-card);
+  box-shadow:var(--shadow);padding:30px}
+.uses-ruled li{padding-top:22px;border-top:var(--border)}
+.evidence-foot{margin-top:28px;max-width:46em}
+.used .t-lead{margin-top:20px}
 
-   THE HEADER BAR HAD BLACK TEXT ON INK. .d-top is #16140F and its label was inheriting the
-   browser's default black at 1.14:1, which is text you cannot read at all. The rule that had
-   been colouring it lived somewhere in the old page's 23KB stylesheet that the extraction
-   did not reach, and the page had no body colour to fall back to. */
-#index .d-top,#index .d-top .l .k,#index .d-top .l .t{color:var(--cream)}
-#index .d-top .l .k{color:var(--text-on-dark-muted)}
-/* .conf is not on the ink bar, it is a gold pill sitting on it, and the first version of
-   this correction swept it up with the rest and put cream on gold at 1.49:1. Ink on gold is
-   the pairing the system already uses for the primary button. */
-#index .d-top .conf{color:var(--ink)}
-
-/* .40 and .50 alphas at 10 to 13px, measuring 2.51 and 3.32. The same family of values
-   Phase 1 replaced across the system, still here because this markup predates it. */
-#index .d-idx,#index .d-tease,#index .note,#index .fn .ix{color:var(--text-muted)}
-
-/* The carousel controls: arrows 30px tall, dots 7px, and both drawn in Arial because the
-   old page never gave a button a family and a button does not inherit one. */
-#index .d-arrow{font-family:var(--sans);min-width:44px;min-height:44px}
-#index .d-dots{gap:0}
-#index .d-dots .dot{width:44px;height:44px;padding:0;border:0;background:none;
-  position:relative;cursor:pointer}
-#index .d-dots .dot::before{content:"";position:absolute;left:50%;top:50%;
-  width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;
-  background:rgba(22,20,15,.3)}
-#index .d-dots .dot.on::before{background:var(--text-accent)}
-#index .d-dots .dot:focus-visible{outline:2px solid var(--text-accent);outline-offset:-6px}
+@media(max-width:900px){
+  .lens{grid-template-columns:minmax(0,1fr)}
+  .uses{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:768px){
+  .hero-foot{grid-template-columns:minmax(0,1fr)}
+  .uses-cards li{box-shadow:var(--shadow-sm)}
+  .thread .deliv{box-shadow:var(--shadow-gold-sm)}
+}
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <span class="nav-drop" data-open="false">
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
@@ -208,43 +158,44 @@
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
-    <div class="mark-layer" aria-hidden="true">
-      <div class="mark-col"><svg class="hero-mark" data-mark viewBox="0 0 394 321" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z"></path><path d="M125 104V321H5V215.047L125 104Z"></path><path d="M274 104L196 162L0 1H155.229L274 104Z"></path></svg></div>
-    </div>
+  <section class="hero">
     <div class="inner">
       <p class="t-eyebrow">Marga Intelligence&trade;</p>
-      <h1>The system behind the strategy.</h1>
-      <p class="t-lead lead">A proprietary system for evaluating what a move depends on, and why. It
-      turns evidence, market behavior and industry judgment into a structured view of where an
-      asset, company or category is strong, where it is exposed, and what should happen
-      next.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="/Consultation.html">Commission a read</a>
-        <a class="btn btn-outline" href="/Consultation.html">Request a sample</a>
+      <h1 class="t-h1">The system behind the <span class="mk mk-circle" data-draw="hero" style="padding:0 .08em">strategy.<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M40 18 C110 2 230 4 280 26 C304 40 296 74 250 88 C180 104 70 100 26 80 C-6 64 4 30 52 14"/></svg></span></h1>
+      <div class="hero-foot">
+        <p class="t-lead">A proprietary system for evaluating what a move depends on, and why. It
+        turns evidence, market behavior and industry judgment into a structured view of where an
+        asset, company or category is strong, where it is exposed, and what should happen
+        next.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-arrow" href="/Consultation.html">Commission a read</a>
+          <a class="btn btn-secondary" href="/Consultation.html">Request a sample</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section bg-sand2">
-    <div class="inner">
-      <p class="t-eyebrow">Marga Intelligence&trade;</p>
-      <h2 class="t-h2">A 360&deg; read on any product, market, or company.</h2>
-      <p class="t-lead prose-p">Marga Intelligence&trade; is Marga's proprietary lens on the
-      aesthetics industry. The Marga Method&trade; provides the framework; the Marga
-      Index&trade; distills it into a score. Together they give a comprehensive view of
-      products, markets, companies, and events at the intersection of science and
-      commercialization.</p>
-      <p class="t-small t-muted">13+ years leading major launches across three manufacturers.</p>
+  <section class="section bg-ink on-dark">
+    <div class="inner lens">
+      <div>
+        <p class="t-eyebrow">Marga Intelligence&trade;</p>
+        <h2 class="t-h2" style="--h2:62">A 360&deg; read on any product, market, or company.</h2>
+        <p class="t-lead">Marga Intelligence&trade; is Marga's proprietary lens on the
+        aesthetics industry. The Marga Method&trade; provides the framework; the Marga
+        Index&trade; distills it into a score. Together they give a comprehensive view of
+        products, markets, companies, and events at the intersection of science and
+        commercialization.</p>
+        <p class="t-small">13+ years leading major launches across three manufacturers.</p>
+      </div>
       <div class="defs">
-        <div>
+        <div class="card card-gold">
           <p class="t-label">The Marga Method&trade;</p>
           <h3>The framework.</h3>
           <p>A disciplined way to read any move in a market through five forces and the
           attributes beneath them, so a judgment is recorded against a fixed scale, with the
           evidence behind it attached and the reasoning open to challenge.</p>
         </div>
-        <div>
+        <div class="card card-gold">
           <p class="t-label">The Marga Index&trade;</p>
           <h3>The number.</h3>
           <p>The Method resolved into a single composite, showing where an asset, a
@@ -254,11 +205,14 @@
     </div>
   </section>
 
-  <section class="section bg-cream" id="index">
+  <section class="section bg-deep on-dark thread" id="index">
     <div class="inner">
+      <svg class="thread-mark" viewBox="0 0 394 321" aria-hidden="true"><path
+        d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"/><path d="M125 104V321H5V215.047L125 104Z"
+        fill="#F1E9DB"/><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"/></svg>
       <p class="t-eyebrow">The Marga Index&trade;</p>
-      <h2 class="t-h2">More than a score.</h2>
-      <p class="t-lead prose-p">It is more than a score or a number. A proprietary index built
+      <h2 class="t-h2">More than a <span class="mk mk-circle" data-draw style="--mk-x:-6%">score.<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" style="--mk-w:3.6" d="M40 18 C110 2 230 4 280 26 C304 40 296 74 250 88 C180 104 70 100 26 80 C-6 64 4 30 52 14"/></svg></span></h2>
+      <p class="t-lead">It is more than a score or a number. A proprietary index built
       for the elements that decide a category: the speed of innovation and new trends,
       real-time feedback and insight, and the perspectives of the people who are in the room
       when a product succeeds or fails.</p>
@@ -267,14 +221,15 @@
     </div>
   </section>
 
-  <section class="section bg-sand">
+  <section class="section bg-cream">
     <div class="inner">
       <p class="t-eyebrow">What a read is built on</p>
-      <h2 class="t-h2">Evidence with a name on it.</h2>
-      <p class="t-lead prose-p">A read is assembled from the public record, from the people who
-      treat patients, and from the judgment of someone who has run launches. Every input is
-      recorded with its source, so a conclusion can be traced back to what produced it.</p>
-      <ul class="uses">
+      <h2 class="t-h2" style="--h2:68">Evidence with a name on it.</h2>
+      <p class="t-lead" style="margin-top:20px">A read is assembled from the public record, from
+      the people who treat patients, and from the judgment of someone who has run launches. Every
+      input is recorded with its source, so a conclusion can be traced back to what produced
+      it.</p>
+      <ul class="uses uses-cards">
         <li><h3>The public record</h3><p>openFDA, ClinicalTrials.gov, PubMed, PatentsView, NPPES
         and SEC EDGAR, read directly rather than summarized, with the source recorded on every
         value they produce.</p></li>
@@ -284,18 +239,18 @@
         <li><h3>Stated coverage</h3><p>A read records what it could evidence and what it could
         not. Coverage is part of the output rather than a footnote to it.</p></li>
       </ul>
-      <p class="t-small t-muted">The instrument is put under test rather than asserted. A study
-      is pre-registered and signed before scoring begins, the cases are blinded, and two
+      <p class="t-small evidence-foot">The instrument is put under test rather than asserted. A
+      study is pre-registered and signed before scoring begins, the cases are blinded, and two
       independent raters score them, neither of whom built the model.</p>
     </div>
   </section>
 
-  <section class="section bg-card-solid">
+  <section class="section bg-sheet used">
     <div class="inner">
       <p class="t-eyebrow">How it is used</p>
-      <p class="t-lead prose-p">Every read is built the same way, and the method behind it is not a mystery.</p>
-      <h2 class="t-h2">Scoped to the decision in front of you.</h2>
-      <ul class="uses">
+      <p class="t-lead">Every read is built the same way, and the method behind it is not a mystery.</p>
+      <h2 class="t-h2" style="--h2:58">Scoped to the decision in front of you.</h2>
+      <ul class="uses uses-ruled">
         <li><h3>Asset and deal evaluation</h3><p>An independent read before a term sheet, a bid, or a board decision.</p></li>
         <li><h3>Category intelligence</h3><p>A standing view of where a category is heading and who is positioned for it.</p></li>
         <li><h3>Custom strategic research</h3><p>A defined question answered with primary and secondary evidence.</p></li>
@@ -303,54 +258,56 @@
     </div>
   </section>
 
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">Get started</p>
-      <h2>Request a sample, or commission a read.</h2>
-      <a class="btn btn-primary" href="/Consultation.html">Commission intelligence</a>
+      <h2 class="t-h2">Request a sample, or commission a read.</h2>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/Consultation.html">Commission intelligence</a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
-
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script>
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script>
 <script>(function(){var SC=document.getElementById("scorecard");if(!SC)return;var NS="http://www.w3.org/2000/svg",cx=230,cy=205,R=135,N=5;var GREEN="#1A6640",BRONZE="#9A742F",RED="#B4463C";/* illustrative bands: even thirds, not the calibrated cutoffs */var BAND_LO=33,BAND_HI=67;/* One rate for the whole transition. FADE is half of it because the text crossfades out and back in, so a slide settles everywhere at the same moment. The stylesheet reads --fade rather than hardcoding its own duration. */var FADE=300,DUR=FADE*2;SC.style.setProperty("--fade",FADE+"ms");function ang(i){return(-90+i*72)*Math.PI/180;}function pt(i,v){var a=ang(i);return[cx+Math.cos(a)*R*(v/100),cy+Math.sin(a)*R*(v/100)];}function bandOf(s){return s>=BAND_HI?{c:GREEN,cls:"adv",lab:"Advantage"}:s>=BAND_LO?{c:BRONZE,cls:"neu",lab:"Neutral"}:{c:RED,cls:"det",lab:"Detractor"};}function compBand(s){return s>=BAND_HI?{cls:"advantage",lab:"Advantage"}:s>=BAND_LO?{cls:"neutral",lab:"Neutral"}:{cls:"detractor",lab:"Detractor"};}function mean(a){var t=0;for(var i=0;i<a.length;i++)t+=a[i];return Math.round(t/a.length);}var DATA=[{asset:"Dermal filler",verdict:"Proceed with conditions",note:"Strong where it matters most and exposed on two of the five forces. A sound launch with the right sequencing and a sharper access story.",s:[78,64,71,52,45]},{asset:"Energy-based device",verdict:"Clear to launch",note:"A broad, balanced profile with no structural weakness. The real question is durability: hold the edge before the category crowds in.",s:[80,72,69,77,74]},{asset:"Next-gen biostimulator",verdict:"High ceiling, real risk",note:"A remarkable top-line story undercut by exposure across the back half of the framework. Fixable, but not on the current plan.",s:[89,55,50,36,42]},{asset:"Injectable toxin",verdict:"Proceed",note:"Little to fault and little that surprises. A solid, ownable position that wins on execution rather than on any single force.",s:[67,70,64,58,61]}];var LP=[];for(var i=0;i<N;i++){var a=ang(i),lx=cx+Math.cos(a)*R*1.15,ly=cy+Math.sin(a)*R*1.15;var anc=i===0?"middle":(Math.cos(a)>0.15?"start":(Math.cos(a)<-0.15?"end":"middle"));LP.push({x:lx,y:ly+(i===0?-6:5),anchor:anc});}var g=document.getElementById("rdata");var poly=document.createElementNS(NS,"polygon");poly.setAttribute("fill","rgba(199,162,75,.28)");poly.setAttribute("stroke",BRONZE);poly.setAttribute("stroke-width","2.5");poly.setAttribute("stroke-linejoin","round");g.appendChild(poly);var dots=[],labs=[];for(var i=0;i<N;i++){var c=document.createElementNS(NS,"circle");c.setAttribute("r","4.5");c.setAttribute("fill","#14120E");g.appendChild(c);dots.push(c);var t=document.createElementNS(NS,"text");t.setAttribute("text-anchor",LP[i].anchor);t.setAttribute("font-family","'Newsreader',serif");t.setAttribute("font-size","16");t.setAttribute("x",LP[i].x.toFixed(1));t.setAttribute("y",LP[i].y.toFixed(1));g.appendChild(t);labs.push(t);}var fsEls=SC.querySelectorAll("[data-fs]"),pillEls=SC.querySelectorAll("[data-pill]"),numEl=SC.querySelector("[data-num]"),bandEl=SC.querySelector("[data-band]");var cur=DATA[0].s.slice(),idx=0,raf=null;function paint(){var pts=[];for(var i=0;i<N;i++)pts.push(pt(i,cur[i]));poly.setAttribute("points",pts.map(function(p){return p[0].toFixed(1)+","+p[1].toFixed(1);}).join(" "));for(var i=0;i<N;i++){var vv=Math.round(cur[i]),b=bandOf(vv);dots[i].setAttribute("cx",pts[i][0].toFixed(1));dots[i].setAttribute("cy",pts[i][1].toFixed(1));labs[i].setAttribute("fill",b.c);labs[i].textContent=vv;if(fsEls[i])fsEls[i].textContent=vv;if(pillEls[i]){pillEls[i].textContent=b.lab;pillEls[i].className="pill "+b.cls;}}if(numEl){var cv=mean(cur.map(function(x){return Math.round(x);}));numEl.textContent=cv;/* Read off the value on screen this frame. It used to be set from the incoming slide at the crossfade, 300ms into a 780ms count, so the card spent the rest of the morph showing a number and a band that disagreed: 62 labelled Advantage. The force pills already worked this way. */if(bandEl){var cb=compBand(cv);bandEl.textContent=cb.lab;bandEl.className="d-band "+cb.cls;}}}function morph(target){if(raf)cancelAnimationFrame(raf);var from=cur.slice(),t0=performance.now(),dur=DUR;function step(now){var k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);for(var i=0;i<N;i++)cur[i]=from[i]+(target[i]-from[i])*e;paint();if(k<1)raf=requestAnimationFrame(step);}raf=requestAnimationFrame(step);}var dotsWrap=SC.querySelector("[data-dots]"),dotEls=[];function show(i){idx=i;var d=DATA[i];var fades=SC.querySelectorAll(".d-fade");for(var f=0;f<fades.length;f++)fades[f].style.opacity=0;setTimeout(function(){SC.querySelector("[data-asset]").innerHTML="Example asset &middot; "+d.asset;SC.querySelector("[data-vv]").textContent=d.verdict;SC.querySelector("[data-note]").textContent=d.note;for(var f=0;f<fades.length;f++)fades[f].style.opacity=1;},FADE);morph(d.s);for(var j=0;j<dotEls.length;j++)dotEls[j].className="dot"+(j===i?" on":"");}DATA.forEach(function(d,j){var b=document.createElement("button");b.className="dot"+(j===0?" on":"");b.setAttribute("aria-label","Example asset "+(j+1));b.onclick=function(){show(j);rst();};dotsWrap.appendChild(b);dotEls.push(b);});var pv=SC.querySelector("[data-prev]"),nx=SC.querySelector("[data-next]");if(pv)pv.onclick=function(){show((idx-1+DATA.length)%DATA.length);rst();};if(nx)nx.onclick=function(){show((idx+1)%DATA.length);rst();};paint();var timer=setInterval(function(){show((idx+1)%DATA.length);},8000);function rst(){clearInterval(timer);timer=setInterval(function(){show((idx+1)%DATA.length);},8000);}SC.addEventListener("mouseenter",function(){clearInterval(timer);});SC.addEventListener("mouseleave",function(){rst();});})();</script>
 </body></html>
