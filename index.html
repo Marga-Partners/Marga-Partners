@@ -18,190 +18,119 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.margapartners.com/#org","name":"Marga Partners","url":"https://www.margapartners.com/","description":"Commercial counsel and market intelligence for medical aesthetics and adjacent life sciences. Built to serve stakeholders across the industry: manufacturers, investors, and practices.","founder":{"@type":"Person","@id":"https://www.margapartners.com/#aneesh","name":"Aneesh Patel","honorificSuffix":"PharmD","jobTitle":"Founder and Commercialization Strategist"},"areaServed":"US","knowsAbout":["Commercialization strategy","Medical aesthetics","Life science commercialization","Commercial due diligence","Go-to-market strategy","Product launch strategy"]},{"@type":"WebSite","@id":"https://www.margapartners.com/#website","url":"https://www.margapartners.com/","name":"Marga Partners","publisher":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.margapartners.com/#page","url":"https://www.margapartners.com/","name":"Marga Partners","description":"Commercial counsel and market intelligence for medical aesthetics and adjacent life sciences. Built to serve stakeholders across the industry: manufacturers, investors, and practices.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US"}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=8b420b69fd">
 <style>
-/* Homepage-only layout. Everything else comes from /assets/marga-v3.css
-   ==========================================================================================
-   THE FULL HEIGHT SNAP PANELS ARE GONE. v3 made every section a 100vh frame with scroll
-   snap. v4 does not: measured off the prototype at 1280 the four sections stand 758, 431,
-   1012 and 498 tall, so they are sized by their content and the thesis is a band rather
-   than a screen. Forcing them to 100vh would have stretched a 431px band to 900 and put the
-   three 618px cards inside a viewport they no longer fit. */
-.section{padding:84px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
+/* Homepage-only layout. The system is /assets/marga-v4.css, the linen redesign of 2026-11-11.
+   Measured off the 1280 design: sections pad 110/56, which the system's --pad-y and --pad-x
+   already are. Everything here is a grid the system has no general name for. */
 
 /* ---- hero ------------------------------------------------------------------------------ */
-.hero{position:relative;padding:var(--pad-hero-top) 0 84px;overflow:hidden}
-.hero h1{margin:0;font:400 clamp(44px,7.6vw,97px)/.9 var(--serif);letter-spacing:-.037em;
-  color:var(--cream);max-width:11ch;text-wrap:balance}
-.hero h1 em{font-style:italic;color:var(--gold)}
+.hero h1{margin-top:28px;max-width:9.2em}
+.hero .t-lead{margin-top:36px;max-width:32em}
+.hero .cta-row{margin-top:32px;position:relative;justify-content:center}
 
-/* ---- thesis ---------------------------------------------------------------------------- */
-.thesis-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;
-  align-items:start;margin-top:30px}
-.thesis-grid h2{margin:0;font:300 clamp(30px,3.6vw,44px)/1.12 var(--serif);
-  letter-spacing:-.01em;color:var(--text);text-wrap:balance}
-.callout-light{padding:var(--pad-card)}
-.callout-light p{margin:0 0 18px;font:400 clamp(16px,1.5vw,18px)/1.55 var(--sans)}
+/* ---- thesis ----------------------------------------------------------------------------
+   The headline is one h2 read as one sentence, set as five lines. The three things the
+   category is not are struck through in gold; "not" stays clear of the strike, because it is
+   the word doing the work. */
+.thesis-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:56px;
+  margin-top:24px;align-items:end}
+.thesis-h{font-family:var(--serif);font-weight:300;line-height:1;letter-spacing:-.01em}
+.thesis-h>span{display:block}
+.thesis-h .lead-in{font-size:clamp(26px,3.125vw,40px)}
+.thesis-h .not{font-size:clamp(34px,5.16vw,66px);color:var(--text-on-dark-body);white-space:nowrap}
+.thesis-h .not:first-of-type{margin-top:10px}
+.thesis-h .is{font-size:clamp(44px,7.2vw,92px);margin-top:18px}
+.thesis-h .is .mk{font-style:italic;color:var(--cream)}
+.thesis-side .btn{margin-top:24px}
 
-/* ---- the three cards -------------------------------------------------------------------- */
-/* ---- the two-capability band and the Index band ------------------------------------------
-   The section the v4 design has between the thesis and the three stakeholder cards. Grounds
-   from the design: --sand for the section, --card for the two cards, --ink2 for the band. */
-.cap-head{margin-bottom:clamp(32px,4vw,44px)}
-/* The cap has to clear the longer of the two authored lines, "One foundational framework."
-   at twenty-seven characters. balance goes for the same reason it went on .lens-head h2:
-   it redistributes across lines a browser chose, and these are chosen in the markup. */
-.cap-head h2{margin:20px 0 0;font:400 clamp(34px,4.2vw,48px)/1.04 var(--serif);
-  letter-spacing:-.018em;max-width:24ch}
-.caps{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.cap{display:flex;flex-direction:column;gap:18px;background:var(--card);
-  border:1px solid rgba(22,20,15,.22);padding:clamp(28px,3.4vw,36px) clamp(26px,3vw,32px)}
-.cap-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
-.cap-num{font:400 24px/1 var(--serif);color:var(--text-numeral)}
-.cap h3{margin:0;font:400 clamp(26px,2.7vw,30px)/1.08 var(--serif);color:var(--text)}
-.cap>p{margin:0}
-.cap-list{margin:0;padding:10px 0 0;list-style:none;display:flex;flex-direction:column;gap:11px;
-  border-top:1px solid rgba(22,20,15,.14)}
-.cap-list li{display:flex;gap:12px;font:400 15px/1.5 var(--sans);color:var(--text-body)}
-/* The dash is decoration, so it is drawn rather than typed: a literal em dash in the markup
-   would be read out before every item, and the copy rules forbid one in prose anyway. */
-.cap-list li::before{content:"";flex:none;width:11px;height:1px;margin-top:11px;
-  background:var(--gold)}
-.cap .link-arrow{margin-top:auto;align-self:flex-start}
+/* ---- two capabilities ------------------------------------------------------------------ */
+.cap-head{text-align:center}
+.cap-head h2{margin-top:20px}
+.caps{margin-top:clamp(40px,5vw,64px)}
+.cap-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.cap h3{margin-top:8px}
+.cap-list{border-top:1px solid var(--ink);padding-top:10px;font-weight:600;color:var(--ink);
+  line-height:1.5;gap:8px}
+.cap .link{align-self:flex-start;margin-top:auto}
 
-.indexband{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(30px,4.5vw,58px);
-  align-items:center;margin-top:20px;padding:clamp(32px,4vw,44px) clamp(28px,3.6vw,46px)}
-.indexband-copy{display:flex;flex-direction:column;gap:24px}
-.indexband-copy h3{margin:18px 0 16px;font:400 clamp(28px,3.2vw,36px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch}
-.indexband-copy>div>p{margin:0;max-width:46ch}
-.indexband-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;max-width:520px;
-  background:var(--line-dark);border:1px solid var(--line-dark)}
-.indexband-split>div{display:flex;flex-direction:column;gap:9px;background:var(--ink2);
-  padding:20px 22px}
-.indexband .link-arrow{align-self:flex-start}
-.index-mark{width:100%;max-width:300px;height:auto;display:block;justify-self:center}
+/* ---- the common thread ----------------------------------------------------------------- */
+.thread{text-align:center}
+.thread .inner{display:flex;flex-direction:column;align-items:center}
+.thread-mark{height:34px;width:auto;margin-bottom:22px}
+.thread h2{margin-top:26px;max-width:11.5em;--h2:87;line-height:1.05}
+.thread h2 .mk{margin:12px 0 0 .1em;padding:0 .12em}
+.thread .t-lead{margin-top:30px}
+.thread-split{display:grid;grid-template-columns:1fr 1fr;width:100%;max-width:900px;
+  margin-top:52px;text-align:left;border-top:1px solid rgba(199,162,75,.4)}
+.thread-split>div{padding:24px 36px 0 0}
+.thread-split>div+div{padding:24px 0 0 36px;border-left:1px solid rgba(199,162,75,.4)}
+.thread-split h3{font:300 25px/1.2 var(--serif);letter-spacing:-.01em}
+.thread-split p{margin-top:6px;font-size:16px;color:var(--text-on-dark-body)}
+.thread .btn{margin-top:44px}
 
-.lens-head{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;
-  align-items:flex-end;margin-bottom:44px}
-/* 20ch, because "Three stakeholders," is nineteen characters and 14ch broke it after the
-   first word. The line breaks are explicit in the markup now, so text-wrap:balance is gone
-   with it: balance redistributes across lines a browser chose, and these were chosen here. */
-.lens-head h2{margin:10px 0 0;font:400 clamp(30px,3.8vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch}
-.lens-head .right{max-width:34ch}
-.lens-head .right p{margin:0}
+/* ---- who we work with ------------------------------------------------------------------ */
+.who-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px}
+.who-head>div{flex:1 1 auto;min-width:0}
+.who-head .btn{flex:none}
+.who-head h2{margin-top:18px;--h2:68}
+.who-head .t-lead{margin-top:14px;font-size:18px}
+.who-head .btn{white-space:nowrap}
+.whos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;
+  margin-top:clamp(36px,4vw,48px)}
+.who{display:flex;flex-direction:column;overflow:hidden;background:var(--sheet);
+  border:var(--border);border-radius:var(--r-card);box-shadow:var(--shadow)}
+.who-body{flex:1;display:flex;flex-direction:column;gap:12px;padding:28px}
+.who-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.who-top .t-label{color:var(--ink)}
+.who .t-num{--num:52}
+.who h3{margin-top:6px;font:600 clamp(24px,2.27vw,29px)/1.05 var(--serif);letter-spacing:-.015em}
+.who .link{font-size:14px;align-self:flex-start;margin-top:auto}
 
-/* EVERY BAND LINES UP ACROSS ALL THREE CARDS, and that needs subgrid rather than three
-   independent columns. Left to themselves the cards agreed on the eyebrow, the promise and
-   the description and then drifted: the descriptions are different lengths, so the explore
-   link started 1790, 1813, 1839 and the proof block inherited the same 49px of rag.
-   Bottom-aligning the feet hides half of it and leaves the tops ragged.
-
-   So .cols owns nine rows and each card spans all nine, taking its row sizes from the
-   parent. Every card's eyebrow shares a row with the other two, and so does every promise,
-   description, link, and each of the five lines inside the proof block. A long title in one
-   card now makes room in all three, which is the only way this stays true as the copy
-   changes. */
-.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  grid-template-rows:repeat(9,auto);column-gap:20px;align-items:stretch}
-.col{display:grid;grid-row:span 9;grid-template-rows:subgrid;row-gap:15px;
-  padding:34px 32px;background:var(--card);border:1px solid rgba(22,20,15,.22);
-  transition:transform .18s,box-shadow .18s,border-color .18s}
-
-/* Safari before 16 and Chrome before 117 have no subgrid. They fall back to the flex column
-   the cards had before, which keeps the feet level and accepts the rag above. */
-@supports not (grid-template-rows:subgrid){
-  .cols{grid-template-rows:none}
-  .col{display:flex;flex-direction:column;gap:15px}
-  .proof{display:flex;flex-direction:column;gap:10px}
-}
-.col:hover{transform:translateY(-3px);border-color:rgba(22,20,15,.34);
-  box-shadow:0 18px 40px -28px rgba(22,20,15,.55)}
-.col-top{display:flex;gap:16px;justify-content:space-between;align-items:baseline}
-.col-top .t-eyebrow{margin:0;letter-spacing:.18em}
-/* The index numeral. Faint by design and never fainter than the 3:1 bar, which is what
-   --text-numeral exists to hold. */
-.col-num{font:400 24px/1 var(--serif);color:var(--text-numeral)}
-.col h3{margin:0;font:400 clamp(26px,2.5vw,31px)/1.06 var(--serif);letter-spacing:-.01em;
-  color:var(--text);text-wrap:balance}
-.col-desc{margin:0;color:var(--text-body)}
-/* align-self:end lets the description row absorb slack while the link still sits on the row
-   it shares with the other two cards. */
-.col>.link-arrow{margin:0;align-self:end}
-
-/* The proof block takes the last five rows of the card's subgrid and passes them straight
-   through to its own children, so the label row, the title, the dek, the summary and the
-   foot each line up across all three. Its padding is what keeps the block reading as an
-   inset panel rather than five loose rows. */
-.proof{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:10px;
-  padding:20px;text-decoration:none;position:relative;
-  background:var(--proof);border:1px solid rgba(22,20,15,.16)}
-.proof:hover{border-color:rgba(22,20,15,.3)}
-
-/* The whole card is the link, when there is an essay to link to.
-   The overlay hangs off the foot anchor instead of wrapping the card in one. Wrapping would
-   nest an anchor inside an anchor, which is invalid, and would hand a screen reader the
-   card's entire text as the link name. This way the markup keeps one focusable link with
-   real text, and the card grows a click target around it.
-   It is also why this needs no condition. A card whose essay has not published yet renders
-   its foot as .proof-soon, which is a span, so there is no anchor, no overlay, and no click
-   through to a page that does not exist. The three cards are scheduled independently and two
-   of them are usually unpublished, so that is the normal state and not an edge case.
-   The overlay covers the card's text, so text inside a published card is no longer
-   selectable. That is the accepted cost of the pattern and the reason it is scoped to .proof
-   rather than applied to every card on the page. */
-.proof .link-arrow::after{content:"";position:absolute;inset:0}
-.proof .link-arrow:focus-visible{outline-offset:3px}
+/* The proof foot. The whole block is the click target when the essay is live: the overlay
+   hangs off the one real anchor, so the markup keeps a single link with real text and no
+   anchor wraps another. An unpublished essay renders a span there, so there is no overlay and
+   nothing to click through to. Kept from the v4 page, where the same reasoning is recorded. */
+.proof{position:relative;display:flex;flex-direction:column;gap:8px;padding:24px 28px;
+  background:var(--ink);color:var(--cream);transition:background-color .15s}
+.proof:has(.link-arrow):hover{background:var(--deep)}
 .proof-top{display:flex;justify-content:space-between;gap:12px}
-.proof-top .t-label{margin:0}
-.proof-title{margin:0;font:400 clamp(19px,1.8vw,22px)/1.2 var(--serif);color:var(--text);
+.proof-top .t-label{font-size:11px;color:var(--gold)}
+.proof-title{font:600 clamp(22px,2vw,26px)/1.1 var(--serif);letter-spacing:-.005em;
   text-wrap:balance}
-.proof-sum{margin:0;color:var(--text-body)}
-.proof-soon{display:inline-flex;align-items:center;gap:7px;min-height:44px;
-  font:700 13px/1 var(--sans);color:var(--text-muted)}
+.proof-dek{font:700 13px/1.45 var(--sans)}
+.proof-sum{font-size:13px;line-height:1.5;color:var(--text-on-dark-body)}
+.proof .link-arrow{font:700 13px/1.4 var(--sans);color:var(--cream);text-decoration:none;
+  min-height:32px;display:inline-flex;align-items:center}
+.proof .link-arrow::after{content:"";position:absolute;inset:0}
+.proof .link-arrow:focus-visible{outline-color:var(--gold)}
+.proof-soon{display:inline-flex;align-items:center;gap:7px;min-height:32px;
+  font:700 13px/1 var(--sans);color:var(--text-on-dark-muted)}
 .proof-soon svg{flex:none}
 
-/* ---- closing ---------------------------------------------------------------------------- */
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(32px,4.2vw,50px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-/* The closing button sat flush against the headline: .cta-block is a flex column with
-   no gap, so the only space was the button's own zero margin. Spacing the button alone
-   rather than adding a gap, because a gap would also push the eyebrow off the h2, which
-   is already set deliberately at 18px. */
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-.cta-block .sub{margin:18px 0 30px;max-width:44ch}
-
 /* ---- narrow ----------------------------------------------------------------------------- */
-@media(max-width:980px){
-  .cols{grid-template-columns:minmax(0,1fr)}
-  .lens-head{gap:22px;margin-bottom:32px}
-  .lens-head h2,.lens-head .right{max-width:none}
+@media(max-width:1024px){
+  .whos{grid-template-columns:minmax(0,1fr);max-width:620px}
 }
 @media(max-width:900px){
-  .caps{grid-template-columns:minmax(0,1fr)}
-  .indexband{grid-template-columns:minmax(0,1fr);justify-items:start}
-  .indexband-split{grid-template-columns:minmax(0,1fr)}
+  .thesis-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .who-head{flex-direction:column;align-items:flex-start}
 }
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .thesis-grid{grid-template-columns:minmax(0,1fr);gap:26px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
+@media(max-width:768px){
+  .thesis-h .not{white-space:normal}
+  .thread-split{grid-template-columns:minmax(0,1fr)}
+  .thread-split>div,.thread-split>div+div{padding:20px 0;border-left:0}
+  .thread-split>div+div{border-top:1px solid rgba(199,162,75,.4)}
+  .who{box-shadow:var(--shadow-sm)}
 }
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/" aria-label="Marga Partners, home"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true">marga<span class="wm-slash">/</span>partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <span class="nav-drop" data-open="false">
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
@@ -228,233 +157,241 @@
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
-    <div class="mark-layer" aria-hidden="true">
-      <div class="mark-col"><svg class="hero-mark" data-mark viewBox="0 0 394 321" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z"></path><path d="M125 104V321H5V215.047L125 104Z"></path><path d="M274 104L196 162L0 1H155.229L274 104Z"></path></svg></div>
-    </div>
+  <section class="hero center">
     <div class="inner">
       <p class="t-eyebrow">Commercialization strategy &amp; intelligence</p>
-      <h1>The strategy behind what actually <em>wins</em>.</h1>
-      <div class="hero-foot">
-        <p class="t-lead lead">Commercial counsel and market intelligence for medical aesthetics
-        and adjacent life sciences. Built to serve stakeholders across the industry:
-        manufacturers, investors, and practices.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="/the-marga-method.html">Explore how Marga thinks</a>
-          <a class="btn btn-outline" href="/Consultation.html">Discuss a decision</a>
-        </div>
+      <h1 class="t-h1">The strategy behind what actually <span class="mk mk-circle" data-draw="hero">wins.<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M40 18 C110 2 230 4 280 26 C304 40 296 74 250 88 C180 104 70 100 26 80 C-6 64 4 30 52 14"/></svg></span></h1>
+      <p class="t-lead">Commercial counsel and market intelligence for medical aesthetics
+      and adjacent life sciences. Built to serve stakeholders across the industry:
+      manufacturers, investors, and practices.</p>
+      <div class="cta-row">
+        <svg class="doodle doodle-arrow" viewBox="0 0 120 70" aria-hidden="true"><path
+          d="M6 10 C30 4 70 18 100 50"/><path d="M86 48 L101 52 L102 36"/></svg>
+        <a class="btn btn-primary" href="/Consultation.html">Discuss a decision
+          <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-secondary" href="/the-marga-method.html">Explore how Marga thinks</a>
       </div>
     </div>
   </section>
 
-  <section class="section thesis bg-sand2">
+  <section class="section bg-ink on-dark">
     <div class="inner">
       <p class="t-eyebrow">The thesis</p>
       <div class="thesis-grid">
-        <h2>Medical aesthetics is not pharma, not consumer healthcare, not luxury
-        retail. It is all three.</h2>
-        <div class="callout-light">
-          <p>It combines the science and regulation of one with the psychology and economics
-          of the others. Most firms specialize in one part of that system. Our founder has
-          led every one of them.</p>
-          <a class="link-arrow" href="/the-long-way-around.html">Our founder's story &rarr;</a>
+        <h2 class="thesis-h">
+          <span class="lead-in">Medical aesthetics is not</span>
+          <span class="not"><span class="mk mk-strike">pharma,<svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 C30 16 60 28 95 19 S160 12 200 17 L199 23 C165 19 130 27 95 27 S35 26 1 31Z"/></svg></span></span>
+          <span class="not">not <span class="mk mk-strike">consumer healthcare,<svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C40 26 70 12 110 20 S170 26 200 14 L200 20 C170 32 130 26 105 26 S35 32 0 27Z"/></svg></span></span>
+          <span class="not">not <span class="mk mk-strike">luxury retail.<svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 C50 12 90 24 130 16 S185 14 200 20 L199 26 C180 20 140 24 125 24 S50 20 1 25Z"/></svg></span></span>
+          <span class="is">It is <span class="mk mk-hl" data-draw>all three.<svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 C50 5 100 10 150 6 S190 5 198 8 C197 16 199 26 196 34 C140 36 90 32 45 36 S10 37 2 33 C4 24 1 16 3 9Z"/></svg></span></span>
+        </h2>
+        <div class="thesis-side">
+          <p class="t-lead">It combines the science and regulation of one with the psychology
+          and economics of the others. Most firms specialize in one part of that system. Our
+          founder has led every one of them.</p>
+          <a class="btn btn-secondary" href="/the-long-way-around.html">Our founder's story
+            &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section bg-sand">
+  <section class="section bg-cream">
     <div class="inner">
       <div class="cap-head">
         <p class="t-eyebrow">What Marga does</p>
-        <h2>Two capabilities.<br>One foundational framework.</h2>
+        <h2 class="t-h2">Two capabilities. One foundational <span class="mk mk-under" data-draw>framework.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M3 12 C50 4 120 5 197 9"/><path class="s s2" pathLength="1" d="M30 18 C80 13 140 14 182 16"/></svg></span></h2>
       </div>
-
-      <div class="caps">
-        <div class="cap">
+      <div class="caps grid-2">
+        <article class="card card-stack cap">
           <div class="cap-top">
-            <span class="t-label">Advisory</span>
-            <span class="cap-num" aria-hidden="true">01</span>
+            <p class="t-eyebrow">Advisory</p>
+            <span class="t-num" aria-hidden="true">01</span>
           </div>
-          <h3>Set the direction,<br>or the market sets it for you.</h3>
+          <h3 class="t-h3">Set the direction, or the market sets it for you.</h3>
           <p class="t-body">We help answer the commercial questions that decide where an asset
           competes and how far it gets. Brought in on a defined question, or retained as
           standing counsel to a team already in motion.</p>
-          <ul class="cap-list">
+          <ul class="dash-list cap-list">
             <li>Market and category analysis</li>
             <li>Commercial assessment and due diligence</li>
             <li>Portfolio and asset strategy</li>
             <li>Launch, pricing and lifecycle</li>
           </ul>
-          <a class="link-arrow" href="/for-manufacturers.html">Advisory for manufacturers
-          &rarr;</a>
-        </div>
-        <div class="cap">
+          <a class="link" href="/for-manufacturers.html">Advisory for manufacturers &rarr;</a>
+        </article>
+        <article class="card card-stack cap">
           <div class="cap-top">
-            <span class="t-label">Intelligence</span>
-            <span class="cap-num" aria-hidden="true">02</span>
+            <p class="t-eyebrow">Intelligence</p>
+            <span class="t-num" aria-hidden="true">02</span>
           </div>
-          <h3>Not more data.<br>An insider read on what it means.</h3>
+          <h3 class="t-h3">Not more data. An insider read on what it means.</h3>
           <p class="t-body">Market data tells you what shipped and what it cost. A Marga read
           tells you whether it will hold, scored the same way every time and interpreted by
           someone who has made these decisions from inside the industry.</p>
-          <ul class="cap-list">
+          <ul class="dash-list cap-list">
             <li>The Marga Index&trade;, scored and traceable</li>
             <li>Diligence reads on a named asset</li>
             <li>Standing category monitoring</li>
           </ul>
-          <a class="link-arrow" href="/the-marga-method.html">Review a sample read &rarr;</a>
-        </div>
-      </div>
-
-      <div class="indexband bg-ink on-dark">
-        <div class="indexband-copy">
-          <div>
-            <p class="t-eyebrow">The common thread</p>
-            <h3>Everything runs through the Marga Index&trade;.</h3>
-            <p class="t-body">Our proprietary framework for reading the market.</p>
-          </div>
-          <div class="indexband-split">
-            <div>
-              <span class="t-label">In advisory</span>
-              <span class="t-body">It frames the question and tests the answer.</span>
-            </div>
-            <div>
-              <span class="t-label">In intelligence</span>
-              <span class="t-body">It scores every read, the same way each time.</span>
-            </div>
-          </div>
-          <a class="link-arrow" href="/the-marga-method.html#index">How the Index works
-          &rarr;</a>
-        </div>
-        <svg class="index-mark" viewBox="0 0 200 200" role="img" aria-label="Abstract pentagon diagram representing the Marga Index framework"><polygon points="100,20 176.1,75.3 147,164.7 53,164.7 23.9,75.3" fill="none" stroke="#F1E9DB" stroke-opacity=".22" stroke-width="1"></polygon><polygon points="100,46.7 150.7,83.5 131.3,143.1 68.7,143.1 49.3,83.5" fill="none" stroke="#F1E9DB" stroke-opacity=".14" stroke-width="1"></polygon><polygon points="100,73.3 125.4,91.7 115.7,121.6 84.3,121.6 74.6,91.7" fill="none" stroke="#F1E9DB" stroke-opacity=".1" stroke-width="1"></polygon><line x1="100" y1="100" x2="100" y2="20" stroke="#F1E9DB" stroke-opacity=".14"></line><line x1="100" y1="100" x2="176.1" y2="75.3" stroke="#F1E9DB" stroke-opacity=".14"></line><line x1="100" y1="100" x2="147" y2="164.7" stroke="#F1E9DB" stroke-opacity=".14"></line><line x1="100" y1="100" x2="53" y2="164.7" stroke="#F1E9DB" stroke-opacity=".14"></line><line x1="100" y1="100" x2="23.9" y2="75.3" stroke="#F1E9DB" stroke-opacity=".14"></line><polygon points="100,32 145.7,85.2 135.3,148.5 76.5,132.4 46.7,82.7" fill="#C7A24B" fill-opacity=".16" stroke="#C7A24B" stroke-width="1.75"></polygon><circle cx="100" cy="32" r="3.5" fill="#C7A24B"></circle><circle cx="145.7" cy="85.2" r="3.5" fill="#C7A24B"></circle><circle cx="135.3" cy="148.5" r="3.5" fill="#C7A24B"></circle><circle cx="76.5" cy="132.4" r="3.5" fill="#C7A24B"></circle><circle cx="46.7" cy="82.7" r="3.5" fill="#C7A24B"></circle></svg>
+          <a class="link" href="/the-marga-method.html">Review a sample read &rarr;</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section bg-card2">
+  <section class="section bg-deep on-dark thread">
     <div class="inner">
-      <div class="lens-head">
+      <svg class="thread-mark" viewBox="0 0 394 321" aria-hidden="true"><path
+        d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"/><path d="M125 104V321H5V215.047L125 104Z"
+        fill="#F1E9DB"/><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"/></svg>
+      <p class="t-eyebrow">The common thread</p>
+      <h2 class="t-h2">Everything runs through the <span class="mk mk-circle" data-draw style="--mk-x:-3%">Marga Index&trade;.<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" style="--mk-w:3.6" d="M40 18 C110 2 230 4 280 26 C304 40 296 74 250 88 C180 104 70 100 26 80 C-6 64 4 30 52 14"/></svg></span></h2>
+      <p class="t-lead">Our proprietary framework for reading the market.</p>
+      <div class="thread-split">
         <div>
-          <p class="t-eyebrow">Who we work with</p>
-          <h2>Three stakeholders,<br>three objectives.</h2>
+          <h3>In advisory</h3>
+          <p>It frames the question and tests the answer.</p>
         </div>
-        <div class="right">
-          <p class="t-body t-muted">Each one comes with an essay that shows the thinking in
-          full, published ungated.</p>
-          <a class="link-arrow" href="/journal.html">View all insights &rarr;</a>
+        <div>
+          <h3>In intelligence</h3>
+          <p>It scores every read, the same way each time.</p>
         </div>
       </div>
-      <div class="cols">
-      <div class="col">
-        <div class="col-top">
-          <p class="t-eyebrow">Manufacturers</p>
-          <span class="col-num" aria-hidden="true">01</span>
+      <a class="btn btn-primary" href="/the-marga-method.html#index">How the Index works
+        &rarr;</a>
+    </div>
+  </section>
+
+  <section class="section bg-cream">
+    <div class="inner">
+      <div class="who-head">
+        <div>
+          <p class="t-eyebrow">Who we work with</p>
+          <h2 class="t-h2">Three stakeholders, three objectives.</h2>
+          <p class="t-lead">Each one comes with an essay that shows the thinking in full,
+          published ungated.</p>
         </div>
-        <h3>Turn an asset into a franchise.</h3>
-        <p class="t-body col-desc">Shape the product, evidence, positioning, launch and lifecycle as one connected system instead of six sequential handoffs.</p>
-        <a class="link-arrow" href="/for-manufacturers.html">Explore manufacturer strategy &rarr;</a>
-        <div class="proof">
+        <a class="btn btn-secondary" href="/journal.html">View all insights &rarr;</a>
+      </div>
+      <div class="whos">
+      <article class="who">
+        <div class="who-body">
+          <div class="who-top">
+            <p class="t-label">Manufacturers</p>
+            <span class="t-num" aria-hidden="true">01</span>
+          </div>
+          <h3>Turn an asset into a franchise.</h3>
+          <p class="t-small">Shape the product, evidence, positioning, launch and lifecycle as one connected system instead of six sequential handoffs.</p>
+          <a class="link" href="/for-manufacturers.html">Explore manufacturer strategy &rarr;</a>
+        </div>
+        <div class="proof on-dark">
           <div class="proof-top">
             <span class="t-label">The proof</span>
             <span class="t-label">6 min</span>
           </div>
           <p class="proof-title">Every Injectable Launch Needs a Touch-Up</p>
-          <p class="t-dek">A launch is a first pass, not a finished result</p>
-          <p class="t-small proof-sum">The discipline is knowing what to refine once the real world talks back.</p>
+          <p class="proof-dek">A launch is a first pass, not a finished result</p>
+          <p class="proof-sum">The discipline is knowing what to refine once the real world talks back.</p>
           <!--PROOF1:every-injectable-launch--><a class="link-arrow" href="/every-injectable-launch.html">Read the essay &rarr;</a><!--/PROOF1-->
         </div>
-      </div>
-      <div class="col">
-        <div class="col-top">
-          <p class="t-eyebrow">Investors</p>
-          <span class="col-num" aria-hidden="true">02</span>
+      </article>
+      <article class="who">
+        <div class="who-body">
+          <div class="who-top">
+            <p class="t-label">Investors</p>
+            <span class="t-num" aria-hidden="true">02</span>
+          </div>
+          <h3>See what the market has not priced in.</h3>
+          <p class="t-small">Test the durability of demand, the credibility of adoption assumptions and the exposures sitting behind an asset or a category.</p>
+          <a class="link" href="/for-investors.html">Explore investor intelligence &rarr;</a>
         </div>
-        <h3>See what the market has not priced in.</h3>
-        <p class="t-body col-desc">Test the durability of demand, the credibility of adoption assumptions and the exposures sitting behind an asset or a category.</p>
-        <a class="link-arrow" href="/for-investors.html">Explore investor intelligence &rarr;</a>
-        <div class="proof">
+        <div class="proof on-dark">
           <div class="proof-top">
             <span class="t-label">The proof</span>
             <span class="t-label">9 min</span>
           </div>
           <p class="proof-title">Filler Isn&#x27;t Dying. It&#x27;s Being Killed by Its Own Worst Results.</p>
-          <p class="t-dek">Why the market isn&#x27;t just correcting</p>
-          <p class="t-small proof-sum">The category is not correcting. It is absorbing the reputational cost of its own worst outcomes.</p>
+          <p class="proof-dek">Why the market isn&#x27;t just correcting</p>
+          <p class="proof-sum">The category is not correcting. It is absorbing the reputational cost of its own worst outcomes.</p>
           <!--PROOF2:filler-fear--><a class="link-arrow" href="/filler-fear.html">Read the essay &rarr;</a><!--/PROOF2-->
         </div>
-      </div>
-      <div class="col">
-        <div class="col-top">
-          <p class="t-eyebrow">Providers</p>
-          <span class="col-num" aria-hidden="true">03</span>
+      </article>
+      <article class="who">
+        <div class="who-body">
+          <div class="who-top">
+            <p class="t-label">Providers</p>
+            <span class="t-num" aria-hidden="true">03</span>
+          </div>
+          <h3>Build advantage at the point of care.</h3>
+          <p class="t-small">Positioning, treatment economics, manufacturer leverage and the patient relationships that compound instead of churn.</p>
+          <a class="link" href="/for-providers.html">Explore the provider community &rarr;</a>
         </div>
-        <h3>Build advantage at the point of care.</h3>
-        <p class="t-body col-desc">Positioning, treatment economics, manufacturer leverage and the patient relationships that compound instead of churn.</p>
-        <a class="link-arrow" href="/for-providers.html">Explore the provider community &rarr;</a>
-        <div class="proof">
+        <div class="proof on-dark">
           <div class="proof-top">
             <span class="t-label">The proof</span>
             <span class="t-label">7 min</span>
           </div>
           <p class="proof-title">Trust Is the Only Moat Left in Aesthetics</p>
-          <p class="t-dek">Why the oldest products still win</p>
-          <p class="t-small proof-sum">Every advantage in this category is copyable except the one that took twenty years to earn.</p>
+          <p class="proof-dek">Why the oldest products still win</p>
+          <p class="proof-sum">Every advantage in this category is copyable except the one that took twenty years to earn.</p>
           <!--PROOF3:trust-compounds--><a class="link-arrow" href="/trust-compounds.html">Read the essay &rarr;</a><!--/PROOF3-->
         </div>
-      </div>
+      </article>
       </div>
     </div>
   </section>
 
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">Get started</p>
-      <h2>The decisions that shape the whole path deserve a full view.</h2>
+      <h2 class="t-h2">The decisions that shape the whole path deserve a <span class="mk mk-under" data-draw>full view.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" style="--mk-w:4" d="M3 12 C50 4 120 5 197 9"/><path class="s s2" pathLength="1" d="M30 18 C80 13 140 14 182 16"/></svg></span></h2>
       <p class="t-lead sub">Bring the launch, deal, or growth question into focus.</p>
-      <a class="btn btn-primary" href="/Consultation.html">Start a conversation</a>
+      <a class="btn btn-primary btn-lg" href="/Consultation.html">Start a conversation <span aria-hidden="true">&rarr;</span></a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
-
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script>
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm">marga<span class="wm-slash">/</span>partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script>
 </body></html>
