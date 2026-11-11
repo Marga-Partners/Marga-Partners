@@ -601,20 +601,24 @@ main{display:block}
    Inputs are 2px ink on card cream with a 10px radius, everywhere. The markup is unchanged: the
    MargaZine signup (margazine_signup in v4_chrome), the providers join gate, and the note that
    marga-prefill.js inserts when it has filled a field. Labels keep the v3 rule that a label is
-   uppercase Manrope 700 on the label tracking token, in the accent that clears AA. */
+   uppercase Manrope 700 on the label tracking token, in the accent that clears AA.
+
+   NOT A BARE .gate. The essays use .gate for the email gate's container and benchmark.html has
+   its own; v3 kept the join gate's rules out of the shared sheet for exactly that reason. The
+   providers block is .gate-join, so nothing here can reach either. */
 .mz-head{max-width:60ch}
 .mz-head .t-h2{margin-top:16px}
 .mz-head .t-lead{margin-top:18px}
 .mz-form{margin-top:clamp(26px,3vw,34px)}
-.mz-row,.gate{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px}
+.mz-row,.gate-join{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px}
 .gate-f,.mz-f{display:grid;min-width:0}
 .mz-l,.gate-l{display:block;font:700 12px/1.3 var(--sans);letter-spacing:var(--track-label);
   text-transform:uppercase;color:var(--text-accent);margin-bottom:10px}
 .mz-opt{margin-left:8px;color:var(--text-muted)}
-.mz-form input[type=text],.mz-form input[type=email],.mz-form select,.gate input,.gate select{
+.mz-form input[type=text],.mz-form input[type=email],.mz-form select,.gate-join input,.gate-join select{
   width:100%;min-height:48px;padding:12px 14px;border:var(--border);border-radius:var(--r-btn);
   background:var(--card);color:var(--ink);font:500 16px/1.4 var(--sans)}
-.mz-form input:focus,.mz-form select:focus,.gate input:focus,.gate select:focus{
+.mz-form input:focus,.mz-form select:focus,.gate-join input:focus,.gate-join select:focus{
   outline:2px solid var(--text-accent);outline-offset:2px}
 .mz-consent{display:flex;align-items:flex-start;gap:12px;margin:22px 0 0;max-width:66ch;
   font:400 15px/1.55 var(--sans);color:var(--text-body);cursor:pointer}
