@@ -18,93 +18,70 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.margapartners.com/for-providers.html#page","url":"https://www.margapartners.com/for-providers.html","name":"For Providers","description":"Growth strategy for practices across aesthetics and life science: digital marketing and SEO for AI and Google, vendor leverage, and practice operations.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US","breadcrumb":{"@id":"https://www.margapartners.com/for-providers.html#crumbs"}},{"@type":"BreadcrumbList","@id":"https://www.margapartners.com/for-providers.html#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.margapartners.com/"},{"@type":"ListItem","position":2,"name":"Who we serve"},{"@type":"ListItem","position":3,"name":"For providers"}]}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
-<style>
-/* Audience-page layout. Everything else comes from /assets/marga-v3.css */
-.section{padding:88px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
-.bg-card-solid{background:var(--card)}
-
-.hero{position:relative;padding:calc(var(--pad-hero-top) + 10px) 0 84px;overflow:hidden}
-.hero h1{margin:0;font:400 clamp(38px,5.6vw,72px)/.98 var(--serif);letter-spacing:-.03em;
-  color:var(--cream);max-width:15ch;text-wrap:balance}
-.hero .lead{margin:34px 0 0;max-width:56ch}
-.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-
-.t-h2{margin:12px 0 0;font:400 clamp(28px,3.6vw,48px)/1.06 var(--serif);letter-spacing:-.015em;
-  max-width:20ch;text-wrap:balance}
-.qgrid,.numgrid{margin:34px 0 0;padding:0}
-.num-foot{margin:22px 0 0;color:var(--text-muted)}
-.split-head .t-h2{margin-top:10px}
-.prose-p{max-width:62ch;margin:22px 0 0}
-.section>.inner>.link-arrow{display:inline-flex;margin-top:24px}
-
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(30px,4vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-/* The closing button sat flush against the headline: .cta-block is a flex column with
-   no gap, so the only space was the button's own zero margin. Spacing the button alone
-   rather than adding a gap, because a gap would also push the eyebrow off the h2, which
-   is already set deliberately at 18px. */
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-.cta-block .sub{margin:18px 0 30px;max-width:46ch}
-
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=e15454bf45">
+<style>.hero .t-h1{--h1:112;margin-top:26px;max-width:9.5em}
+.hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end;
+  margin-top:clamp(28px,3.4vw,44px)}
+.hero-foot .t-lead{max-width:31em}
+.section .t-h2{margin-top:20px}
+.num-link{display:inline-block;margin-top:28px}
+.nums{list-style:none;margin:clamp(36px,4vw,52px) 0 0;padding:0}
+.nums li{display:flex;flex-direction:column;gap:8px}
+.nums .t-num{--num:40}
+.nums h3{margin-top:10px;font:600 clamp(21px,1.9vw,24px)/1.12 var(--serif)}
+.nums p{font-size:15px;line-height:1.55;color:var(--text-body)}
+.nums-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.nums-cards.n4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.nums-cards li{background:var(--card);border:var(--border);border-radius:var(--r-card);
+  box-shadow:var(--shadow);padding:30px}
+.nums-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px}
+.nums-steps li{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:12px;
+  padding:26px 0;border-top:1px solid rgba(199,162,75,.4)}
+.nums-steps .t-num{--num:30;grid-row:span 2;line-height:1.2}
+.nums-steps h3{margin:0;font:300 clamp(24px,2.3vw,30px)/1.15 var(--serif);color:var(--cream)}
+.nums-steps p{color:var(--text-on-dark-body);margin-top:6px}
+.prose{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px 64px;align-items:start}
+.prose .t-h2{--h2:58;line-height:1.05}
+.prose-body{display:flex;flex-direction:column;gap:20px}
+.prose-body .t-lead{font-size:18px;line-height:1.6;max-width:none}
+.prose-body .btn,.prose-body .link{align-self:flex-start;margin-top:4px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 48px;align-items:center}
+.split .t-h2{--h2:48;line-height:1.05}
+.split-rich{align-items:start}
+.roster{display:grid;gap:12px;margin:0;padding:0;list-style:none;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.roster li{padding:16px 18px;background:var(--card);border:var(--border);border-radius:var(--r-btn)}
+.roster b{display:block;font:700 15px/1.35 var(--sans)}
+.roster span{display:block;margin-top:6px;font-size:14px;line-height:1.5;color:var(--text-body)}
+.gate-lead{margin-top:18px;max-width:40em}
+.gate-card{margin-top:clamp(28px,3vw,40px)}
+.gate-consent{margin-top:22px;max-width:62ch}
+.gate-go{display:flex;align-items:center;gap:16px 22px;flex-wrap:wrap;margin-top:26px}
+.gate-go p{max-width:62ch}
+@media(max-width:1024px){
+.nums-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
-/* ---- the Exchange join gate ----------------------------------------------------------------
-   IT RIDES has_gate, NOT has_qx. These rules were inside QX_CSS, and the question explorer is on
-   for-manufacturers.html while the gate markup is on for-providers.html. So the page with no gate
-   carried every gate rule, the page with the six elements carried none, and each label sat inline
-   against its input with the form reading as one run of text. `has_gate` already existed for the
-   prefill script; the CSS now answers the same question the script does.
-
-   Not in marga-v3.css, because the essay pages use a bare `.gate` for a width container and a
-   shared rule would reach them. */
-.gate{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
-  gap:18px;margin-top:32px}
-.gate-f{display:grid;min-width:0}
-.gate-l{display:block;font:700 10px/1 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase;
-  color:var(--text-accent);margin-bottom:10px}
-.gate input,.gate select{font:400 15px/1.5 var(--sans);color:var(--text);background:var(--card);
-  border:1px solid rgba(22,20,15,.24);padding:14px 16px;width:100%;min-height:48px;border-radius:0}
-.gate input:focus,.gate select:focus{border-color:var(--gold);outline:2px solid var(--gold);
-  outline-offset:-2px}
-.gate-consent{margin:22px 0 0;max-width:62ch;color:var(--text-muted)}
-.gate-go{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:28px}
-.gate-go p{margin:0;max-width:62ch}
-
-/* ---- who belongs -----------------------------------------------------------------------------
-   `.chips` is a short label component, 13px on a line-height of 1, and it is used correctly on the
-   investors and manufacturers pages for bare words like "Asset diligence". On providers each item
-   is a profile AND a sentence about it, so the two ran together as "Injectors and core cliniciansThe
-   hands that decide" and the boxes came out ragged at four different widths.
-
-   A separate class rather than an override, so the chip component keeps working where it is right. */
-.roster{display:grid;gap:10px;margin:0;padding-top:8px;list-style:none;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
-.roster li{padding:15px 17px;background:var(--cream);border:1px solid rgba(22,20,15,.24)}
-.roster b{display:block;font:700 14px/1.35 var(--sans);color:var(--text)}
-.roster span{display:block;margin-top:6px;font:400 13px/1.5 var(--sans);color:var(--text-body)}
-.on-dark .roster li{background:rgba(241,233,219,.06);border-color:rgba(241,233,219,.22)}
-.on-dark .roster b{color:var(--text-on-dark)}
-.on-dark .roster span{color:var(--text-on-dark-body)}
+@media(max-width:900px){
+.prose,.split{grid-template-columns:minmax(0,1fr)}
+.nums-steps{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:768px){
+.hero-foot{grid-template-columns:minmax(0,1fr)}
+.hero-foot .btn{justify-self:stretch}
+.nums-cards,.nums-cards.n4{grid-template-columns:minmax(0,1fr)}
+.nums-cards li{box-shadow:var(--shadow-sm)}
+.nums-steps li{grid-template-columns:44px minmax(0,1fr)}
+}
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
-      <span class="nav-drop" data-open="false">
+      <span class="nav-drop" data-open="false" data-current>
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
           <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4"
             stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -129,56 +106,59 @@
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
-    <div class="mark-layer" aria-hidden="true">
-      <div class="mark-col"><svg class="hero-mark" data-mark viewBox="0 0 394 321" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z"></path><path d="M125 104V321H5V215.047L125 104Z"></path><path d="M274 104L196 162L0 1H155.229L274 104Z"></path></svg></div>
-    </div>
+  <section class="hero">
     <div class="inner">
       <p class="t-eyebrow">For providers</p>
-      <h1>The people who treat patients should shape the category.</h1>
-      <p class="t-lead lead">Manufacturers research you. Investors model you. Almost no one gives the intelligence back. The Marga Exchange is built to change that.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="/exchange-survey.html">Join the Marga Exchange</a>
+      <h1 class="t-h1">The people who treat patients should shape the <span class="mk mk-under" data-draw="hero">category.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M3 12 C50 4 120 5 197 9"/><path class="s s2" pathLength="1" d="M30 18 C80 13 140 14 182 16"/></svg></span></h1>
+      <div class="hero-foot">
+        <p class="t-lead">Manufacturers research you. Investors model you. Almost no one gives the intelligence back. The Marga Exchange is built to change that.</p>
+        <a class="btn btn-primary btn-arrow" href="/exchange-survey.html">Join the Marga Exchange</a>
       </div>
     </div>
   </section>
 
-  <section class="section bg-sand2">
+  <section class="section bg-ink on-dark">
     <div class="inner">
+      <div class="prose">
+        <div>
       <p class="t-eyebrow">The Marga Exchange</p>
       <h2 class="t-h2">A working community, not a mailing list.</h2>
-      <p class="t-lead prose-p">A working network of injectors, dermatologists, plastic surgeons and practice owners whose judgment informs Marga Intelligence. Members contribute what they see in the chair, and get back the view no single practice can assemble alone.</p>
-      <p class="t-lead prose-p">Open to anyone who treats patients or runs a practice. Participation is voluntary, and what you get back scales with what the panel puts in.</p>
+        </div>
+        <div class="prose-body">
+          <p class="t-lead">A working network of injectors, dermatologists, plastic surgeons and practice owners whose judgment informs Marga Intelligence. Members contribute what they see in the chair, and get back the view no single practice can assemble alone.</p>
+          <p class="t-lead">Open to anyone who treats patients or runs a practice. Participation is voluntary, and what you get back scales with what the panel puts in.</p>
+        </div>
+      </div>
     </div>
   </section>
   <section class="section bg-cream">
     <div class="inner">
       <p class="t-eyebrow">What membership gives you</p>
       <h2 class="t-h2">Four things you cannot get on your own.</h2>
-      <ul class="numgrid">
-        <li><span class="n" aria-hidden="true">01</span><h3>Benchmarking</h3><p>See your pricing, product mix, retention and per-patient economics against comparable practices. Anonymized, normalized, and sharper as the panel grows.</p></li>
-        <li><span class="n" aria-hidden="true">02</span><h3>Bespoke market research</h3><p>Opportunities to participate in commissioned studies for manufacturers, investors and boards. Your read on a product reaches the people making the decision.</p></li>
-        <li><span class="n" aria-hidden="true">03</span><h3>Exclusive events</h3><p>Small closed-door sessions and dinners with peers who run practices at your level, plus the occasional manufacturer in the room answering real questions.</p></li>
-        <li><span class="n" aria-hidden="true">04</span><h3>Category intelligence</h3><p>Member briefings on what is coming, what is being oversold, and what the data actually supports, before it reaches a conference stage.</p></li>
+      <ul class="nums nums-cards n4">
+        <li><span class="t-num" aria-hidden="true">01</span><h3>Benchmarking</h3><p>See your pricing, product mix, retention and per-patient economics against comparable practices. Anonymized, normalized, and sharper as the panel grows.</p></li>
+        <li><span class="t-num" aria-hidden="true">02</span><h3>Bespoke market research</h3><p>Opportunities to participate in commissioned studies for manufacturers, investors and boards. Your read on a product reaches the people making the decision.</p></li>
+        <li><span class="t-num" aria-hidden="true">03</span><h3>Exclusive events</h3><p>Small closed-door sessions and dinners with peers who run practices at your level, plus the occasional manufacturer in the room answering real questions.</p></li>
+        <li><span class="t-num" aria-hidden="true">04</span><h3>Category intelligence</h3><p>Member briefings on what is coming, what is being oversold, and what the data actually supports, before it reaches a conference stage.</p></li>
       </ul>
-      <a class="link-arrow" href="/benchmark.html">See where your practice stands &rarr;</a>
+      <a class="link num-link" href="/benchmark.html">See where your practice stands &rarr;</a>
     </div>
   </section>
-  <section class="section bg-sand">
+  <section class="section bg-deep on-dark">
     <div class="inner">
       <p class="t-eyebrow">How it works</p>
-      <h2 class="t-h2">Light commitment. Real signal.</h2>
-      <ul class="numgrid">
-        <li><span class="n" aria-hidden="true">01</span><h3>Join</h3><p>A short form: who you are, where you practise and what you do. No cost, no committee.</p></li>
-        <li><span class="n" aria-hidden="true">02</span><h3>Contribute when it suits you</h3><p>The benchmark survey opens as soon as you join, then one short survey a quarter. Deeper studies are always optional.</p></li>
-        <li><span class="n" aria-hidden="true">03</span><h3>Receive the benchmark</h3><p>Your position against the panel, plus the member briefing each cycle.</p></li>
-        <li><span class="n" aria-hidden="true">04</span><h3>Come to the table</h3><p>Invitations to closed sessions and to research the industry is actually paying for.</p></li>
+      <h2 class="t-h2">Light commitment. <span class="mk mk-circle" data-draw>Real signal.<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M40 18 C110 2 230 4 280 26 C304 40 296 74 250 88 C180 104 70 100 26 80 C-6 64 4 30 52 14"/></svg></span></h2>
+      <ul class="nums nums-steps n4">
+        <li><span class="t-num" aria-hidden="true">01</span><h3>Join</h3><p>A short form: who you are, where you practise and what you do. No cost, no committee.</p></li>
+        <li><span class="t-num" aria-hidden="true">02</span><h3>Contribute when it suits you</h3><p>The benchmark survey opens as soon as you join, then one short survey a quarter. Deeper studies are always optional.</p></li>
+        <li><span class="t-num" aria-hidden="true">03</span><h3>Receive the benchmark</h3><p>Your position against the panel, plus the member briefing each cycle.</p></li>
+        <li><span class="t-num" aria-hidden="true">04</span><h3>Come to the table</h3><p>Invitations to closed sessions and to research the industry is actually paying for.</p></li>
       </ul>
     </div>
   </section>
   <section class="section bg-cream">
     <div class="inner">
-      <div class="split-head">
+      <div class="split split-rich">
         <div>
       <p class="t-eyebrow">Who belongs</p>
       <h2 class="t-h2">Built for people carrying real decisions.</h2>
@@ -192,21 +172,28 @@
       </div>
     </div>
   </section>
-  <section class="section bg-card-solid">
+  <section class="section bg-sheet">
     <div class="inner">
+      <div class="prose">
+        <div>
       <p class="t-eyebrow">Beyond the Exchange</p>
       <h2 class="t-h2">Direct advisory work for practices is taken on selectively.</h2>
-      <p class="t-lead prose-p">Product and vendor economics, service-line strategy, and patient value work, from someone who spent thirteen years setting the pricing and loyalty terms practices negotiate against.</p>
-      <p class="t-lead prose-p">Nothing you share is attributed without your consent, and no manufacturer buys access to the panel.</p>
-      <a class="link-arrow" href="/Consultation.html?type=providers">Discuss an engagement &rarr;</a>
+        </div>
+        <div class="prose-body">
+          <p class="t-lead">Product and vendor economics, service-line strategy, and patient value work, from someone who spent thirteen years setting the pricing and loyalty terms practices negotiate against.</p>
+          <p class="t-lead">Nothing you share is attributed without your consent, and no manufacturer buys access to the panel.</p>
+          <a class="link" href="/Consultation.html?type=providers">Discuss an engagement &rarr;</a>
+        </div>
+      </div>
     </div>
   </section>
-  <section class="section bg-sand">
+  <section class="section bg-ink on-dark">
     <div class="inner">
       <p class="t-eyebrow">Step one of two</p>
       <h2 class="t-h2">Tell us who you are.</h2>
-      <p class="t-lead prose-p">A short form, then the benchmark survey opens. Nothing you tell us reaches a manufacturer beyond what is already on the public record, and nothing is attributed to you without your written consent.</p>
-      <div class="gate">
+      <p class="t-lead gate-lead">A short form, then the benchmark survey opens. Nothing you tell us reaches a manufacturer beyond what is already on the public record, and nothing is attributed to you without your written consent.</p>
+      <div class="card card-gold gate-card">
+      <div class="gate-join">
         <div class="gate-f"><label class="gate-l" for="g-name">Your name</label><input id="g-name" type="text" name="name" placeholder="Jordan Reyes"></div>
         <div class="gate-f"><label class="gate-l" for="g-email">Work email</label><input id="g-email" type="email" name="email" placeholder="you@practice.com"></div>
         <div class="gate-f"><label class="gate-l" for="g-company">Practice or organization</label><input id="g-company" type="text" name="company" placeholder="Example Aesthetics"></div>
@@ -222,6 +209,7 @@
       <div class="gate-go">
         <a class="btn btn-primary" href="/exchange-survey.html">Continue to the survey</a>
         <p class="t-small">The benchmark survey takes about six minutes and every question is optional. Already a member? The survey is always open. <a class="link-arrow" href="/exchange-survey.html">Go straight to it &rarr;</a></p>
+      </div>
       </div>
     </div>
   </section>
@@ -269,53 +257,55 @@
       </form>
     </div>
   </section>
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">Get started</p>
-      <h2>The more people in the room, the sharper the picture gets.</h2>
-      <a class="btn btn-primary" href="/exchange-survey.html">Join the Exchange</a>
+      <h2 class="t-h2">The more people in the room, the sharper the picture gets.</h2>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/exchange-survey.html">Join the Exchange</a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
-
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script>
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script>
 </body></html>

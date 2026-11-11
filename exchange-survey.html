@@ -18,94 +18,71 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.margapartners.com/exchange-survey.html#page","url":"https://www.margapartners.com/exchange-survey.html","name":"The Marga Exchange benchmark survey","description":"The Marga Exchange benchmark survey: how your practice compares on pricing, product mix, retention and vendor terms. Aggregated and anonymized, and about six minutes.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US","breadcrumb":{"@id":"https://www.margapartners.com/exchange-survey.html#crumbs"}},{"@type":"BreadcrumbList","@id":"https://www.margapartners.com/exchange-survey.html#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.margapartners.com/"},{"@type":"ListItem","position":2,"name":"Benchmark survey"}]}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=e15454bf45">
 <style>
-/* Exchange benchmark survey. Everything else comes from /assets/marga-v3.css */
-.section{padding:88px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
-
-.hero{position:relative;padding:calc(var(--pad-hero-top) + 10px) 0 84px;overflow:hidden}
-.hero h1{margin:0;font:400 clamp(38px,5.6vw,72px)/.98 var(--serif);letter-spacing:-.03em;
-  color:var(--cream);max-width:16ch;text-wrap:balance}
-.hero .lead{margin:28px 0 0;max-width:54ch}
+/* The Exchange benchmark survey, on /assets/marga-v4.css. Every class, name and id the form
+   carries is unchanged; this is its look. */
+.hero .t-h1{--h1:88;margin-top:24px;max-width:11em}
+.hero .t-lead{margin-top:28px;max-width:32em}
 .ex-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:44px}
-.ex-time{flex:none;max-width:280px;padding:24px 28px;background:rgba(241,233,219,.07);
-  border:1px solid var(--line-dark)}
-.ex-time .n{font:400 44px/1 var(--serif);color:var(--cream)}
-.ex-time p{margin:14px 0 0}
+.ex-time{flex:none;max-width:300px}
+.ex-time .n{margin-top:8px;font:300 52px/1 var(--serif);color:var(--ink)}
+.ex-time p:last-child{margin-top:12px;font-size:15px;line-height:1.55;color:var(--text-body)}
 
-.ex-wrap{padding-top:0}
-.ex-form{display:grid;grid-template-columns:.32fr .68fr;gap:clamp(28px,4vw,56px);
-  align-items:start;padding-top:clamp(40px,5vw,60px)}
-.ex-jump{position:sticky;top:110px;display:flex;flex-direction:column;
-  background:var(--card);border:1px solid var(--hair);padding:8px 0}
-.ex-jump a{padding:13px 22px;font:600 13px/1.4 var(--sans);color:var(--text-body)}
+.ex-form{display:grid;grid-template-columns:.32fr .68fr;gap:clamp(28px,4vw,56px);align-items:start}
+.ex-jump{position:sticky;top:calc(var(--nav-clear) + 12px);display:flex;flex-direction:column;
+  padding:8px 0;background:var(--card);border:var(--border);border-radius:var(--r-card);box-shadow:var(--shadow-sm)}
+.ex-jump a{padding:12px 22px;font:700 14px/1.4 var(--sans);color:var(--ink);text-decoration:none}
 .ex-jump a:hover{background:var(--cream);color:var(--text-accent)}
-.ex-body{display:grid;gap:18px}
+.ex-body{display:grid;gap:28px}
 
-.ex-sec{background:var(--card);border:1px solid var(--hair);padding:clamp(26px,3.4vw,42px)}
-.ex-sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
-.ex-num{font:600 11px/1 var(--mono);letter-spacing:.16em;color:var(--text-accent)}
-.ex-sec h2{margin:0;font:400 30px/1.06 var(--serif);color:var(--text)}
+.ex-sec{background:var(--card);border:var(--border);border-radius:var(--r-card);box-shadow:var(--shadow);
+  padding:clamp(26px,3.4vw,40px)}
+.ex-sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px}
+.ex-num{font:italic 400 34px/.8 var(--numerals);color:var(--bronze)}
+.ex-sec h2{margin:0;font:600 clamp(26px,2.6vw,32px)/1.08 var(--serif);letter-spacing:-.015em;color:var(--ink)}
 
 .ex-f{display:block;margin:0 0 22px;border:0;padding:0}
 .ex-f:last-child{margin-bottom:0}
-/* A number input carries a hint saying what the figure buys the respondent, because a practice
-   asked for revenue with no reason given answers a smaller question than one that knows it is
-   buying a benchmark. It has to sit under the control, not beside it: as an inline span it ran
-   alongside a browser-default number box and read as a caption on the wrong thing. */
-.ex-hint{display:block;margin-top:7px;font:400 13px/1.5 var(--sans);color:var(--text-muted)}
+/* The hint says what a figure buys the respondent, and sits under its control. */
+.ex-hint{display:block;margin-top:8px;font-size:14px;line-height:1.5;color:var(--text-body)}
 /* Number spinners are noise on a form of figures, and they narrow the control in Safari. */
-.ex-form input[type=number]{-moz-appearance:textfield;max-width:220px}
+.ex-form input[type=number]{-moz-appearance:textfield;max-width:240px}
 .ex-form input[type=number]::-webkit-outer-spin-button,
 .ex-form input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.ex-lab{display:block;font:700 10px/1 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase;
+.ex-lab{display:block;font:700 12px/1.3 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase;
   color:var(--text-accent);margin-bottom:10px;padding:0}
-.ex-req{margin-left:8px;letter-spacing:.1em;color:var(--text-muted)}
+.ex-req{margin-left:8px;color:var(--text-body)}
 .ex-form input[type=text],.ex-form input[type=email],.ex-form input[type=number],.ex-form select,.ex-form textarea{
-  font:400 15px/1.5 var(--sans);color:var(--text);background:var(--card);
-  border:1px solid rgba(22,20,15,.24);padding:14px 16px;width:100%}
-.ex-form input:focus,.ex-form select:focus,.ex-form textarea:focus{
-  border-color:var(--gold);outline:2px solid var(--text-accent);outline-offset:2px}
+  width:100%;min-height:48px;padding:12px 14px;background:var(--card);color:var(--ink);border:var(--border);
+  border-radius:var(--r-btn);font:500 16px/1.4 var(--sans)}
+.ex-form input:focus,.ex-form select:focus,.ex-form textarea:focus{outline:2px solid var(--text-accent);outline-offset:2px}
 
 .ex-checks{display:flex;flex-wrap:wrap;gap:10px}
-.ex-check{display:flex;align-items:center;gap:10px;border:1px solid rgba(22,20,15,.24);
-  background:var(--card);padding:12px 16px;font:500 13.5px/1 var(--sans);color:var(--text);
-  cursor:pointer}
-.ex-check:hover{border-color:var(--text-accent)}
-.ex-check input{width:15px;height:15px;accent-color:var(--text-accent);margin:0}
+.ex-check{display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 16px;background:var(--card);
+  border:var(--border);border-radius:var(--r-btn);font:700 14px/1.2 var(--sans);color:var(--ink);cursor:pointer}
+.ex-check:hover{background:var(--sand-hover)}
+.ex-check:has(input:checked){background:var(--gold)}
+.ex-check input{width:16px;height:16px;accent-color:var(--ink);margin:0}
 
-.ex-submit{display:flex;align-items:center;justify-content:space-between;gap:24px;
-  flex-wrap:wrap;border:1px solid var(--hair);padding:clamp(26px,3.4vw,42px)}
-.ex-submit p{margin:0;max-width:52ch}
-
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(30px,4vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-.cta-block .sub{margin:18px 0 30px;max-width:46ch}
+.ex-submit{display:flex;align-items:center;justify-content:space-between;gap:20px 24px;flex-wrap:wrap;
+  padding:clamp(26px,3.4vw,40px);background:var(--cream);border:var(--border);border-radius:var(--r-card)}
+.ex-submit p{max-width:52ch}
 
 @media(max-width:900px){
   .ex-form{grid-template-columns:minmax(0,1fr)}
   .ex-jump{position:static;flex-direction:row;flex-wrap:wrap;padding:8px}
   .ex-hero{flex-direction:column;align-items:flex-start}
 }
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
-}
+@media(max-width:768px){.ex-sec{box-shadow:var(--shadow-sm)}}
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <span class="nav-drop" data-open="false">
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
@@ -132,19 +109,16 @@
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
-    <div class="mark-layer" aria-hidden="true">
-      <div class="mark-col"><svg class="hero-mark" data-mark viewBox="0 0 394 321" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z"></path><path d="M125 104V321H5V215.047L125 104Z"></path><path d="M274 104L196 162L0 1H155.229L274 104Z"></path></svg></div>
-    </div>
+  <section class="hero">
     <div class="inner ex-hero">
       <div>
         <p class="t-eyebrow">The Marga Exchange &middot; Benchmark survey</p>
-        <h1>The more you tell us, the sharper your benchmark.</h1>
-        <p class="t-lead lead">Every question is optional apart from your name and email.
+        <h1 class="t-h1">The more you tell us, the sharper your <span class="mk mk-under" data-draw="hero">benchmark.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M3 12 C50 4 120 5 197 9"/><path class="s s2" pathLength="1" d="M30 18 C80 13 140 14 182 16"/></svg></span></h1>
+        <p class="t-lead">Every question is optional apart from your name and email.
         Answer what you are comfortable with, skip the rest, and come back any time to fill in
         more.</p>
       </div>
-      <div class="ex-time">
+      <div class="ex-time card">
         <p class="t-eyebrow">Time required</p>
         <div class="n">6 min</div>
         <p class="t-body">Aggregated and anonymized. Never attributed without written
@@ -153,7 +127,7 @@
     </div>
   </section>
 
-  <section class="section ex-wrap bg-cream">
+  <section class="section ex-wrap bg-sheet">
     <div class="inner">
       <form class="ex-form" action="https://app.margapartners.com/contact" method="POST">
         <input type="hidden" name="inquiry_type" value="Marga Exchange benchmark survey">
@@ -568,53 +542,56 @@
     </div>
   </section>
 
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">Or</p>
-      <h2>Prefer to talk it through first?</h2>
+      <h2 class="t-h2">Prefer to talk it through first?</h2>
       <p class="t-lead sub">The survey is not a prerequisite. It is the fastest way to get a benchmark back.</p>
-      <a class="btn btn-primary" href="/Consultation.html">Start a conversation</a>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/Consultation.html">Start a conversation</a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script><script>(function(){var t=document.querySelector('form[action$="/contact"] input[name="_t"]');if(t)t.value=String(Date.now());})();</script>
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script><script>(function(){var t=document.querySelector('form[action$="/contact"] input[name="_t"]');if(t)t.value=String(Date.now());})();</script>
 </body></html>

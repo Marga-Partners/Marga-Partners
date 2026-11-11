@@ -29,12 +29,15 @@
 // implement the cascade, so a background set through a descendant or compound selector is not
 // resolved. Such a section is reported as unresolved and FAILS rather than being skipped, because
 // a section this cannot measure is a section nobody is checking.
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SHEET = 'assets/marga-v3.css';
+// The two shared sheets. A page is checked against the one it links: the linen redesign of
+// 2026-11-11 moved pages to marga-v4.css one at a time, and a page measured against the sheet it
+// does not load is a page measured against grounds it does not have.
+const SHEETS = { v3: 'assets/marga-v3.css', v4: 'assets/marga-v4.css' };
 
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
 const strip = (css) => css.replace(/\/\*[\s\S]*?\*\//g, '');
@@ -45,8 +48,25 @@ function tokens(css) {
   for (const [, k, v] of strip(css).matchAll(/--([\w-]+)\s*:\s*(#[0-9A-Fa-f]{3,8}|var\([^)]+\))\s*[;}]/g)) t[k] = v;
   return t;
 }
+/*
+ * A LAYERED BACKGROUND RESOLVES TO ITS LAST LAYER. The linen grounds paint a gradient or two over
+ * a base colour (`radial-gradient(...) no-repeat, var(--linen), var(--lit)`), and the base is the
+ * colour two neighbouring sections are compared on: the layers above it are a sheen at a few per
+ * cent and do not make two equal bases read as different. Commas inside a gradient's parentheses
+ * are not layer separators, so the split counts depth.
+ */
+function lastLayer(value) {
+  let depth = 0, start = 0;
+  const v = String(value);
+  for (let i = 0; i < v.length; i += 1) {
+    if (v[i] === '(') depth += 1;
+    else if (v[i] === ')') depth -= 1;
+    else if (v[i] === ',' && depth === 0) start = i + 1;
+  }
+  return v.slice(start).trim().split(/\s+(?![^(]*\))/)[0];
+}
 function resolve(value, t, depth = 0) {
-  const v = String(value).trim();
+  const v = lastLayer(String(value).trim());
   const m = /^var\(\s*--([\w-]+)\s*\)$/.exec(v);
   if (m && depth < 8) return t[m[1]] ? resolve(t[m[1]], t, depth + 1) : null;
   return /^#[0-9A-Fa-f]{3,8}$/.test(v) ? expand(v.toLowerCase()) : null;
@@ -85,7 +105,9 @@ function sections(html) {
   return out;
 }
 
-const sheet = read(SHEET);
+// A sheet that does not exist yet (v4 before it shipped) is simply one no page can link.
+const sheets = Object.fromEntries(Object.entries(SHEETS)
+  .map(([k, f]) => [k, existsSync(join(ROOT, f)) ? read(f) : '']));
 /*
  * EVERY PAGE, NOT JUST THE ONES AT THE ROOT. The first version read the root directory, and
  * refractions/ holds two pages with real section runs that it therefore never opened. A guard
@@ -113,6 +135,9 @@ for (const page of pages) {
   const html = read(page);
   // A page declares grounds of its own in an inline <style>; those come after the linked sheet.
   const inline = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
+  const which = /href="[^"]*marga-v4\.css/.test(html) ? 'v4'
+    : /href="[^"]*marga-v3\.css/.test(html) ? 'v3' : null;
+  const sheet = which ? sheets[which] : '';
   const t = { ...tokens(sheet), ...tokens(inline) };
   const g = new Map([...grounds(sheet), ...grounds(inline)]);
 
@@ -125,8 +150,7 @@ for (const page of pages) {
    * the browser default, and a .related band painted #F1E9DB over a #F1E9DB body read as a
    * difference. That is the invisible band this check exists to catch, and it passed.
    */
-  const linked = /href="[^"]*marga-v3\.css/.test(html);
-  const bodyDecls = [...strip((linked ? sheet : '') + inline)
+  const bodyDecls = [...strip(sheet + inline)
     .matchAll(/(?:(?<=[,;{}])|^)\s*(?:body|html)\s*\{([^}]*)\}/gm)]
     .map((m) => /(?:^|;)\s*background(?:-color)?\s*:\s*([^;]+)/.exec(m[1])?.[1])
     .filter(Boolean);

@@ -18,231 +18,123 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.margapartners.com/journal.html#page","url":"https://www.margapartners.com/journal.html","name":"The MargaZine","description":"The MargaZine is Marga's essay series on the commercial forces shaping aesthetics and life science. Free to read, two pieces a week.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US","breadcrumb":{"@id":"https://www.margapartners.com/journal.html#crumbs"}},{"@type":"Blog","@id":"https://www.margapartners.com/#margazine","name":"The MargaZine","url":"https://www.margapartners.com/journal.html","publisher":{"@id":"https://www.margapartners.com/#org"},"isPartOf":{"@id":"https://www.margapartners.com/#website"}},{"@type":"BreadcrumbList","@id":"https://www.margapartners.com/journal.html#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.margapartners.com/"},{"@type":"ListItem","position":2,"name":"MargaZine"}]}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=e15454bf45">
 <style>
-.section{padding:88px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
-.bg-card-solid{background:var(--card)}
-.hero{position:relative;padding:calc(var(--pad-hero-top) + 10px) 0 84px;overflow:hidden}
-.hero h1{margin:0;font:400 clamp(36px,5.2vw,66px)/1 var(--serif);letter-spacing:-.03em;
-  color:var(--cream);max-width:16ch;text-wrap:balance}
-.hero .lead{margin:30px 0 0;max-width:58ch}
-.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.t-h2{margin:12px 0 0;font:400 clamp(28px,3.6vw,48px)/1.06 var(--serif);letter-spacing:-.015em;
-  max-width:22ch;text-wrap:balance}
-.prose-p{max-width:66ch;margin:22px 0 0}
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(30px,4vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-/* The closing button sat flush against the headline: .cta-block is a flex column with
-   no gap, so the only space was the button's own zero margin. Spacing the button alone
-   rather than adding a gap, because a gap would also push the eyebrow off the h2, which
-   is already set deliberately at 18px. */
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-.cta-block .sub{margin:18px 0 30px;max-width:46ch}
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
+/* journal.html layout on /assets/marga-v4.css, measured off the 1280 Journal design.
+
+   THE TWO REGIONS build_site.py REWRITES ARE STYLED HERE, and their markup comes from
+   live_list() and sched_list() below, which build_site.py imports. So the daily publish writes
+   exactly the markup these rules expect. Change one, change the other, in this file. */
+
+/* ---- hero: headline beside the origin essay card ---------------------------------------- */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px 64px;
+  align-items:center}
+.hero .t-h1{--h1:104;margin-top:26px}
+.hero .t-lead{margin-top:32px;max-width:27em}
+/* One card, a single link. text-decoration is cleared inside it because a link the size of a
+   card underlining every word in it is not a link anyone expects to look like one. */
+.origin{display:flex;flex-direction:column;padding:36px;color:var(--ink);text-decoration:none;
+  transition:box-shadow .18s}
+.origin:hover{box-shadow:10px 10px 0 var(--ink)}
+.origin,.origin *{text-decoration:none}
+.origin-kicker{font-size:11px;color:var(--text-accent)}
+.origin h2{margin-top:16px;font:600 clamp(28px,2.8vw,36px)/1.06 var(--serif);letter-spacing:-.015em}
+.origin .dek{margin-top:10px;font:italic 400 18px/1.45 var(--serif);color:var(--text-accent)}
+.origin-thesis{margin:22px 0 0;padding-left:18px;border-left:3px solid var(--gold);
+  display:flex;flex-direction:column;gap:6px}
+.origin-thesis .k{font-size:11px}
+.origin-thesis .q{font:400 clamp(19px,1.7vw,22px)/1.3 var(--serif)}
+.origin .link-arrow{margin-top:24px;font-size:15px;align-self:flex-start}
+
+/* ---- section heads with the copy on the right ------------------------------------------ */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px}
+.sec-head .t-h2{margin-top:18px;--h2:68}
+.sec-head .t-lead{max-width:26em;font-size:17px;line-height:1.6}
+
+/* ---- MZLIVE: released essays as dark cards with a gold shadow ---------------------------
+   The read time sits top right by position, not by source order, so the page reads in the
+   order it always has: domain, title, standfirst, summary, read time, link. */
+.live{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:52px 0 0;
+  padding:0;list-style:none}
+.live>li{display:flex}
+.live a{position:relative;flex:1;display:flex;flex-direction:column;gap:10px;padding:30px;
+  background:var(--ink);color:var(--cream);border:2px solid var(--ink);border-radius:var(--r-card);
+  box-shadow:var(--shadow-gold);text-decoration:none;transition:background-color .15s}
+.live a:hover{background:var(--deep)}
+.live a:focus-visible{outline:2px solid var(--text-accent);outline-offset:4px}
+.live-main{display:flex;flex-direction:column;gap:10px;flex:1}
+.live-domain{font-size:11px;color:var(--gold);padding-right:5em}
+.live h3{margin-top:6px;font:600 clamp(23px,2.2vw,28px)/1.1 var(--serif)}
+.live .dek{font:italic 400 17px/1.4 var(--serif);color:var(--sand-hover)}
+.live .sum{font-size:14px;line-height:1.55;color:var(--text-on-dark-body)}
+.live-side{display:block}
+.live-rt{position:absolute;top:30px;right:30px;font-size:11px;color:var(--gold)}
+.live .go{display:block;margin-top:8px;font:700 14px/1.3 var(--sans)}
+.empty{margin:52px 0 0;padding:26px 28px;font-size:16px;line-height:1.6;color:var(--text-body)}
+
+/* ---- MZSCHED: dated tiles, the next one in gold ----------------------------------------- */
+.sched{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:52px 0 0;
+  padding:0;list-style:none}
+.tile{display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:150px;
+  padding:24px 26px;border:2px solid rgba(199,162,75,.4);border-radius:14px;color:var(--cream)}
+.tile.next{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.tile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.tile-d{display:flex;align-items:baseline;gap:10px;font:300 48px/.86 var(--serif)}
+.tile-d span{font:700 11px/1 var(--sans);letter-spacing:var(--track-eyebrow);text-transform:uppercase}
+.tile-top svg{opacity:.7}
+.tile-dom{display:block;font:700 19px/1.2 var(--sans)}
+.tile-meta{display:flex;align-items:center;gap:8px;margin-top:8px;font:700 11px/1 var(--sans);
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-on-dark-body)}
+.tile.next .tile-meta{color:rgba(22,20,15,.78)}
+/* The design's middle dot, drawn: the markup has always carried a rule here, not a character. */
+.tile-meta i{display:block;width:3px;height:3px;border-radius:50%;background:currentColor}
+.sched-go{margin-top:36px}
+
+/* ---- the archive ------------------------------------------------------------------------- */
+.arch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:40px 64px;align-items:center}
+.arch .t-h2{--h2:62;margin-top:18px}
+.arch .t-lead{margin-top:20px;font-size:18px;max-width:27em}
+.arch-panel{padding:34px}
+.arch-inc{display:block;padding-bottom:16px;border-bottom:var(--border);color:var(--text-accent)}
+.arch-list{margin:0;padding:0;list-style:none}
+.arch-list li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:14px 0;
+  border-bottom:1px solid var(--line)}
+.arch-list .n{font:italic 400 24px/1 var(--numerals)}
+.arch-list b{display:block;font:700 15px/1.4 var(--sans)}
+.arch-list span span{display:block;margin-top:3px;font-size:14px;line-height:1.5;color:var(--text-body)}
+.arch-go{display:flex;gap:10px;margin-top:22px}
+.arch-go input{flex:1;min-width:0;min-height:48px;padding:12px 16px;border:var(--border);
+  border-radius:var(--r-btn);background:var(--sheet);color:var(--ink);font:500 15px/1.4 var(--sans)}
+.arch-go input:focus{outline:2px solid var(--text-accent);outline-offset:2px}
+.arch-note{margin-top:12px}
+
+/* ---- narrow ----------------------------------------------------------------------------- */
+@media(max-width:1024px){
+  .live{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
-/* The hero is shorter here and it is the only page where that is true, so this overrides the
-   shared rule rather than changing it: PAGE_CSS comes after SHARED_CSS and wins on order. The
-   origin card sits in the hero now, which supplies the height the extra padding used to. */
-.hero{position:relative;padding:var(--pad-hero-top) 0 64px;overflow:hidden}
-/* AND THE SMALL-SCREEN VALUE HAS TO BE RESTATED HERE. SHARED_CSS sets .hero padding-bottom to
-   60px inside a max-width:900px query, and this override sits after that block, so without this
-   line an unconditional rule would beat the media query and every phone would get 64px. */
-@media(max-width:900px){ .hero{padding-bottom:60px} }
-/* The watermark filled the empty right half. The card fills it now, and the mark is 477px tall
-   against a 341px card, so what showed was the part sticking out below it: stray geometry rather
-   than a ground. Hidden only where the card is beside the copy. Below 960 the card stacks under
-   it, the right half is empty again, and the mark goes back to doing its job. */
-@media (min-width:960px){ .hero .mark-layer{display:none} }
-/* ---- the archive band, and the schedule tiles ---------------------------------------------
-   Both as the design draws them. The archive is a two-column band with the subscriber panel on
-   a dark ground; the schedule is a grid of dated tiles where the next piece takes the gold one.
-   The email field carries name="email" so marga-prefill.js captures it, which is what stops it
-   being a box that swallows a typed address: the subscribe page finds it already filled. */
-.arch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);
-  gap:clamp(34px,5vw,60px);align-items:center}
-.arch .t-h2{margin:12px 0 0}
-.arch .prose-p{margin-top:22px;max-width:50ch}
-.arch-panel{padding:clamp(26px,3.2vw,38px)}
-.arch-inc{display:block;padding-bottom:20px;border-bottom:1px solid var(--line-dark);
-  color:var(--gold)}
-.arch-list{margin:0 0 8px;padding:0;list-style:none}
-.arch-list li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:16px;padding:16px 0;
-  border-bottom:1px solid rgba(241,233,219,.12)}
-.arch-list li:last-child{border-bottom:0}
-.arch-list .n{font:500 10px/1.7 var(--mono);letter-spacing:.14em;color:var(--gold)}
-.arch-list b{display:block;font:600 15px/1.4 var(--sans);color:var(--cream)}
-.arch-list span span{display:block;margin-top:4px;font:400 13.5px/1.55 var(--sans);
-  color:var(--text-on-dark-body)}
-.arch-go{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;
-  border-top:1px solid var(--line-dark);padding-top:24px}
-.arch-go input{background:rgba(241,233,219,.07);border:1px solid rgba(241,233,219,.24);
-  color:var(--cream);font:500 14.5px/1 var(--sans);padding:15px 18px;width:100%}
-.arch-go input::placeholder{color:var(--text-on-dark-muted)}
-.arch-note{margin:14px 0 0;color:var(--text-on-dark-muted)}
-/* Visible to a screen reader, not on screen. The field has a placeholder, which is a hint and
-   not a label, so the label exists and is simply not drawn. */
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
-  clip:rect(0 0 0 0);white-space:nowrap;border:0}
-
-.sched{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:30px 0 0;
-  padding:0;list-style:none;background:var(--line-dark);border:1px solid var(--line-dark)}
-.tile{display:flex;flex-direction:column;justify-content:space-between;gap:20px;
-  min-height:172px;padding:26px 28px 24px;background:var(--ink4);color:var(--text-on-dark)}
-.tile.next{background:var(--gold);color:var(--ink)}
-.tile-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
-.tile-d{display:flex;align-items:baseline;gap:9px;font:300 44px/.86 var(--serif);
-  letter-spacing:-.02em}
-.tile-d span{font:700 11px/1 var(--sans);letter-spacing:var(--track-eyebrow);text-transform:uppercase;
-  color:var(--gold)}
-.tile.next .tile-d span{color:rgba(22,20,15,.66)}
-.tile-dom{display:block;font:700 19px/1.2 var(--sans);letter-spacing:-.01em}
-.tile-meta{display:flex;align-items:center;gap:10px;margin-top:12px;
-  font:700 10.5px/1 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase;
-  color:var(--text-on-dark-muted)}
-.tile.next .tile-meta{color:rgba(22,20,15,.6)}
-.tile-meta i{width:14px;height:1px;background:currentColor;display:block}
-
 @media(max-width:900px){
-  .arch{grid-template-columns:minmax(0,1fr)}
-  /* Two across rather than one. A tile holds a date, a domain and a read time, so at 700px a
-     full-width tile is mostly empty space and the grid stops reading as a grid. */
+  .hero-grid,.arch{grid-template-columns:minmax(0,1fr)}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  /* Two across rather than one: a tile holds a date, a domain and a read time, and at 700px a
+     full-width tile is mostly empty. An odd count would leave a half row that reads as a tile
+     with its text missing, and the count changes weekly, so this holds for either parity. */
   .sched{grid-template-columns:repeat(2,minmax(0,1fr))}
-  /* An odd count leaves a half row, and the empty cell reads as a tile with its text missing
-     rather than as the end of the list. The schedule length changes every week, so this has to
-     hold for either parity. */
   .tile:last-child:nth-child(odd){grid-column:1/-1}
 }
-@media(max-width:560px){
-  /* One across, and the tile gives up the height it was holding for a three-up row. Nine of
-     them stacked at 172px each is a long scroll past a lot of nothing. */
-  .sched{grid-template-columns:minmax(0,1fr)}
-  .tile{min-height:0;gap:14px;padding:20px 22px}
-  .tile-d{font-size:36px}
-}
-
-/* ---- the origin essay card ----------------------------------------------------------------
-   One card, a single link. It used to be two columns with a dark thesis panel flush against the
-   copy; it sits beside the hero copy now rather than opening its own band, so it is one light
-   card and the thesis is a ruled pull quote inside it.
-
-   THE HERO CARRIES IT so the essay index clears the fold. Its own full-width section pushed the
-   index to 1193px on a 1280x860 screen, 333px below the fold, and a reader who did not scroll
-   never learned the index existed. Two columns from 960px, stacked below it. `align-items:center`
-   rather than `stretch`: the card is shorter than the copy at some widths and taller at others,
-   and a stretched card would grow its own whitespace rather than sit against the headline. */
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(38px,4vw,56px);
-  align-items:center;position:relative;z-index:1}
-@media (min-width:960px){
-  .hero-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
-    gap:clamp(40px,4.4vw,72px)}
-}
-.origin{display:block;margin:0;color:var(--text);background:var(--card);
-  padding:clamp(28px,3vw,40px) clamp(26px,2.8vw,38px);
-  border:1px solid rgba(22,20,15,.2);box-shadow:0 26px 54px -40px rgba(22,20,15,.5);
-  transition:box-shadow .3s ease,transform .3s ease}
-.origin:hover{color:var(--text);transform:translateY(-3px);
-  box-shadow:0 38px 70px -40px rgba(22,20,15,.62)}
-/* THE CARD IS LIGHT AND IT SITS INSIDE `.on-dark`, which is a trap rather than a detail.
-   `.on-dark .t-label` and `.on-dark .link-arrow` are both (0,2,0) and would paint the kicker in
-   the dark-ground muted and the link in gold, so the kicker would be light on a light card and
-   the link would be gold on cream, which measures 2.00 and is the one thing the brand forbids
-   outright. These restate the light-ground values at the same specificity, and win on order
-   because this block comes after the linked stylesheet. */
-.origin .t-label{color:var(--text-accent)}
-.origin .link-arrow{color:var(--text-accent);--ul:rgba(122,90,32,.4)}
-.origin .link-arrow:hover{--ul:var(--text-accent)}
-/* The card is one big <a>, so every word inside it was being underlined: the kicker, the
-   headline, the dek and the standfirst. text-decoration inherits into descendants, and a link
-   the size of a card is not a link anyone expects to look like one. Only text-decoration is
-   cleared, so .link-arrow keeps the painted rule that is how this system draws a link, which is a
-   background rather than a border and was never at risk from this reset anyway. */
-.origin,.origin *{text-decoration:none}
-.origin-kicker{display:block;margin:0 0 16px;color:var(--text-accent)}
-.origin h2{margin:0;font:400 clamp(27px,2.7vw,36px)/1.06 var(--serif);
-  letter-spacing:-.02em;text-wrap:balance}
-.origin .dek{margin:12px 0 0;font:italic 400 clamp(16px,1.5vw,18px)/1.45 var(--serif);
-  color:var(--text-accent)}
-/* The card has no body paragraph any more. `.origin p` used to set one, and it reached the two
-   labels as well: at (0,1,1) it beat `.t-label` at (0,1,0) and replaced the whole font shorthand,
-   so both rendered at 17px/400, the same size and weight as the body copy beside them. That was
-   fixed on 2026-08-30 with `:not(:where(.t-label))`, and the standfirst moved off the card
-   entirely on 2026-08-31, which leaves the rule matching nothing it styles. Deleted rather than
-   kept, because a body-copy rule inside a card with no body copy is the trap reloaded: the next
-   paragraph added here would inherit a collision nobody chose. */
-.origin .link-arrow{display:inline-flex;margin-top:22px}
-/* The thesis, as a ruled pull quote rather than the dark half of a two-up.
-   It used to be an ink panel beside the copy, which worked on the sand band the card used to sit
-   in. In the hero it would be a dark block inside a light card on a dark ground, three layers
-   deep and reading as a hole in the card. The gold survives as the rule, which is what gold is
-   for on a light ground: a fill or a border, never text. The label takes bronze. */
-.origin-thesis{margin:20px 0 0;padding:1px 0 1px 17px;border-left:3px solid var(--gold)}
-.origin-thesis .k{display:block;margin:0 0 7px;color:var(--text-accent)}
-.origin-thesis .q{margin:0;font:400 clamp(17px,1.7vw,21px)/1.3 var(--serif);
-  letter-spacing:-.01em;color:var(--text)}
-
-/* ---- released pieces, as a ruled index rather than a grid of tiles --------------------------
-   WHY THIS IS A LIST NOW. The grid was drawn for the three flagship essays and it used
-   `grid-template-rows:subgrid` with `grid-row:span 4` so every card aligned its label, title,
-   dek and link across the row. That is the right structure for three cards that all carry the
-   same four things. It is the wrong one the moment they do not: on 2026-09-30 five of the eight
-   released pieces had neither a dek nor a summary, and subgrid reserved both rows on every card
-   anyway, so five tiles were mostly empty space with the link stranded at the bottom.
-
-   A list has no such contract between rows. A piece with a dek gets a longer row, a piece
-   without gets a shorter one, and nothing reserves space for copy that does not exist. It also
-   stops being a layout that quietly degrades as the drip adds essays, which is what the schedule
-   below guarantees will keep happening.
-
-   The rule between rows is the one .arch-list already uses on this page, so the index reads as
-   the same component family rather than a second idea about what a list looks like. */
-.live{margin:34px 0 0;padding:0;list-style:none;border-top:1px solid rgba(22,20,15,.18)}
-.live>li{border-bottom:1px solid rgba(22,20,15,.18)}
-.live a{display:grid;grid-template-columns:minmax(0,1fr) auto;
-  column-gap:clamp(20px,3.5vw,56px);align-items:start;
-  padding:clamp(20px,2.2vw,26px) clamp(4px,1vw,12px);
-  text-decoration:none;color:inherit;
-  transition:background .18s ease,padding-left .18s ease,padding-right .18s ease}
-/* The row is the link, and a heading inside an <a> inherits its colour, so nothing about the
-   title says "activate me". The tint and the indent are the affordance on a pointer; the
-   persistent "Read the essay" in the side column is the one that survives on a touch screen. */
-.live a:hover{background:var(--card);
-  padding-left:clamp(12px,1.8vw,22px);padding-right:clamp(12px,1.8vw,22px)}
-.live a:focus-visible{outline:2px solid var(--text-accent);outline-offset:-2px}
-.live-main{display:block;min-width:0}
-.live-domain{display:block;margin:0 0 11px;color:var(--text-accent)}
-.live h3{margin:0;font:400 clamp(20px,2vw,24px)/1.2 var(--serif);color:var(--text);
-  text-wrap:balance}
-.live .dek{margin:10px 0 0;font:italic 400 15px/1.45 var(--serif);color:var(--text-accent)}
-.live .sum{margin:10px 0 0;font:400 15px/1.6 var(--sans);color:var(--text-body);max-width:58ch}
-.live-side{display:grid;gap:12px;justify-items:end;text-align:right}
-.live-rt{color:var(--text-muted)}
-.live .go{margin:0;font:700 13px/1 var(--sans);color:var(--text-accent);white-space:nowrap}
-.empty{margin:34px 0 0;padding:26px 28px;background:var(--card);
-  border:1px solid rgba(22,20,15,.2);font:400 16px/1.6 var(--sans);color:var(--text-body)}
-@media(max-width:900px){
-  /* The side column goes under the copy and lays its two items out side by side, so the read
-     time and the link do not become two lonely right-aligned lines on a phone. */
-  .live a{grid-template-columns:minmax(0,1fr);row-gap:15px}
-  .live-side{justify-items:start;text-align:left;
-    grid-auto-flow:column;justify-content:start;align-items:center;gap:20px}
+@media(max-width:600px){
+  .live,.sched{grid-template-columns:minmax(0,1fr)}
+  .tile{min-height:0}
+  .live a{box-shadow:var(--shadow-gold-sm)}
+  .arch-go{flex-direction:column}
 }
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <span class="nav-drop" data-open="false">
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
@@ -269,26 +161,19 @@
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
-    <div class="mark-layer" aria-hidden="true"><div class="mark-col"><svg class="hero-mark" data-mark viewBox="0 0 394 321" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z"></path><path d="M125 104V321H5V215.047L125 104Z"></path><path d="M274 104L196 162L0 1H155.229L274 104Z"></path></svg></div></div>
+  <section class="hero">
     <div class="inner hero-grid">
       <div class="hero-copy">
         <p class="t-eyebrow">The MargaZine&trade;</p>
-        <h1>The perspective, in full.</h1>
-        <p class="t-lead lead">Ideas that name what the industry already feels, reframe
+        <h1 class="t-h1">The perspective, in <span class="mk mk-circle" data-draw="hero" style="padding:0 .08em">full.<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M40 18 C110 2 230 4 280 26 C304 40 296 74 250 88 C180 104 70 100 26 80 C-6 64 4 30 52 14"/></svg></span></h1>
+        <p class="t-lead">Ideas that name what the industry already feels, reframe
         familiar problems, and turn a trend into a decision. Free to read, two pieces a
         week.</p>
       </div>
-      <!-- The origin card sits beside the hero rather than in a band under it. It used to open
-           its own full-width section, which pushed the essay index to 1193px on a 1280x860
-           screen: 333px below the fold, so a reader who did not scroll never learned the index
-           existed. The hero's right half was empty except the watermark, which is where a
-           feature card belongs.
-
-           The essay's standfirst is not repeated here. The dek carries the same promise in one
-           line, and the two together made the card tall enough to push the index back under the
-           fold, which is the whole reason for the move. It is still on the essay itself. -->
-      <a class="origin" href="/the-long-way-around.html">
+      <!-- The origin card sits beside the hero rather than in a band under it, so the essay
+           index clears the fold. The essay's standfirst is not repeated here; the dek carries
+           the same promise in one line. -->
+      <a class="origin card" href="/the-long-way-around.html">
         <p class="t-label origin-kicker">Origin essay &middot; 7 min</p>
         <h2>Why I Started Marga Partners</h2>
         <p class="dek">Raising the standard of an industry I grew up inside.</p>
@@ -302,24 +187,21 @@
     </div>
   </section>
 
-  <section class="section bg-card-solid">
+  <section class="section bg-sheet">
     <div class="inner">
-      <p class="t-eyebrow">Available now</p>
-      <!-- NOT A COUNT. The design drew this section with three essays in it and the heading
-           said so. The drip adds one or two a week, so by 2026-09-30 it read "Three
-           flagship essays" above eight of them. A heading that states how many things are
-           below it is a heading that goes wrong on a schedule. -->
-      <h2 class="t-h2">Everything live, in any order.</h2>
-      <!-- "no email required" was true of the three flagship essays this section was drawn
-           around, and it is the only three that open in full. Six of the nine published pieces
-           ask for an email to finish, including the origin essay the hero card sends a reader
-           to, so the line promised something the next click took away. Count-free on purpose,
-           the way the heading above it is: "some" and "the rest" stay true as the drip runs.
-           The gate asks for an email and never for money, which is what "free to read" is
-           carrying, and it is the same promise the gate itself makes. -->
-      <p class="t-lead prose-p">Published and permanent, and free to read. Some open in full,
-      and the rest ask for an email to keep reading. Everything after these drops on the
-      schedule below.</p>
+      <div class="sec-head">
+        <div>
+          <p class="t-eyebrow">Available now</p>
+          <!-- NOT A COUNT. The drip adds one or two a week, so a heading that states how many
+               things are below it is a heading that goes wrong on a schedule. -->
+          <h2 class="t-h2">Everything live, in any <span class="mk mk-under" data-draw>order.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M3 12 C50 4 120 5 197 9"/></svg></span></h2>
+        </div>
+        <!-- Count-free on purpose: "some" and "the rest" stay true as the drip runs. The gate
+             asks for an email and never for money, which is what "free to read" carries. -->
+        <p class="t-lead">Published and permanent, and free to read. Some open in full,
+        and the rest ask for an email to keep reading. Everything after these drops on the
+        schedule below.</p>
+      </div>
       <!--MZLIVE--><ul class="live">
         <li><a href="/every-injectable-launch.html"><span class="live-main"><span class="t-label live-domain">Adoption</span><h3>Every Injectable Launch Needs a Touch-Up</h3><p class="dek">A launch is a first pass, not a finished result</p><p class="sum">The discipline is knowing what to refine once the real world talks back.</p></span><span class="live-side"><span class="t-label live-rt">6 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
         <li><a href="/filler-fear.html"><span class="live-main"><span class="t-label live-domain">Reputation</span><h3>Filler Isn&#x27;t Dying. It&#x27;s Being Killed by Its Own Worst Results.</h3><p class="dek">Why the market isn&#x27;t just correcting</p><p class="sum">The category is not correcting. It is absorbing the reputational cost of its own worst outcomes.</p></span><span class="live-side"><span class="t-label live-rt">9 min</span><span class="go">Read the essay &rarr;</span></span></a></li>
@@ -328,13 +210,17 @@
     </div>
   </section>
 
-  <section class="section bg-ink3 on-dark">
+  <section class="section bg-ink on-dark">
     <div class="inner">
-      <p class="t-eyebrow">The schedule</p>
-      <h2 class="t-h2">What is coming, and when.</h2>
-      <p class="t-lead prose-p">Published pieces stay free and permanent. Upcoming
-      titles are held until the morning they run, only the domain and date are
-      listed.</p>
+      <div class="sec-head">
+        <div>
+          <p class="t-eyebrow">The schedule</p>
+          <h2 class="t-h2" style="--h2:66">What is coming, and when.</h2>
+        </div>
+        <p class="t-lead">Published pieces stay free and permanent. Upcoming
+        titles are held until the morning they run, only the domain and date are
+        listed.</p>
+      </div>
       <!--MZSCHED--><ul class="sched">
         <li class="tile next">
           <div class="tile-top"><span class="tile-d">07<span>Dec</span></span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"></rect><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"></path></svg></div>
@@ -373,20 +259,19 @@
           <div class="tile-foot"><span class="tile-dom">Molecule</span><span class="tile-meta"><span>Scheduled</span><i aria-hidden="true"></i><span>8 min</span></span></div>
         </li>
       </ul><!--/MZSCHED-->
-      <a class="link-arrow" href="/subscribe.html"
-         style="display:inline-flex;margin-top:26px">Get each one on the day it drops &rarr;</a>
+      <a class="btn btn-primary sched-go" href="/subscribe.html">Get each one on the day it drops &rarr;</a>
     </div>
   </section>
 
-  <section class="section bg-sand2">
+  <section class="section bg-cream">
     <div class="inner arch">
       <div>
         <p class="t-eyebrow">The archive</p>
         <h2 class="t-h2">Read every essay. Keep the whole library.</h2>
-        <p class="t-lead prose-p">Subscribe for full access to the archive, the frameworks and
+        <p class="t-lead">Subscribe for full access to the archive, the frameworks and
         the briefings, and to be first to read each new essay as soon as it drops.</p>
       </div>
-      <div class="arch-panel bg-ink on-dark">
+      <div class="arch-panel card">
         <p class="t-label arch-inc">Included with your free subscription</p>
         <ul class="arch-list">
           <li><span class="n">01</span><span><b>Every essay, the moment it drops</b><span>Straight to your inbox before it circulates anywhere else.</span></span></li>
@@ -395,6 +280,9 @@
           <li><span class="n">04</span><span><b>Exclusive briefings</b><span>Subscriber-only pieces that never run on the site.</span></span></li>
           <li><span class="n">05</span><span><b>The annual compendium</b><span>The year of thinking, collected in one volume.</span></span></li>
         </ul>
+        <!-- name="email" so marga-prefill.js captures it and the subscribe page finds it
+             already filled; the label is visually hidden, because a placeholder is a hint and
+             not a label. -->
         <div class="arch-go">
           <label class="sr-only" for="mz-email">Email address</label>
           <input id="mz-email" type="email" name="email" placeholder="you@company.com">
@@ -405,54 +293,56 @@
     </div>
   </section>
 
-  
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">Get started</p>
-      <h2>Read every essay, and be first to each new one.</h2>
+      <h2 class="t-h2">Read every essay, and be first to each new one.</h2>
       <p class="t-lead sub">One email a week. No cost, and nothing else ever.</p>
-      <a class="btn btn-primary" href="/subscribe.html">Subscribe, free</a>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/subscribe.html">Subscribe, free</a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script>
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script>
 </body></html>

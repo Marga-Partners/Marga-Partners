@@ -18,55 +18,61 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.margapartners.com/for-investors.html#page","url":"https://www.margapartners.com/for-investors.html","name":"For Investors","description":"Independent commercial intelligence for investors and boards across aesthetics and life science: due diligence, market sizing, and competitive intelligence.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US","breadcrumb":{"@id":"https://www.margapartners.com/for-investors.html#crumbs"}},{"@type":"BreadcrumbList","@id":"https://www.margapartners.com/for-investors.html#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.margapartners.com/"},{"@type":"ListItem","position":2,"name":"Who we serve"},{"@type":"ListItem","position":3,"name":"Investors"}]}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
-<style>
-/* Audience-page layout. Everything else comes from /assets/marga-v3.css */
-.section{padding:88px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
-.bg-card-solid{background:var(--card)}
-
-.hero{position:relative;padding:calc(var(--pad-hero-top) + 10px) 0 84px;overflow:hidden}
-.hero h1{margin:0;font:400 clamp(38px,5.6vw,72px)/.98 var(--serif);letter-spacing:-.03em;
-  color:var(--cream);max-width:15ch;text-wrap:balance}
-.hero .lead{margin:34px 0 0;max-width:56ch}
-.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-
-.t-h2{margin:12px 0 0;font:400 clamp(28px,3.6vw,48px)/1.06 var(--serif);letter-spacing:-.015em;
-  max-width:20ch;text-wrap:balance}
-.qgrid,.numgrid{margin:34px 0 0;padding:0}
-.num-foot{margin:22px 0 0;color:var(--text-muted)}
-.split-head .t-h2{margin-top:10px}
-.prose-p{max-width:62ch;margin:22px 0 0}
-.section>.inner>.link-arrow{display:inline-flex;margin-top:24px}
-
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(30px,4vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-/* The closing button sat flush against the headline: .cta-block is a flex column with
-   no gap, so the only space was the button's own zero margin. Spacing the button alone
-   rather than adding a gap, because a gap would also push the eyebrow off the h2, which
-   is already set deliberately at 18px. */
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-.cta-block .sub{margin:18px 0 30px;max-width:46ch}
-
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=e15454bf45">
+<style>.hero .t-h1{--h1:112;margin-top:26px;max-width:9.5em}
+.hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end;
+  margin-top:clamp(28px,3.4vw,44px)}
+.hero-foot .t-lead{max-width:31em}
+.section .t-h2{margin-top:20px}
+.nums{list-style:none;margin:clamp(36px,4vw,52px) 0 0;padding:0}
+.nums li{display:flex;flex-direction:column;gap:8px}
+.nums .t-num{--num:40}
+.nums h3{margin-top:10px;font:600 clamp(21px,1.9vw,24px)/1.12 var(--serif)}
+.nums p{font-size:15px;line-height:1.55;color:var(--text-body)}
+.nums-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.nums-cards li{background:var(--card);border:var(--border);border-radius:var(--r-card);
+  box-shadow:var(--shadow);padding:30px}
+.qrule{list-style:none;margin:36px 0 0;padding:0;counter-reset:q;display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px}
+.qrule li{counter-increment:q;display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;
+  align-items:baseline;padding:26px 0;border-top:1px solid rgba(199,162,75,.4);
+  font:300 clamp(24px,2.66vw,34px)/1.15 var(--serif);letter-spacing:-.01em}
+.qrule li::before{content:counter(q,decimal-leading-zero);font:italic 400 clamp(24px,2.3vw,30px)/1 var(--numerals);
+  color:var(--gold)}
+.prose{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px 64px;align-items:start}
+.prose .t-h2{--h2:58;line-height:1.05}
+.prose-body{display:flex;flex-direction:column;gap:20px}
+.prose-body .t-lead{font-size:18px;line-height:1.6;max-width:none}
+.prose-body .pull{padding:22px 0;border-top:1px solid rgba(199,162,75,.4);
+  border-bottom:1px solid rgba(199,162,75,.4);font:400 clamp(21px,2vw,26px)/1.3 var(--serif);
+  color:var(--cream)}
+.prose-body .btn{align-self:flex-start;margin-top:4px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 48px;align-items:center}
+.split .t-h2{--h2:48;line-height:1.05}
+@media(max-width:1024px){
+.nums-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+.prose,.split{grid-template-columns:minmax(0,1fr)}
+.qrule{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:768px){
+.hero-foot{grid-template-columns:minmax(0,1fr)}
+.hero-foot .btn{justify-self:stretch}
+.nums-cards{grid-template-columns:minmax(0,1fr)}
+.nums-cards li{box-shadow:var(--shadow-sm)}
+.qrule li{grid-template-columns:44px minmax(0,1fr)}
 }
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
-      <span class="nav-drop" data-open="false">
+      <span class="nav-drop" data-open="false" data-current>
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
           <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4"
             stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -91,119 +97,124 @@
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
-    <div class="mark-layer" aria-hidden="true">
-      <div class="mark-col"><svg class="hero-mark" data-mark viewBox="0 0 394 321" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z"></path><path d="M125 104V321H5V215.047L125 104Z"></path><path d="M274 104L196 162L0 1H155.229L274 104Z"></path></svg></div>
-    </div>
+  <section class="hero">
     <div class="inner">
       <p class="t-eyebrow">Investors</p>
-      <h1>See what the market has not priced in.</h1>
-      <p class="t-lead lead">A compelling asset story can still rest on fragile assumptions about demand, provider behavior, differentiation or execution. We test the assumptions, not the narrative.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="/Consultation.html?type=investors">Commission an independent read</a>
+      <h1 class="t-h1">See what the market has not <span class="mk mk-circle" data-draw="hero" style="padding:0 .1em">priced in.<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M40 18 C110 2 230 4 280 26 C304 40 296 74 250 88 C180 104 70 100 26 80 C-6 64 4 30 52 14"/></svg></span></h1>
+      <div class="hero-foot">
+        <p class="t-lead">A compelling asset story can still rest on fragile assumptions about demand, provider behavior, differentiation or execution. We test the assumptions, not the narrative.</p>
+        <a class="btn btn-primary btn-arrow" href="/Consultation.html?type=investors">Commission an independent read</a>
       </div>
     </div>
   </section>
 
-  <section class="section bg-sand2">
+  <section class="section bg-ink on-dark">
     <div class="inner">
       <p class="t-eyebrow">Questions we answer</p>
-      <ul class="qgrid">
+      <ol class="qrule">
         <li>Is demand durable, or temporarily amplified?</li>
         <li>Is provider adoption realistic at this price?</li>
         <li>Does the product solve a problem the market feels?</li>
         <li>Can the differentiation support a premium?</li>
         <li>What hidden switching costs favor the incumbent?</li>
         <li>What happens when the category normalizes?</li>
-      </ul>
+      </ol>
     </div>
   </section>
   <section class="section bg-cream">
     <div class="inner">
       <p class="t-eyebrow">Method and inputs</p>
-      <h2 class="t-h2">Every conclusion is traceable to an input.</h2>
-      <ul class="numgrid">
-        <li><span class="n" aria-hidden="true">01</span><h3>Clinical and product evidence</h3><p>Trial design, endpoints, and what they do and do not prove.</p></li>
-        <li><span class="n" aria-hidden="true">02</span><h3>Public financial and market data</h3><p>Reported volume, pricing and category trajectory.</p></li>
-        <li><span class="n" aria-hidden="true">03</span><h3>Primary and secondary research</h3><p>Structured interviews against a stated sampling frame.</p></li>
-        <li><span class="n" aria-hidden="true">04</span><h3>Provider and operator input</h3><p>The people who decide whether a product travels.</p></li>
-        <li><span class="n" aria-hidden="true">05</span><h3>Competitive benchmarking</h3><p>How the incumbent has behaved when threatened before.</p></li>
-        <li><span class="n" aria-hidden="true">06</span><h3>Assumptions and confidence</h3><p>Stated explicitly, with the reasoning written out.</p></li>
+      <h2 class="t-h2">Every conclusion is traceable to an <span class="mk mk-under" data-draw>input.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M3 12 C50 4 120 5 197 9"/></svg></span></h2>
+      <ul class="nums nums-cards n6">
+        <li><span class="t-num" aria-hidden="true">01</span><h3>Clinical and product evidence</h3><p>Trial design, endpoints, and what they do and do not prove.</p></li>
+        <li><span class="t-num" aria-hidden="true">02</span><h3>Public financial and market data</h3><p>Reported volume, pricing and category trajectory.</p></li>
+        <li><span class="t-num" aria-hidden="true">03</span><h3>Primary and secondary research</h3><p>Structured interviews against a stated sampling frame.</p></li>
+        <li><span class="t-num" aria-hidden="true">04</span><h3>Provider and operator input</h3><p>The people who decide whether a product travels.</p></li>
+        <li><span class="t-num" aria-hidden="true">05</span><h3>Competitive benchmarking</h3><p>How the incumbent has behaved when threatened before.</p></li>
+        <li><span class="t-num" aria-hidden="true">06</span><h3>Assumptions and confidence</h3><p>Stated explicitly, with the reasoning written out.</p></li>
       </ul>
     </div>
   </section>
-  <section class="section bg-card-solid">
+  <section class="section bg-deep on-dark">
     <div class="inner">
+      <div class="prose">
+        <div>
       <p class="t-eyebrow">Example output</p>
       <h2 class="t-h2">A profile, a verdict, and the reasoning behind both.</h2>
-      <p class="t-lead prose-p">Reads are delivered as a written document: the scored profile, the material conclusions, the assumptions each rests on, and the confidence level attached to each.</p>
-      <p class="t-lead prose-p">The Marga Index™ does not replace investment judgment. It makes the commercial assumptions behind that judgment visible, comparable and challengeable.</p>
-      <p class="t-lead prose-p">Marga is founder led and supported by an expert network. We do not claim institutional scale, and we say so in writing when a question exceeds what the evidence supports.</p>
+        </div>
+        <div class="prose-body">
+          <p class="t-lead">Reads are delivered as a written document: the scored profile, the material conclusions, the assumptions each rests on, and the confidence level attached to each.</p>
+          <p class="pull">The Marga Index™ does not replace investment judgment. It makes the commercial assumptions behind that judgment visible, comparable and challengeable.</p>
+          <p class="t-lead">Marga is founder led and supported by an expert network. We do not claim institutional scale, and we say so in writing when a question exceeds what the evidence supports.</p>
+        </div>
+      </div>
     </div>
   </section>
-  <section class="section bg-sand">
+  <section class="section bg-cream">
     <div class="inner">
-      <div class="split-head">
+      <div class="split">
         <div>
       <p class="t-eyebrow">Engagement shapes</p>
       <h2 class="t-h2">Scoped to the decision in front of you.</h2>
         </div>
         <ul class="chips">
-          <li>Asset diligence</li>
-          <li>Category read</li>
-          <li>Platform thesis</li>
-          <li>Portfolio review</li>
+          <li class="chip">Asset diligence</li>
+          <li class="chip">Category read</li>
+          <li class="chip">Platform thesis</li>
+          <li class="chip">Portfolio review</li>
         </ul>
       </div>
     </div>
   </section>
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">Get started</p>
-      <h2>Bring the asset. We will tell you what the deck cannot.</h2>
-      <a class="btn btn-primary" href="/Consultation.html?type=investors">Commission intelligence</a>
+      <h2 class="t-h2">Bring the asset. We will tell you what the deck cannot.</h2>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/Consultation.html?type=investors">Commission intelligence</a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
-
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script>
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script>
 </body></html>
