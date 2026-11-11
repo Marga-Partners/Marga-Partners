@@ -18,145 +18,91 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"AboutPage","@id":"https://www.margapartners.com/about.html#page","url":"https://www.margapartners.com/about.html","name":"About Marga Partners","description":"Marga Partners is founder led by Aneesh Patel, PharmD: pharmacist and scientist by training, with thirteen years in clinical development, commercialization and lifecycle strategy across three major aesthetics manufacturers.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"mainEntity":{"@id":"https://www.margapartners.com/#aneesh"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://www.margapartners.com/#aneesh","name":"Aneesh Patel","honorificSuffix":"PharmD","jobTitle":"Founder and Commercialization Strategist","worksFor":{"@id":"https://www.margapartners.com/#org"},"alumniOf":"Rutgers University","knowsAbout":["Commercialization strategy","Clinical development","Medical aesthetics","Lifecycle management","Launch strategy"]}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=adb92548e3">
 <style>
-/* about.html layout. Everything else comes from /assets/marga-v3.css */
-.section{padding:88px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
-.bg-card-solid{background:var(--card)}
+/* about.html layout on /assets/marga-v4.css. Measured off the 1280 About design. */
 
-.hero{position:relative;padding:calc(var(--pad-hero-top) + 24px) 0 96px;overflow:hidden}
-/* .50fr is a compromise the geometry forces. The photograph fills its frame edge to edge,
-   with no headroom to trim, so showing it whole locks width to height at 1197:1440. A
-   wider plate is therefore a taller plate, and the card cannot be both wider and level
-   with the foot of the lead. This is half again the width it started at and lands about
-   forty pixels below the lead, which reads as aligned without cropping the picture. */
-.about-hero{display:grid;grid-template-columns:minmax(0,.50fr) minmax(0,1fr);gap:52px;
-  align-items:start}
-/* The photograph sits in a bordered plate with a caption rule beneath it, which is what
-   stops a portrait on a dark ground reading as a floating cut-out. */
-/* The plate is the warm card tone, not white. White against the ink hero was a hard
-   edged rectangle of glare. The photograph keeps a white ground of its own, which is
-   what the cut-out needs so the masked hair edge disappears into it, and the plate
-   around it can then be quiet. */
-/* margin:0 because a bare <figure> carries a default 1em on each side, which is what
-   stopped the plate reaching the row edges however tall it was allowed to grow.
-   Aligned to the text column's foot rather than to the lead's last baseline: a
-   baseline moves every time the copy reflows, and this holds at every width. */
-.shot{margin:0;padding:18px;background:var(--card2);border:1px solid rgba(241,233,219,.2);
-  display:flex;flex-direction:column}
-.shot img{background:#FFFFFF}
-/* The caption sits on the white plate now, so it cannot keep the on-dark colour. */
-/* Explicit hex, not var(--body): that token is named in the brand docs but is not
-   defined in marga-v3.css, so the declaration was invalid and dropped, and the caption
-   fell back to inheriting --text-on-dark from the hero. Cream on white measured
-   1.21:1. #4A4435 is the documented body colour and measures 9.7:1 here. */
-.shot figcaption{color:#4A4435!important;border-top-color:rgba(22,20,15,.16)!important}
+/* ---- hero: the founder plate beside the headline -------------------------------------- */
+.about-hero{display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:end}
+.hero .t-h1{--h1:72;--h1-min:38px;margin-top:24px;line-height:1.04;letter-spacing:-.025em}
+.hero .t-lead{margin-top:30px;max-width:31em}
+
+/* THE PHOTOGRAPH IS CROPPED FROM THE BOTTOM ONLY, AND NEVER UPSCALED. founder.webp is 1197 by
+   1440. The frame is 1197:1180, so it shows the full width and the top 82 per cent, which keeps
+   the face and drops the hands. The image is width:100% and height:auto inside it: no
+   object-fit, no resampled crop, just the whole frame downscaled and the frame's overflow
+   clipping the foot. At 400px the plate shows it at a third of its native width. */
+.shot{margin:0;padding:16px;display:flex;flex-direction:column}
+.shot-frame{aspect-ratio:1197/1180;overflow:hidden;border-radius:10px;background:var(--sheet)}
 .shot img{display:block;width:100%;height:auto}
-/* min-height:0 is the whole trick. A flex item will not shrink below its content's
-   intrinsic size by default, so the photograph's own height acted as a floor: the
-   plate grew to fit it, the plate then set the grid row, and the row got taller than
-   the text beside it. Released, the row height comes from the text column and the
-   photograph crops from the bottom, which is where the jacket is rather than the face. */
-/* No crop. The photograph is shown whole, at its own aspect.
-   object-fit:cover with a capped height was cutting the frame at 78 per cent, which
-   removed the pocket square entirely: it sits between 95.6 and 99.7 per cent of the
-   source height. Cover also resamples the crop rather than cleanly downscaling the
-   whole frame, which is where the graininess came from. Both go away together.
-   The cost is that a wider plate is now a taller plate, since the aspect is fixed. */
+.shot figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--ink);font:700 11px/1.3 var(--sans);
+  letter-spacing:var(--track-label);text-transform:uppercase}
 
-.shot figcaption{display:flex;justify-content:space-between;gap:12px;
-  margin-top:20px;padding-top:18px;border-top:1px solid rgba(241,233,219,.16);
-  font:700 10px/1.3 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase;
-  color:var(--text-on-dark-muted)}
-.hero h1{margin:14px 0 0;font:400 clamp(34px,4.9vw,64px)/1.03 var(--serif);
-  letter-spacing:-.025em;color:var(--cream);text-wrap:balance}
-.hero .lead{margin:28px 0 0;max-width:56ch}
-
-/* ---- the definition card ---------------------------------------------------------------- */
-.why{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1fr);gap:60px;
-  align-items:start}
-.why h2{margin:10px 0 0;font:400 clamp(28px,3.6vw,46px)/1.06 var(--serif);
-  letter-spacing:-.015em;text-wrap:balance}
-.def{margin-top:26px;padding:34px;background:var(--card);
-  border:1px solid rgba(22,20,15,.22)}
+/* ---- why Marga exists ------------------------------------------------------------------- */
+.why{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:64px;align-items:start}
+.why .t-h2,.jr .t-h2{margin-top:20px}
+.why .t-h2{line-height:1}
+.why .t-h2 .mk{font-style:italic;padding:0 .06em}
+.def{margin-top:36px;padding:34px}
 /* Gold as a fill with ink on it, which is the one pairing gold is allowed. */
-.def .chip{display:inline-block;padding:5px 9px;background:var(--gold);color:var(--ink);
-  font:700 9px/1 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase}
-.def .word{margin-top:16px;font:400 clamp(38px,4.4vw,52px)/1 var(--serif);color:var(--text)}
-.def .say{margin-top:8px;font:500 11px/1 var(--mono);color:var(--text-muted)}
-.def p{margin:14px 0 0;font:400 16px/1.55 var(--sans);color:var(--text-body)}
-.why-prose p{margin:0 0 18px;font:400 clamp(16px,1.5vw,17px)/1.62 var(--sans);
-  color:var(--text-body);max-width:60ch}
-.why-prose{padding-top:31px}
+.def .tag{display:inline-block;padding:5px 9px;background:var(--gold);color:var(--ink);
+  font:700 10px/1 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase}
+.def .word{margin-top:16px;font:400 clamp(40px,4.4vw,56px)/1 var(--serif)}
+.def .word .pos{font-size:.5em;font-style:italic;color:var(--text-accent)}
+.def .say{margin-top:8px;font:600 13px/1.4 var(--sans);color:var(--text-body)}
+.def p{margin-top:14px;font-size:16px;line-height:1.55;color:var(--text-body)}
+.why-prose{padding-top:44px;display:flex;flex-direction:column;gap:20px}
+.why-prose p{font-size:18px;line-height:1.65;color:var(--text-on-dark-body)}
+.why-prose .btn{align-self:flex-start;margin-top:8px}
 
 /* ---- the journey ------------------------------------------------------------------------
-   Two columns, as the design draws it: the heading and the logos hold still on the left while
-   the career runs past them on the right. An <ol> because it is a sequence and reads as one.
-   The dot and the rule are pseudo-elements, so no markup carries decoration. */
-.jr{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
-  gap:clamp(34px,5vw,64px);align-items:start}
-.jr-side{position:sticky;top:110px}
-.jr-where{display:block;margin:30px 0 14px;color:var(--text-muted)}
-.jr-side .marks{margin-top:0;max-width:400px}
-.journey{display:block;margin:0;padding:0;list-style:none}
-.journey>li{position:relative;padding:0 0 38px 36px;
-  border-left:1px solid rgba(22,20,15,.22)}
-.journey>li:last-child{padding-bottom:0;border-left-color:transparent}
-.journey>li::before{content:"";position:absolute;left:-5px;top:5px;width:9px;height:9px;
-  border-radius:50%;background:var(--gold)}
-.journey .k{display:block;margin-bottom:12px}
-.journey h3{margin:0 0 10px;font:400 27px/1.1 var(--serif);color:var(--text)}
-.journey p{margin:0;font:400 15.5px/1.6 var(--sans);color:var(--text-body);max-width:52ch}
-.journey>li.legacy{display:grid;grid-template-columns:190px minmax(0,1fr);gap:28px;
-  padding:30px 34px;background:var(--card);border:1px solid rgba(22,20,15,.18)}
-.journey .k{font:700 11px/1.4 var(--sans);letter-spacing:var(--track-label);text-transform:uppercase;
+   The heading and the marks hold on the left while the career runs down the right. An <ol>,
+   because it is a sequence. The 01 to 05 numerals are CSS counters, so they are decoration
+   rather than page text, and the list reads exactly as it did. */
+.jr{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
+.jr .t-h2{--h2:60;line-height:1.02}
+.jr .t-lead{margin-top:20px;font-size:18px}
+.jr-where{margin:36px 0 12px}
+.marks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0;padding:0;
+  list-style:none}
+.marks li{display:flex;align-items:center;justify-content:center;min-height:80px;padding:14px;
+  background:var(--sheet);border:var(--border);border-radius:var(--r-btn)}
+.marks img{height:auto;max-width:100%}
+.marks li:nth-child(1) img{width:80px}
+.marks li:nth-child(2) img{width:110px}
+.marks li:nth-child(3) img{width:120px}
+.journey{margin:0;padding:0;list-style:none;counter-reset:j}
+.journey>li{counter-increment:j;display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 20px;
+  padding:26px 0;border-top:var(--border)}
+/* The numeral holds column one across both rows; the label and the entry share column two. */
+.journey>li::before{content:counter(j,decimal-leading-zero);font:italic 400 44px/.8 var(--numerals);
+  color:var(--bronze);grid-row:span 2}
+.journey>li>*{grid-column:2}
+.journey .k{font:700 12px/1.4 var(--sans);letter-spacing:var(--track-eyebrow);text-transform:uppercase;
   color:var(--text-accent)}
-.journey h3{margin:0;font:400 clamp(20px,2vw,24px)/1.2 var(--serif);color:var(--text)}
-.journey p{margin:8px 0 0;font:400 15px/1.55 var(--sans);color:var(--text-body)}
+.journey h3{margin-top:8px;font:600 clamp(23px,2.2vw,28px)/1.1 var(--serif)}
+.journey p{margin-top:8px;font-size:16px;line-height:1.55;color:var(--text-body)}
 
-.marks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px;
-  padding:0;list-style:none}
-.marks li{display:flex;align-items:center;justify-content:center;min-height:78px;
-  padding:16px;background:var(--card);border:1px solid rgba(22,20,15,.18)}
-.marks img{max-width:100%;height:auto;object-fit:contain}
-
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(30px,4vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-/* The closing button sat flush against the headline: .cta-block is a flex column with
-   no gap, so the only space was the button's own zero margin. Spacing the button alone
-   rather than adding a gap, because a gap would also push the eyebrow off the h2, which
-   is already set deliberately at 18px. */
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-
+/* ---- narrow ----------------------------------------------------------------------------- */
 @media(max-width:900px){
-  .about-hero,.why{grid-template-columns:minmax(0,1fr);gap:30px}
-  /* Capped in the stacked layout. Without this the plate takes the full column, and
-     since the photograph is shown whole its height follows: at 768 it rendered 691 by
-     876 and pushed the headline off the first screen. */
+  .about-hero,.why,.jr{grid-template-columns:minmax(0,1fr);gap:36px}
   .shot{max-width:380px}
   .why-prose{padding-top:0}
-  .jr{grid-template-columns:minmax(0,1fr);gap:26px}
-  .jr-side{position:static}
-  .marks{grid-template-columns:minmax(0,1fr)}
 }
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
+@media(max-width:480px){
+  .marks{grid-template-columns:minmax(0,1fr)}
+  .journey>li{grid-template-columns:44px minmax(0,1fr);gap:14px}
+  .journey>li::before{font-size:34px}
 }
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <span class="nav-drop" data-open="false">
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
@@ -183,19 +129,19 @@
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
+  <section class="hero">
     <div class="inner">
       <div class="about-hero">
-        <figure class="shot">
-          <img src="/assets/founder.webp" alt="Aneesh Patel, PharmD, founder of Marga Partners"
-               width="1197" height="1440">
+        <figure class="shot card">
+          <div class="shot-frame"><img src="/assets/founder.webp"
+            alt="Aneesh Patel, PharmD, founder of Marga Partners" width="1197" height="1440"></div>
           <figcaption><span>Aneesh Patel, PharmD</span><span>Founder</span></figcaption>
         </figure>
         <div>
           <p class="t-eyebrow">About</p>
-          <h1>Most advisors know how a product gets built, or how it gets sold. Our founder
-          has led both.</h1>
-          <p class="t-lead lead">Pharmacist and scientist by training. Thirteen years running
+          <h1 class="t-h1">Most advisors know how a product gets built, or how it gets sold.
+          Our founder has led <span class="mk mk-circle" data-draw="hero" style="padding:0 .1em">both.<svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M40 18 C110 2 230 4 280 26 C304 40 296 74 250 88 C180 104 70 100 26 80 C-6 64 4 30 52 14"/></svg></span></h1>
+          <p class="t-lead">Pharmacist and scientist by training. Thirteen years running
           clinical development, upstream commercialization, launch, and brand and portfolio
           strategy at three of the manufacturers that define the category.</p>
         </div>
@@ -203,15 +149,15 @@
     </div>
   </section>
 
-  <section class="section bg-sand2">
+  <section class="section bg-ink on-dark">
     <div class="inner">
       <div class="why">
         <div>
           <p class="t-eyebrow">Why Marga exists</p>
-          <h2>The path is the practice.</h2>
-          <div class="def">
-            <span class="chip">Def.</span>
-            <div class="word" lang="sa-Latn">m&#257;rga <span class="t-muted">(n.)</span></div>
+          <h2 class="t-h2">The path is the <span class="mk mk-brush" data-draw>practice.<svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M3 20 C60 12 130 16 197 14"/></svg></span></h2>
+          <div class="def card card-gold">
+            <span class="tag">Def.</span>
+            <div class="word" lang="sa-Latn">m&#257;rga <span class="pos">(n.)</span></div>
             <div class="say">/ mahr-guh /</div>
             <p>Sanskrit. The path, the way, the route. A disciplined method for navigating
             complexity toward a destination.</p>
@@ -225,7 +171,7 @@
           <p>Marga is founder led and supported by an expert network. You work with the person
           whose judgment you came for, and you are told plainly which parts of a question the
           evidence can and cannot answer.</p>
-          <a class="link-arrow" href="/the-long-way-around.html">Read the founding essay &rarr;</a>
+          <a class="btn btn-primary" href="/the-long-way-around.html">Read the founding essay &rarr;</a>
         </div>
       </div>
     </div>
@@ -234,77 +180,79 @@
   <section class="section bg-cream">
     <div class="inner">
       <div class="jr">
-        <div class="jr-side">
+        <div>
           <p class="t-eyebrow">My unique journey</p>
           <h2 class="t-h2">Every link in the chain, first hand.</h2>
-          <p class="t-lead prose-p">Not a career spent in one function. The same path a
+          <p class="t-lead">Not a career spent in one function. The same path a
           product takes, walked end to end, which is why the framework reads it the way it
           does.</p>
           <p class="t-label jr-where">Where</p>
           <ul class="marks">
-        <li><img src="/assets/logo-allergan.png" alt="Allergan Aesthetics" width="94" loading="lazy"></li>
-        <li><img src="/assets/logo-evolus.png" alt="Evolus" width="165" loading="lazy"></li>
-        <li><img src="/assets/logo-galderma.png" alt="Galderma" width="206" loading="lazy"></li>
+            <li><img src="/assets/logo-allergan.png" alt="Allergan Aesthetics" width="94" loading="lazy"></li>
+            <li><img src="/assets/logo-evolus.png" alt="Evolus" width="165" loading="lazy"></li>
+            <li><img src="/assets/logo-galderma.png" alt="Galderma" width="206" loading="lazy"></li>
           </ul>
         </div>
         <ol class="journey">
-        <li><div class="k">Training</div><div><h3>Doctor of Pharmacy</h3><p>Basic science and clinical pharmacology. Registered pharmacist.</p></div></li>
-        <li><div class="k">Clinical development</div><div><h3>Early and late-stage programs</h3><p>Led development work in aesthetics, including Phase 3 design and endpoint strategy.</p></div></li>
-        <li><div class="k">Commercialization</div><div><h3>Upstream strategy through launch</h3><p>Target product profile, positioning, market assessment and launch sequencing across neurotoxins, fillers and devices.</p></div></li>
-        <li><div class="k">Brand and portfolio</div><div><h3>Loyalty and lifecycle</h3><p>Loyalty strategy, market research, data architecture and sales-force design.</p></div></li>
-        <li><div class="k">Teaching</div><div><h3>Guest lecturer, USC School of Pharmacy</h3><p>On the commercial realities that shape which science reaches patients.</p></div></li>
+          <li><div class="k">Training</div><div><h3>Doctor of Pharmacy</h3><p>Basic science and clinical pharmacology. Registered pharmacist.</p></div></li>
+          <li><div class="k">Clinical development</div><div><h3>Early and late-stage programs</h3><p>Led development work in aesthetics, including Phase 3 design and endpoint strategy.</p></div></li>
+          <li><div class="k">Commercialization</div><div><h3>Upstream strategy through launch</h3><p>Target product profile, positioning, market assessment and launch sequencing across neurotoxins, fillers and devices.</p></div></li>
+          <li><div class="k">Brand and portfolio</div><div><h3>Loyalty and lifecycle</h3><p>Loyalty strategy, market research, data architecture and sales-force design.</p></div></li>
+          <li><div class="k">Teaching</div><div><h3>Guest lecturer, USC School of Pharmacy</h3><p>On the commercial realities that shape which science reaches patients.</p></div></li>
         </ol>
       </div>
     </div>
   </section>
 
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">Get started</p>
-      <h2>The decisions that shape the whole path deserve a full view.</h2>
-      <a class="btn btn-primary" href="/Consultation.html">Start a conversation</a>
+      <h2 class="t-h2">The decisions that shape the whole path deserve a full view.</h2>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/Consultation.html">Start a conversation</a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
-
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script>
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script>
 </body></html>
