@@ -71,9 +71,22 @@ Darkening only ever raises contrast, so nothing already shipped can regress on t
 them at .26, which is 1.77:1. .50 is the faintest that clears the 3:1 large-text bar on every
 ground, 3.19 on sand2 to 3.41 on card.
 
-**The article template is not on this yet.** `margazine-build/seo-package/design-tokens.json`
-still carries #7A5A20 and its grounds are unchanged, so it remains correct there. The two
-converge when the v4 article design lands.
+**The article template converged on 2026-11-11.** With the linen redesign every essay takes
+#6B4F1C as its accent, from `margazine-build/article_shared.py`, which both article renderers
+read.
+
+### The shared stylesheet is assets/marga-v4.css, updated 2026-11-11
+
+Every page links `assets/marga-v4.css`, the "linen" redesign, through `v4_chrome.head(linen=True)`
+in `margazine-build`. It carries every v3 token under the same name, adds the new grounds
+(`--sheet`, `--lit`, `--band`, `--deep`), the outlined-card and button system, the pill header,
+both closing bands, and the drawn headline marks played by `assets/marga-draw.js`.
+`assets/marga-tabs.js` drives the question explorer. `assets/marga-v3.css` is no longer linked by
+any page and is kept only so a rollback is one line.
+
+Gold stays a fill, rule, border and shadow on light grounds. The italic 01/02 numerals use a
+digits-only Newsreader face and the wordmark a subset of Bricolage Grotesque, both self-hosted in
+`assets/fonts/` with their SIL OFL licences alongside.
 
 ## The marks (enforced by bin/naming-check.js)
 
