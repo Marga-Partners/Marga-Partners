@@ -247,7 +247,7 @@ main{display:block}
 .chip{display:inline-flex;align-items:center;border:var(--border);border-radius:var(--r-btn);
   background:var(--card);padding:10px 16px;font:700 15px/1.2 var(--sans);color:var(--ink)}
 
-/* The design's "— " bullet, drawn rather than typed. 0.9em by 0.1em is the em dash of
+/* The design's em dash bullet, drawn rather than typed. 0.9em by 0.1em is the em dash of
    Manrope at this size, sat on the x-height middle. */
 .dash-list{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:15px;
   line-height:1.5;color:var(--text-body)}
