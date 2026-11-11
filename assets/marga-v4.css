@@ -31,6 +31,29 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
+/* ==========================================================================================
+   FONTS
+   ------------------------------------------------------------------------------------------
+   THE WORDMARK FACE IS SELF-HOSTED AND SUBSET. Bricolage Grotesque draws "marga/partners" and
+   nothing else. Subset to those ten glyphs it is 3 KB, against 38 KB for the face from Google,
+   and serving it from here keeps a second render-blocking stylesheet request off the critical
+   path. Licensed under the SIL Open Font License 1.1; the licence ships beside the file in
+   /assets/fonts/OFL-BricolageGrotesque.txt, which the OFL requires.
+
+   METRIC-MATCHED FALLBACKS. Until Manrope and Newsreader arrive the page renders in a local
+   face, and when the real one swaps in, any difference in width or line height reflows the
+   hero and pushes everything below it down. Lighthouse measured that as layout shift. These
+   two faces are Arial and Times New Roman (or their metric clones, Liberation Sans and Serif,
+   on Linux) resized to the real fonts' average glyph width and vertical metrics, measured from
+   the font files with fontTools on 2026-11-11, so the swap lands in the same place. */
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:800;font-display:swap;
+  src:url(/assets/fonts/bricolage-wordmark.woff2) format('woff2')}
+@font-face{font-family:'Manrope Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans');
+  size-adjust:103.26%;ascent-override:103.24%;descent-override:29.05%;line-gap-override:0%}
+@font-face{font-family:'Newsreader Fallback';src:local('Times New Roman'),local('TimesNewRomanPSMT'),
+  local('Liberation Serif');
+  size-adjust:98.03%;ascent-override:74.98%;descent-override:27.03%;line-gap-override:0%}
+
 :root{
   /* ---- carried from v3, same names and values ---- */
   --ink:#16140F;
@@ -84,8 +107,8 @@
   --text-accent-dark:var(--gold);
 
   /* ---- type ---- */
-  --serif:'Newsreader',Georgia,serif;
-  --sans:'Manrope',system-ui,sans-serif;
+  --serif:'Newsreader','Newsreader Fallback',Georgia,serif;
+  --sans:'Manrope','Manrope Fallback',system-ui,sans-serif;
   --mono:'Spline Sans Mono',ui-monospace,monospace;
   --wordmark:'Bricolage Grotesque','Manrope',system-ui,sans-serif;
   --track-eyebrow:.18em;
@@ -225,6 +248,11 @@ main{display:block}
   padding:clamp(13px,1.3vw,16px) clamp(20px,1.9vw,24px);border:var(--border);
   border-radius:var(--r-btn);font:700 16px/1.2 var(--sans);text-decoration:none;
   text-align:center;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+/* The design's trailing arrow on a few buttons, drawn rather than typed, so the link's text
+   (its anchor text and its accessible name) is the label alone. The "/ ''" alt text keeps
+   screen readers from announcing "right arrow"; browsers without that syntax use the first
+   declaration and simply show the glyph. */
+.btn-arrow::after{content:"\2192";content:"\2192" / ""}
 .btn-lg{padding:clamp(15px,1.4vw,18px) clamp(22px,2.2vw,28px);font-size:17px}
 .btn-primary{background:var(--ink);color:var(--cream);border-color:var(--ink)}
 .btn-primary:hover{background:var(--text-accent);border-color:var(--text-accent);color:var(--cream)}
@@ -280,6 +308,10 @@ main{display:block}
    unchanged: .nav-cap carries data-menu for the drawer, .nav-drop carries data-open for the
    Advisory disclosure, .nav-toggle opens the drawer.
    ========================================================================================== */
+/* Visually hidden, still read by assistive tech and by crawlers. Carries the brand's proper
+   name beside the drawn wordmark. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--ink);color:var(--cream);
   padding:12px 16px;border-radius:var(--r-btn);font-weight:700}
 .skip:focus,.skip:focus-visible{left:16px;top:16px}
@@ -308,7 +340,13 @@ main{display:block}
 .nav-brand{display:flex;align-items:flex-end;gap:10px;min-height:44px;padding-bottom:8px;
   text-decoration:none;color:var(--ink)}
 .nav-brand svg{height:26px;width:auto;flex:none}
+/* The letters are generated content, so the DOM text of the brand link is only the visually
+   hidden proper name beside it. Anchor text and the accessible name both stay "Marga Partners".
+   Markup: <span class="wm" aria-hidden="true"><span class="wm-slash"></span></span> */
 .wm{font:800 26px/.8 var(--wordmark);letter-spacing:-.03em;white-space:nowrap}
+.wm::before{content:"marga"}
+.wm::after{content:"partners"}
+.wm-slash::before{content:"/"}
 .wm-slash{color:var(--bronze)}   /* a 26px heavy glyph, large text: 3.97:1 on cream clears 3:1 */
 .on-dark .wm-slash,.site-foot .wm-slash{color:var(--gold)}
 
