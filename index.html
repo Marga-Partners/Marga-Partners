@@ -18,8 +18,8 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.margapartners.com/#org","name":"Marga Partners","url":"https://www.margapartners.com/","description":"Commercial counsel and market intelligence for medical aesthetics and adjacent life sciences. Built to serve stakeholders across the industry: manufacturers, investors, and practices.","founder":{"@type":"Person","@id":"https://www.margapartners.com/#aneesh","name":"Aneesh Patel","honorificSuffix":"PharmD","jobTitle":"Founder and Commercialization Strategist"},"areaServed":"US","knowsAbout":["Commercialization strategy","Medical aesthetics","Life science commercialization","Commercial due diligence","Go-to-market strategy","Product launch strategy"]},{"@type":"WebSite","@id":"https://www.margapartners.com/#website","url":"https://www.margapartners.com/","name":"Marga Partners","publisher":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.margapartners.com/#page","url":"https://www.margapartners.com/","name":"Marga Partners","description":"Commercial counsel and market intelligence for medical aesthetics and adjacent life sciences. Built to serve stakeholders across the industry: manufacturers, investors, and practices.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US"}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v4.css?v=8b420b69fd">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=2834c92726">
 <style>
 /* Homepage-only layout. The system is /assets/marga-v4.css, the linen redesign of 2026-11-11.
    Measured off the 1280 design: sections pad 110/56, which the system's --pad-y and --pad-x
@@ -66,8 +66,8 @@
   margin-top:52px;text-align:left;border-top:1px solid rgba(199,162,75,.4)}
 .thread-split>div{padding:24px 36px 0 0}
 .thread-split>div+div{padding:24px 0 0 36px;border-left:1px solid rgba(199,162,75,.4)}
-.thread-split h3{font:300 25px/1.2 var(--serif);letter-spacing:-.01em}
-.thread-split p{margin-top:6px;font-size:16px;color:var(--text-on-dark-body)}
+.thread-split .split-k{font:300 25px/1.2 var(--serif);letter-spacing:-.01em}
+.thread-split p+p{margin-top:6px;font-size:16px;color:var(--text-on-dark-body)}
 .thread .btn{margin-top:44px}
 
 /* ---- who we work with ------------------------------------------------------------------ */
@@ -102,10 +102,10 @@
 .proof-dek{font:700 13px/1.45 var(--sans)}
 .proof-sum{font-size:13px;line-height:1.5;color:var(--text-on-dark-body)}
 .proof .link-arrow{font:700 13px/1.4 var(--sans);color:var(--cream);text-decoration:none;
-  min-height:32px;display:inline-flex;align-items:center}
+  min-height:44px;display:inline-flex;align-items:center}
 .proof .link-arrow::after{content:"";position:absolute;inset:0}
 .proof .link-arrow:focus-visible{outline-color:var(--gold)}
-.proof-soon{display:inline-flex;align-items:center;gap:7px;min-height:32px;
+.proof-soon{display:inline-flex;align-items:center;gap:7px;min-height:44px;
   font:700 13px/1 var(--sans);color:var(--text-on-dark-muted)}
 .proof-soon svg{flex:none}
 
@@ -130,7 +130,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
   <div class="nav-cap" data-menu="false">
-    <a class="nav-brand" href="/" aria-label="Marga Partners, home"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true">marga<span class="wm-slash">/</span>partners</span></a>
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <span class="nav-drop" data-open="false">
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
@@ -167,8 +167,7 @@
       <div class="cta-row">
         <svg class="doodle doodle-arrow" viewBox="0 0 120 70" aria-hidden="true"><path
           d="M6 10 C30 4 70 18 100 50"/><path d="M86 48 L101 52 L102 36"/></svg>
-        <a class="btn btn-primary" href="/Consultation.html">Discuss a decision
-          <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-primary btn-arrow" href="/Consultation.html">Discuss a decision</a>
         <a class="btn btn-secondary" href="/the-marga-method.html">Explore how Marga thinks</a>
       </div>
     </div>
@@ -250,11 +249,11 @@
       <p class="t-lead">Our proprietary framework for reading the market.</p>
       <div class="thread-split">
         <div>
-          <h3>In advisory</h3>
+          <p class="split-k">In advisory</p>
           <p>It frames the question and tests the answer.</p>
         </div>
         <div>
-          <h3>In intelligence</h3>
+          <p class="split-k">In intelligence</p>
           <p>It scores every read, the same way each time.</p>
         </div>
       </div>
@@ -347,14 +346,14 @@
       <p class="t-eyebrow">Get started</p>
       <h2 class="t-h2">The decisions that shape the whole path deserve a <span class="mk mk-under" data-draw>full view.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" style="--mk-w:4" d="M3 12 C50 4 120 5 197 9"/><path class="s s2" pathLength="1" d="M30 18 C80 13 140 14 182 16"/></svg></span></h2>
       <p class="t-lead sub">Bring the launch, deal, or growth question into focus.</p>
-      <a class="btn btn-primary btn-lg" href="/Consultation.html">Start a conversation <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/Consultation.html">Start a conversation</a>
     </div>
   </section>
 </main>
 <footer class="site-foot" role="contentinfo">
   <div class="inner">
     <div>
-      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm">marga<span class="wm-slash">/</span>partners</span></div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
       <p class="desc">Commercialization strategy and intelligence for the decisions that
       shape a category.</p>
     </div>
