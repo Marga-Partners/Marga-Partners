@@ -18,46 +18,20 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","@id":"https://www.margapartners.com/Consultation.html#page","url":"https://www.margapartners.com/Consultation.html","name":"Start a conversation","description":"Tell Marga about the decision in front of you. Consulting, the Marga Exchange, indices, and diligence reads.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US","breadcrumb":{"@id":"https://www.margapartners.com/Consultation.html#crumbs"}},{"@type":"BreadcrumbList","@id":"https://www.margapartners.com/Consultation.html#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.margapartners.com/"},{"@type":"ListItem","position":2,"name":"Contact"}]}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=e15454bf45">
 <style>
-.section{padding:88px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
-.bg-card-solid{background:var(--card)}
-.hero{position:relative;padding:calc(var(--pad-hero-top) + 10px) 0 84px;overflow:hidden}
-.hero h1{margin:0;font:400 clamp(36px,5.2vw,66px)/1 var(--serif);letter-spacing:-.03em;
-  color:var(--cream);max-width:16ch;text-wrap:balance}
-.hero .lead{margin:30px 0 0;max-width:58ch}
-.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.t-h2{margin:12px 0 0;font:400 clamp(28px,3.6vw,48px)/1.06 var(--serif);letter-spacing:-.015em;
-  max-width:22ch;text-wrap:balance}
-.prose-p{max-width:66ch;margin:22px 0 0}
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(30px,4vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-/* The closing button sat flush against the headline: .cta-block is a flex column with
-   no gap, so the only space was the button's own zero margin. Spacing the button alone
-   rather than adding a gap, because a gap would also push the eyebrow off the h2, which
-   is already set deliberately at 18px. */
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-.cta-block .sub{margin:18px 0 30px;max-width:46ch}
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
-}
-
-.intake{display:grid;grid-template-columns:minmax(0,1fr);max-width:920px;
-  margin:0 auto;align-items:start}
-.form-card{padding:var(--pad-card);background:var(--card);
-  border:1px solid rgba(22,20,15,.2)}
-.form-head h2{margin:0;font:400 clamp(24px,2.6vw,32px)/1.1 var(--serif);color:var(--text)}
-.form-head p{margin:12px 0 26px;font:400 15px/1.6 var(--sans);color:var(--text-body)}
-#sentBanner{margin-bottom:26px;padding:20px 22px;background:var(--proof);
-  border-left:2px solid var(--gold);font:400 15.5px/1.6 var(--sans);color:var(--text-body)}
+.hero .t-h1{--h1:96;margin-top:24px;max-width:10em}
+.hero .t-lead{margin-top:30px;max-width:34em}
+#intakeTitle span,#intakeTitle em{font-style:normal;padding-bottom:.14em;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 12 C50 4 120 5 197 9' fill='none' stroke='%239A742F' stroke-width='4.6' stroke-linecap='round'/%3E%3Cpath d='M30 18 C80 13 140 14 182 16' fill='none' stroke='%239A742F' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 0 100%/100% .3em;animation:mg-under-bg .9s cubic-bezier(.55,.05,.3,1) .6s both}
+@keyframes mg-under-bg{from{background-size:0 .3em}to{background-size:100% .3em}}
+.intake{max-width:920px}
+.form-card{padding:var(--pad-card)}
+.form-head h2{font:400 clamp(28px,3vw,38px)/1.1 var(--serif);color:var(--ink)}
+.form-head p{margin:12px 0 26px;font-size:16px;line-height:1.6;color:var(--text-body)}
+#sentBanner{margin-bottom:26px;padding:18px 20px;background:var(--cream);border:var(--border);
+  border-radius:var(--r-btn);font-size:16px;line-height:1.6;color:var(--text-body)}
 .form-card /* form card */
     .form-card{position:relative;background:var(--card);border:1px solid var(--line);box-shadow:0 30px 70px rgba(22,20,15,.12);padding:clamp(26px,3.4vw,44px);min-width:0}.form-card form{display:grid;gap:26px}.form-card fieldset{border:0;display:grid;gap:15px}.form-card legend{font:700 10px/1 var(--sans);letter-spacing:var(--track-eyebrow);text-transform:uppercase;color:var(--golddeep);margin-bottom:4px;padding-bottom:12px;border-bottom:1px solid var(--line);width:100%}.form-card .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.form-card .field{display:grid;gap:7px;min-width:0}.form-card .field.full{grid-column:1/-1}.form-card label{font:600 11px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:rgba(22,20,15,.7)}.form-card input,.form-card select,.form-card textarea{width:100%;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:0;min-height:48px;padding:12px 13px;font:15px/1.4 Manrope,sans-serif;outline:none;transition:border-color .18s,box-shadow .18s}.form-card textarea{min-height:120px;resize:vertical}.form-card input:focus,.form-card select:focus,.form-card textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(176,134,60,.16)}.form-card .check-row{display:flex;align-items:flex-start;gap:11px;color:var(--ink2);font-size:.9rem;line-height:1.45}.form-card .check-row input{width:18px;height:18px;min-height:18px;margin-top:2px;accent-color:var(--gold)}.form-card .actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:4px}.form-card .button{appearance:none;border:0;min-height:52px;border-radius:0;padding:0 26px;background:var(--ink);color:var(--paper);font-weight:700;font-size:14px;cursor:pointer;transition:transform .2s,background .2s}.form-card .button:hover{transform:translateY(-2px);background:#000}.form-card .note{font-size:.82rem;color:rgba(22,20,15,.55);max-width:30ch}.form-card .intent-hint{font:600 10px/1 var(--sans);letter-spacing:.04em;text-transform:none;color:var(--muted,#6B6455);margin-left:8px;opacity:.8}.form-card .fields{grid-template-columns:1fr}
 
@@ -65,14 +39,14 @@
    Recorded here rather than edited into contact-parts/, so that stays a faithful copy.
    The old page styled these against its own tokens and its own grounds. */
 
-.form-card label{display:block;margin-bottom:7px;font:700 11px/1.3 var(--sans);
-  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-muted)}
+.form-card label{display:block;margin-bottom:10px;font:700 12px/1.3 var(--sans);
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-accent)}
 /* Spacing, not colour: --golddeep and --text-accent are both #6B4F1C, so the legend looked the
    same either way and --text-accent is simply the name the rest of the v4 CSS uses. What was
    wrong was the rule under it. margin-bottom:4px put the border hard against the first label,
    and at 10px the legend read as smaller than the labels it was introducing. */
-.form-card legend{width:100%;margin-bottom:14px;padding-bottom:12px;
-  border-bottom:1px solid rgba(22,20,15,.18);
+.form-card legend{width:100%;margin-bottom:16px;padding-bottom:12px;
+  border-bottom:var(--border);
   font:700 11px/1 var(--sans);letter-spacing:var(--track-eyebrow);text-transform:uppercase;
   color:var(--text-accent)}
 .form-card fieldset{border:0;margin:0 0 28px;padding:0}
@@ -82,11 +56,11 @@
    which is exactly why it would have sat there unnoticed. */
 .form-card input:not([name="_honey"]),.form-card select,.form-card textarea{
   width:100%;min-height:48px;
-  padding:13px 14px;background:#fff;color:var(--text);border:1px solid rgba(22,20,15,.3);
-  border-radius:0;font:400 15px/1.4 var(--sans)}
+  padding:12px 14px;background:var(--card);color:var(--ink);border:var(--border);
+  border-radius:var(--r-btn);font:500 16px/1.4 var(--sans)}
 .form-card textarea{min-height:120px;resize:vertical}
 .form-card input:focus,.form-card select:focus,.form-card textarea:focus{
-  outline:2px solid var(--text-accent);outline-offset:-2px;border-color:var(--text-accent)}
+  outline:2px solid var(--text-accent);outline-offset:2px}
 .form-card .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .form-card .field.full{grid-column:1/-1}
 /* ---- the path selector, ONE definition ------------------------------------------------------
@@ -106,31 +80,33 @@
   grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
 .form-card .intent label{display:grid;grid-template-columns:auto minmax(0,1fr);
   gap:4px 10px;align-items:start;margin:0;padding:15px 17px;min-height:44px;
-  background:#fff;border:1px solid rgba(22,20,15,.3);
-  font:700 14px/1.35 var(--sans);letter-spacing:normal;text-transform:none;
+  background:var(--card);border:var(--border);border-radius:var(--r-btn);
+  font:700 15px/1.35 var(--sans);letter-spacing:normal;text-transform:none;
   color:var(--text);cursor:pointer;transition:border-color .15s,background .15s}
-.form-card .intent label:hover{border-color:var(--text-accent)}
-.form-card .intent label:has(input:checked){border-color:var(--text-accent);
-  background:rgba(199,162,75,.14);box-shadow:inset 0 0 0 1px var(--text-accent)}
+.form-card .intent label:hover{background:var(--sand-hover)}
+.form-card .intent label:has(input:checked){background:var(--gold);box-shadow:var(--shadow-sm)}
 .form-card .intent input{width:18px;height:18px;min-height:0;margin:1px 0 0;flex:none;
-  accent-color:var(--text-accent)}
+  accent-color:var(--ink)}
 /* The description sits UNDER the label rather than after it, in the second column so it aligns
    with the label rather than with the radio. */
 .form-card .intent label span{grid-column:2;margin:0;
-  font:400 13px/1.5 var(--sans);color:var(--text-body)}
+  font:400 14px/1.5 var(--sans);color:var(--text-body)}
+.form-card .intent label:has(input:checked) span{color:var(--ink)}
 .form-card .intent-hint{margin-left:8px;font:500 11px/1 var(--sans);color:var(--text-muted);
   letter-spacing:normal;text-transform:none}
 .form-card .check-row{display:flex;align-items:flex-start;gap:11px;min-height:44px;
-  padding:4px 0;font:400 14px/1.55 var(--sans);color:var(--text-body)}
+  padding:4px 0;font:400 15px/1.55 var(--sans);color:var(--text-body);
+  letter-spacing:normal;text-transform:none}
 .form-card .check-row input{width:20px;height:20px;min-height:20px;margin-top:2px;flex:none;
-  accent-color:var(--gold)}
+  accent-color:var(--ink)}
 .form-card .actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:4px}
 .form-card .note{max-width:32ch;font:400 13px/1.5 var(--sans);color:var(--text-muted)}
+/* The submit is the ink primary button, as everywhere on the linen system. */
 .form-card .button{appearance:none;display:inline-flex;align-items:center;
-  justify-content:center;min-height:48px;padding:0 26px;border:0;border-radius:40px;
-  background:var(--gold);color:var(--ink);font:700 14px/1 var(--sans);cursor:pointer;
+  justify-content:center;min-height:48px;padding:0 26px;border:var(--border);border-radius:var(--r-btn);
+  background:var(--ink);color:var(--cream);font:700 16px/1 var(--sans);cursor:pointer;
   transition:background .15s}
-.form-card .button:hover{background:var(--gold-hover)}
+.form-card .button:hover{background:var(--text-accent);border-color:var(--text-accent)}
 /* The honeypot stays 1px. Excluding it from my own input rule was not enough, because the
    carried stylesheet has an input rule of its own with min-height:48px, and min-height beats
    the inline height:1px. The trap was rendering as a 28 by 48 box fixed to the bottom right
@@ -144,10 +120,10 @@
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <span class="nav-drop" data-open="false">
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
@@ -174,20 +150,19 @@
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
-    <div class="mark-layer" aria-hidden="true"><div class="mark-col"><svg class="hero-mark" data-mark viewBox="0 0 394 321" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z"></path><path d="M125 104V321H5V215.047L125 104Z"></path><path d="M274 104L196 162L0 1H155.229L274 104Z"></path></svg></div></div>
+  <section class="hero">
     <div class="inner">
       <p class="t-eyebrow" id="eyebrow">Consultation intake</p>
-      <h1 id="intakeTitle">Bring the decision you are <em>actually carrying</em>.</h1>
-      <p class="t-lead lead" id="intakeLead">Three ways in. Pick the one that fits: six questions at most, and a reply within
+      <h1 class="t-h1" id="intakeTitle">Bring the decision you are <em>actually carrying</em>.</h1>
+      <p class="t-lead" id="intakeLead">Three ways in. Pick the one that fits: six questions at most, and a reply within
       two business days.</p>
     </div>
   </section>
 
-  <section class="section bg-cream">
+  <section class="section bg-sheet">
     <div class="inner">
       <div class="intake">
-        <div class="form-card">
+        <div class="form-card card">
           <div id="sentBanner" hidden role="status">Thank you. Your enquiry is in and you
           will hear back shortly.</div>
           <div class="form-head">
@@ -341,7 +316,7 @@
   </section>
 
   
-  <section class="section bg-sand2">
+  <section class="section bg-cream">
     <div class="inner">
       <div class="mz-head">
         <p class="t-eyebrow">Not ready for a conversation?</p>
@@ -386,54 +361,57 @@
     </div>
   </section>
   
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">No rush</p>
-      <h2>Prefer to read first?</h2>
-      <a class="btn btn-primary" href="/journal.html">Read the MargaZine</a>
+      <h2 class="t-h2">Prefer to read first?</h2>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/journal.html">Read the MargaZine</a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script><script>
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script><script>
           (function(){
             var f=document.querySelector('form'); if(!f) return;
             f.addEventListener('submit', function(){

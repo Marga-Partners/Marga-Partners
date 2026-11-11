@@ -18,43 +18,16 @@
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.margapartners.com/benchmark.html#page","url":"https://www.margapartners.com/benchmark.html","name":"Practice Benchmark","description":"Compare your practice against anonymized industry benchmarks. The calculator runs in your browser and nothing is sent unless you ask for the full report.","isPartOf":{"@id":"https://www.margapartners.com/#website"},"about":{"@id":"https://www.margapartners.com/#org"},"inLanguage":"en-US","breadcrumb":{"@id":"https://www.margapartners.com/benchmark.html#crumbs"}},{"@type":"BreadcrumbList","@id":"https://www.margapartners.com/benchmark.html#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.margapartners.com/"},{"@type":"ListItem","position":2,"name":"Practice benchmark"}]}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/marga-v3.css?v=91a9c84ba7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Spline+Sans+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marga-v4.css?v=e15454bf45">
 <style>
-.section{padding:88px 0}
-.inner{width:var(--col);margin:0 auto;padding:0 var(--pad-x)}
-.bg-card-solid{background:var(--card)}
-.hero{position:relative;padding:calc(var(--pad-hero-top) + 10px) 0 84px;overflow:hidden}
-.hero h1{margin:0;font:400 clamp(36px,5.2vw,66px)/1 var(--serif);letter-spacing:-.03em;
-  color:var(--cream);max-width:16ch;text-wrap:balance}
-.hero .lead{margin:30px 0 0;max-width:58ch}
-.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.t-h2{margin:12px 0 0;font:400 clamp(28px,3.6vw,48px)/1.06 var(--serif);letter-spacing:-.015em;
-  max-width:22ch;text-wrap:balance}
-.prose-p{max-width:66ch;margin:22px 0 0}
-.closing{padding:96px 0 0}
-.cta-block{width:var(--col);margin:0 auto;padding:0 var(--pad-x) 96px;text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.cta-block h2{margin:18px 0 0;font:400 clamp(30px,4vw,48px)/1.06 var(--serif);
-  letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-/* The closing button sat flush against the headline: .cta-block is a flex column with
-   no gap, so the only space was the button's own zero margin. Spacing the button alone
-   rather than adding a gap, because a gap would also push the eyebrow off the h2, which
-   is already set deliberately at 18px. */
-.cta-block .btn{margin-top:clamp(26px,3vw,38px)}
-.cta-block .sub{margin:18px 0 30px;max-width:46ch}
-@media(max-width:720px){
-  .section{padding:60px 0}
-  .hero{padding-bottom:60px}
-  .closing{padding-top:64px}
-  .cta-block{padding-bottom:64px}
-}
-
-/* The wizard sits inside the v4 page rather than owning it, so it gets a plate to sit on
-   and the page keeps its own hero and footer. */
+/* The wizard sits inside the linen page rather than owning it: an outlined card on paper, with
+   the page keeping its own hero, closing band and footer. */
+.hero .t-h1{--h1:96;margin-top:24px;max-width:10em}
+.hero .t-lead{margin-top:30px;max-width:34em}
 .tool{width:min(980px,100%);margin:0 auto;padding:0 var(--pad-x)}
-.tool-card{padding:clamp(24px,3.2vw,40px);background:var(--card);
-  border:1px solid rgba(22,20,15,.2)}
+.tool-card{padding:clamp(24px,3.2vw,40px)}
+.tool-foot{margin:22px 0 0;text-align:center}
 .tool-card{
   --ink:#16140F; --ink2:#14120E; --bronze:#9A742F; --gold:#C7A24B;
   --cream:#FBF6EC; --cream2:#F1E9DB; --cream3:#EBE0CC; --body:#4A4435;
@@ -84,12 +57,28 @@ fieldset{border:0;padding:0;margin:0 0 8px;min-width:0}.tool-card legend{padding
 /* ---- corrections to the carried wizard --------------------------------------------------
    Recorded here rather than edited into benchmark-parts/, so that stays a faithful copy of
    what was lifted. The wizard was built against the old page's tokens and its own ground. */
-.tool-card h2{font-family:var(--serif);color:var(--text)}
-.tool-card label{color:var(--text-muted)}
-.tool-card input,.tool-card select{min-height:48px;border-radius:0;
-  font-family:var(--sans);color:var(--text)}
-.tool-card input:focus,.tool-card select:focus{outline:2px solid var(--text-accent);
-  outline-offset:-2px}
+.tool-card h2{font-family:var(--serif);font-weight:400;color:var(--ink)}
+.tool-card label{color:var(--text-accent)}
+/* Inputs and buttons on the linen system: 2px ink on card cream, 10px radius, and the ink and
+   cream buttons every other page uses. Overrides only; benchmark-parts/ is untouched. */
+.tool-card .field input,.tool-card .field select{min-height:48px;padding:12px 14px;
+  border:var(--border);border-radius:var(--r-btn);background:var(--card);font:500 16px/1.4 var(--sans);
+  color:var(--ink)}
+.tool-card .field input:hover,.tool-card .field select:hover{border-color:var(--ink)}
+.tool-card input:focus,.tool-card select:focus{outline:2px solid var(--text-accent);outline-offset:2px}
+.tool-card .btn-primary,.tool-card .btn-secondary{min-height:48px;padding:12px 22px;border:var(--border);
+  border-radius:var(--r-btn);font:700 16px/1.2 var(--sans);cursor:pointer}
+.tool-card .btn-primary{background:var(--ink);color:var(--cream)}
+.tool-card .btn-primary:hover{background:var(--text-accent);border-color:var(--text-accent)}
+.tool-card .btn-secondary{background:var(--card);color:var(--ink);box-shadow:var(--shadow-sm)}
+.tool-card .btn-secondary:hover{background:var(--gold)}
+.tool-card .cohort-label{border:2px solid var(--gold);border-radius:var(--r-btn);background:var(--cream)}
+.tool-card .progress li{height:6px;border-radius:3px}
+.tool-card .gate{border:var(--border);border-radius:var(--r-card);background:var(--cream)}
+/* The wizard moves focus to each step's heading so a screen reader announces it. That target is
+   tabindex=-1, never reached by Tab, so it takes no ring; the ring stays on everything a
+   keyboard can reach. */
+.tool-card [tabindex="-1"]:focus{outline:none}
 /* Both consents are targets in their own right and both were shorter than 44px. They are
    also the two checkboxes privacy.html describes as separate and independent, so they are
    never merged into one row.
@@ -99,17 +88,17 @@ fieldset{border:0;padding:0;margin:0 0 8px;min-width:0}.tool-card legend{padding
 .tool-card .consent{display:flex;align-items:flex-start;gap:11px;
   font:400 14px/1.55 var(--sans);color:var(--text-body)}
 .tool-card .consent input{width:20px;height:20px;min-height:20px;margin-top:12px;flex:none;
-  accent-color:var(--gold)}
+  accent-color:var(--ink)}
 .tool-card .consent label{display:flex;align-items:center;min-height:44px;margin:0;padding:4px 0;
   font:400 14px/1.55 var(--sans);letter-spacing:normal;text-transform:none;
   color:var(--text-body);cursor:pointer}
 </style>
 </head>
 <body>
-<a class="btn btn-dark skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav-wrap">
-  <div class="nav-cap on-dark" data-menu="false">
-    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></a>
+  <div class="nav-cap" data-menu="false">
+    <a class="nav-brand" href="/"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#16140F"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#16140F"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <span class="nav-drop" data-open="false">
         <button type="button" aria-expanded="false" aria-controls="whopanel">Advisory
@@ -136,20 +125,19 @@ fieldset{border:0;padding:0;margin:0 0 8px;min-width:0}.tool-card legend{padding
 </header>
 <main id="main" tabindex="-1">
 
-  <section class="hero bg-ink on-dark">
-    <div class="mark-layer" aria-hidden="true"><div class="mark-col"><svg class="hero-mark" data-mark viewBox="0 0 394 321" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z"></path><path d="M125 104V321H5V215.047L125 104Z"></path><path d="M274 104L196 162L0 1H155.229L274 104Z"></path></svg></div></div>
+  <section class="hero">
     <div class="inner">
       <p class="t-eyebrow">Practice benchmark</p>
-      <h1>See where your practice actually stands.</h1>
-      <p class="t-lead lead">Six minutes of figures against anonymized industry benchmarks.
+      <h1 class="t-h1">See where your practice actually <span class="mk mk-under" data-draw="hero">stands.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="s" pathLength="1" d="M3 12 C50 4 120 5 197 9"/><path class="s s2" pathLength="1" d="M30 18 C80 13 140 14 182 16"/></svg></span></h1>
+      <p class="t-lead">Six minutes of figures against anonymized industry benchmarks.
       The calculator runs in your browser, and nothing is sent to us unless you ask for the
       full report.</p>
     </div>
   </section>
 
-  <section class="section bg-cream">
+  <section class="section bg-sheet">
     <div class="tool">
-      <div class="tool-card">
+      <div class="tool-card card">
 <!-- The mandatory label. Present on the form and on every results screen. -->
   <div class="cohort-label" id="cohortLabel">
     <b>Seed cohort, v1</b>, assembled from published industry sources. Sample sizes and definitions
@@ -370,61 +358,64 @@ fieldset{border:0;padding:0;margin:0 0 8px;min-width:0}.tool-card legend{padding
     </div>
   </section>
       </div>
-      <p class="t-small" style="margin:22px 0 0;color:var(--text-muted);text-align:center">
+      <p class="t-small tool-foot">
       What we store, and how to have it deleted, is set out in full on the
       <a class="link-arrow" href="/privacy.html">privacy page</a>.</p>
     </div>
   </section>
 
   
-  <section class="closing bg-ink on-dark">
-    <div class="cta-block">
+  <section class="closing closing-dark on-dark">
+    <div class="inner">
       <p class="t-eyebrow">Beyond the benchmark</p>
-      <h2>Want the read behind the numbers?</h2>
-      <a class="btn btn-primary" href="/Consultation.html">Start a conversation</a>
+      <h2 class="t-h2">Want the read behind the numbers?</h2>
+      <a class="btn btn-primary btn-lg btn-arrow" href="/Consultation.html">Start a conversation</a>
     </div>
-    <footer class="site-foot" role="contentinfo">
-      <div class="inner">
-        <div>
-          <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><b>Marga Partners</b></div>
-          <p class="desc">Commercialization strategy and intelligence for the decisions that
-          shape a category.</p>
-        </div>
-        <div>
-          <h3>Advisory</h3>
-          <ul>
-            <li><a href="/for-manufacturers.html">Manufacturers</a></li>
-            <li><a href="/for-investors.html">Investors</a></li>
-            <li><a href="/for-providers.html">Providers</a></li><li><a href="/benchmark.html">Practice benchmark</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>The firm</h3>
-          <ul>
-            <li><a href="/the-marga-method.html">Intelligence</a></li>
-            <li><a href="/journal.html">Journal</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/Consultation.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Get in touch</h3>
-          <ul>
-            <li><a href="/Consultation.html">Contact form</a></li>
-            <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-legal">
-        <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
-        Partners LLC and covers the product names used under it.</span>
-        <span><a href="/privacy.html">Privacy</a></span>
-        <span><a href="/independence.html">Independence and conflicts</a></span>
-      </div>
-    </footer>
   </section>
 </main>
-<script src="/assets/marga-v3-nav.js?v=5d0c8b4d8c"></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script><script type="module">
+<footer class="site-foot" role="contentinfo">
+  <div class="inner">
+    <div>
+      <div class="brand"><svg viewBox="0 0 394 321" fill="none" aria-hidden="true"><path d="M394 0V320H274V104L394 0Z" fill="#F1E9DB"></path><path d="M125 104V321H5V215.047L125 104Z" fill="#F1E9DB"></path><path d="M274 104L196 162L0 1H155.229L274 104Z" fill="#C7A24B"></path></svg><span class="wm" aria-hidden="true"><span class="wm-slash"></span></span><span class="sr-only">Marga Partners</span></div>
+      <p class="desc">Commercialization strategy and intelligence for the decisions that
+      shape a category.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Advisory</h3>
+        <ul>
+          <li><a href="/for-manufacturers.html">Manufacturers</a></li>
+          <li><a href="/for-investors.html">Investors</a></li>
+          <li><a href="/for-providers.html">Providers</a></li>
+          <li><a href="/benchmark.html">Practice benchmark</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The firm</h3>
+        <ul>
+          <li><a href="/the-marga-method.html">Intelligence</a></li>
+          <li><a href="/journal.html">Journal</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/Consultation.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="/Consultation.html">Contact form</a></li>
+          <li><a href="https://www.linkedin.com/company/margapartners">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Marga Partners LLC. Marga&trade; is a trademark of Marga
+      Partners LLC and covers the product names used under it.</span>
+      <span class="links"><a href="/privacy.html">Privacy</a>
+      <a href="/independence.html">Independence and conflicts</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/marga-v3-nav.js?v=751aacd1c2"></script><script src="/assets/marga-draw.js?v=97e3338914" defer></script><script src="/assets/marga-prefill.js?v=3b961dc3ca"></script><script type="module">
 import { buildReport, UNGATED_METRICS } from './assets/benchmark/calculator.js';
 
 const API = 'https://app.margapartners.com/v1/benchmark';
