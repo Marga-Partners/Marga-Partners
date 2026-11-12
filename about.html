@@ -92,7 +92,11 @@
   .why-prose{padding-top:0}
 }
 @media(max-width:480px){
-  .def .word{font-size:34px}
+  /* The headline sits under the founder plate and is two sentences long. At the shared phone
+     size it ran six lines and off the first screen; 9.2vw (36px at 390) lands it whole on a
+     390x844 load and keeps it above every other size on the page. */
+  .hero .t-h1{font-size:max(34px,9.2vw)}
+  .def .word{font-size:30px}
   .marks{grid-template-columns:minmax(0,1fr)}
   .journey>li{grid-template-columns:44px minmax(0,1fr);gap:14px}
   .journey>li::before{font-size:34px}
