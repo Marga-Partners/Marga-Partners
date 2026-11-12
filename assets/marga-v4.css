@@ -666,13 +666,14 @@ main{display:block}
 
 /* Phones. Every display size above is clamped at a floor, and on a phone the floors are what
    render: the H1 sat at 38 to 44px beside closing headings at 38px and numerals at 36 to 62px,
-   so the hero read no louder than the page under it. Here the hero grows with the viewport and
-   everything else display-sized steps down, so the H1 is the largest text on every page.
+   so the hero read no louder than the page under it. Here the hero grows with the viewport,
+   section headings sit at 34px under it, and every other display size in a section steps
+   below its heading: the H1 leads the page and each H2 leads its section.
    Page-specific display sizes (the thesis line, journal day numbers, the Method score, the
    About definition word) take the same step in their own generators. */
 @media(max-width:480px){
   .t-h1{font-size:max(46px,13vw)}
-  .t-h2{--h2-min:30px}
-  .closing h2{--h2-min:32px}
-  .t-num{font-size:30px}
+  .t-h2{--h2-min:34px}
+  .closing h2{--h2-min:34px}
+  .t-num{font-size:26px}
 }
