@@ -103,6 +103,15 @@
 /* its outer frame, restated for a dark ground after the carried rules, through tokens */
 .thread .deliv{width:100%;margin-top:clamp(40px,5vw,56px);text-align:left;border:2px solid var(--gold);
   border-radius:var(--r-card);box-shadow:var(--shadow-gold)}
+/* Its light card on a dark band. The carried rules never set a colour on the force scores, so on
+   this band they inherited the band's cream and drew cream on the cream card, near invisible. The
+   row numbers, bars and small captions were faint ink, washed out against the card. All of them
+   take ink tokens here instead. */
+.thread .deliv{color:var(--ink)}
+.thread .d-forces .fs{color:var(--ink)}
+.thread .d-forces .fn .ix{color:var(--text-body)}
+.thread .d-forces .fn .red{background:var(--text-body)}
+.thread .d-idx,.thread .d-tease{color:var(--text-body)}
 
 /* the evidence and how it is used: outlined cards, then a ruled list */
 .uses{list-style:none;padding:0;margin:clamp(36px,4vw,48px) 0 0;display:grid;
